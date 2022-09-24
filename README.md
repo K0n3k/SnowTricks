@@ -5,10 +5,10 @@
 
 ## Description
 Snowtricks is a communautary website from openclassrooms formation (App dev PHP/Symfony)
-- https://github.com/K0n3k/SnowTricks
+-  https://github.com/K0n3k/SnowTricks
 
 ## Authors
 
-- [@K0n3k](https://github.com/K0n3k/)
+-  [@K0n3k](https://github.com/K0n3k/)
 
 ## Pre-require
