@@ -70,7 +70,7 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
         // line 18
         $this->loadTemplate("header/header.html.twig", "base.html.twig", 18)->display($context);
         // line 19
-        echo "        ";
+        echo "            ";
         $this->displayBlock('body', $context, $blocks);
         // line 20
         echo "    </body>
@@ -202,7 +202,7 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
     </head>
     <body>
         {% include \"header/header.html.twig\" %}
-        {% block body %}{% endblock %}
+            {% block body %}{% endblock %}
     </body>
 </html>
 ", "base.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\base.html.twig");
