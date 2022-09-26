@@ -35,10 +35,10 @@ class UserController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('home');
         } else {
-    return $this->render('user/sign-up.twig', [
-        'controller_name' => 'UserController',
-        'userForm' => $userForm->createView(),
-    ]);
-}
+            return $this->render('user/sign-up.twig', [
+                'controller_name' => 'UserController',
+                'userForm' => $userForm->createView(),
+            ]);
+        }
     }
 }
