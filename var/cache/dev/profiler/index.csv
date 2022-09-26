@@ -106,3 +106,10 @@ c4cabb,::1,GET,http://localhost/,1664229018,,200
 5a1903,::1,POST,http://localhost/user/sign-up,1664229104,,302
 f230f6,::1,GET,http://localhost/,1664229104,,200
 3c51a8,::1,GET,http://localhost/user/sign-in,1664229138,,200
+6a51c0,::1,GET,http://localhost/,1664235161,,200
+229f5e,::1,GET,http://localhost/user/sign-up,1664235163,,200
+930aab,::1,GET,http://localhost/user/sign-up,1664235167,5fe26b,500
+5fe26b,::1,POST,http://localhost/user/sign-up,1664235167,,500
+859f64,::1,GET,http://localhost/user/sign-up,1664235207,,200
+aaec92,::1,POST,http://localhost/user/sign-up,1664235211,,302
+cec2ae,::1,GET,http://localhost/,1664235211,,200
