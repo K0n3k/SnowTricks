@@ -572,7 +572,20 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
     );
 
     public static $classMap = array (
+        'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/src/Controller/HomeController.php',
+        'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
+        'App\\Entity\\Commentary' => __DIR__ . '/../..' . '/src/Entity/Commentary.php',
+        'App\\Entity\\Group' => __DIR__ . '/../..' . '/src/Entity/Group.php',
+        'App\\Entity\\Media' => __DIR__ . '/../..' . '/src/Entity/Media.php',
+        'App\\Entity\\Trick' => __DIR__ . '/../..' . '/src/Entity/Trick.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Form\\UserType' => __DIR__ . '/../..' . '/src/Form/UserType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\CommentaryRepository' => __DIR__ . '/../..' . '/src/Repository/CommentaryRepository.php',
+        'App\\Repository\\GroupRepository' => __DIR__ . '/../..' . '/src/Repository/GroupRepository.php',
+        'App\\Repository\\MediaRepository' => __DIR__ . '/../..' . '/src/Repository/MediaRepository.php',
+        'App\\Repository\\TrickRepository' => __DIR__ . '/../..' . '/src/Repository/TrickRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

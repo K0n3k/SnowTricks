@@ -6,7 +6,20 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\HomeController' => $baseDir . '/src/Controller/HomeController.php',
+    'App\\Controller\\UserController' => $baseDir . '/src/Controller/UserController.php',
+    'App\\Entity\\Commentary' => $baseDir . '/src/Entity/Commentary.php',
+    'App\\Entity\\Group' => $baseDir . '/src/Entity/Group.php',
+    'App\\Entity\\Media' => $baseDir . '/src/Entity/Media.php',
+    'App\\Entity\\Trick' => $baseDir . '/src/Entity/Trick.php',
+    'App\\Entity\\User' => $baseDir . '/src/Entity/User.php',
+    'App\\Form\\UserType' => $baseDir . '/src/Form/UserType.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
+    'App\\Repository\\CommentaryRepository' => $baseDir . '/src/Repository/CommentaryRepository.php',
+    'App\\Repository\\GroupRepository' => $baseDir . '/src/Repository/GroupRepository.php',
+    'App\\Repository\\MediaRepository' => $baseDir . '/src/Repository/MediaRepository.php',
+    'App\\Repository\\TrickRepository' => $baseDir . '/src/Repository/TrickRepository.php',
+    'App\\Repository\\UserRepository' => $baseDir . '/src/Repository/UserRepository.php',
     'Collator' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

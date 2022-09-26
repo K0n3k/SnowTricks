@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +23,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/sign-up', name: 'sign-up')]
-    public function sign_up(ManagerRegistry $doctrine, Request $request): Response
+    public function sign_up(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $entityManager = $doctrine->getManager();
         $user = new User();
@@ -30,6 +32,7 @@ class UserController extends AbstractController
 
         $userForm->handleRequest($request);
         if ($userForm->isSubmitted() && $userForm->isValid()) {
+            $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
             $user->setIsValidated(false);
             $entityManager->persist($user);
             $entityManager->flush();
