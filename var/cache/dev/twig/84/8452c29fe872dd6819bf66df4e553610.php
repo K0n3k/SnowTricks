@@ -85,11 +85,13 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"example-wrapper\">
-    ";
-        // line 7
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["userForm"]) || array_key_exists("userForm", $context) ? $context["userForm"] : (function () { throw new RuntimeError('Variable "userForm" does not exist.', 7, $this->source); })()), 'form');
+        echo "<div class=\"container\">
+    <div class=\"form-group\">
+        ";
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["userForm"]) || array_key_exists("userForm", $context) ? $context["userForm"] : (function () { throw new RuntimeError('Variable "userForm" does not exist.', 8, $this->source); })()), 'form');
         echo "
+    </div>
 </div>
 ";
         
@@ -112,7 +114,7 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
 
     public function getDebugInfo()
     {
-        return array (  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -122,8 +124,10 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-<div class=\"example-wrapper\">
-    {{ form(userForm) }}
+<div class=\"container\">
+    <div class=\"form-group\">
+        {{ form(userForm) }}
+    </div>
 </div>
 {% endblock %}
 ", "user/sign-up.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\user\\sign-up.twig");
