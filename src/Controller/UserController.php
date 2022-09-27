@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,15 +14,24 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/user/sign-in', name: 'sign-in')]
-    public function index(): Response
+    #[Route(path: '/user/sign-in', name: 'sign-in')]
+    public function sign_in(AuthenticationUtils $authenticationUtils): Response
     {
-        return $this->render('user/sign-in.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        
+        if ($this->getUser()) {
+            return $this->redirectToRoute('home');
+       }
+
+       // get the login error if there is one
+       $error = $authenticationUtils->getLastAuthenticationError();
+       // last username entered by the user
+       $lastUsername = $authenticationUtils->getLastUsername();
+
+       return $this->render('user/sign-in.twig', ['last_username' => $lastUsername, 'error' => $error]);
+
     }
 
-    #[Route('/user/sign-up', name: 'sign-up')]
+    #[Route(path: '/user/sign-up', name: 'sign-up')]
     public function sign_up(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $entityManager = $doctrine->getManager();
@@ -43,5 +52,11 @@ class UserController extends AbstractController
                 'userForm' => $userForm->createView(),
             ]);
         }
+    }
+
+    #[Route(path: '/user/logout', name: 'logout')]
+    public function logout(): void
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }

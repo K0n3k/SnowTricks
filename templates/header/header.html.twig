@@ -8,8 +8,12 @@
       <ul class="nav nav-pills text-decoration-none">
         <li class="nav-item"><a href="/" class="nav-link text-white">Home</a></li>
         <li class="nav-item"><a href="/figure/tricks" class="nav-link text-white">Tricks</a></li>
-        <li class="nav-item"><a href="/user/sign-in" class="nav-link text-white">Sign-in</a></li>
-        <li class="nav-item"><a href="/user/sign-up" class="nav-link text-white">Sign-up</a></li>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+          <li class="nav-item"><a href="/user/logout" class="nav-link text-white">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a href="/user/sign-in" class="nav-link text-white">Sign-in</a></li>
+          <li class="nav-item"><a href="/user/sign-up" class="nav-link text-white">Sign-up</a></li>
+        {% endif %}
       </ul>
 </div>
 </header>
