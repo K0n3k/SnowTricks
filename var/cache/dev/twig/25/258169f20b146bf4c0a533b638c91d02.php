@@ -69,9 +69,20 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
       <ul class=\"nav nav-pills text-decoration-none\">
         <li class=\"nav-item\"><a href=\"/\" class=\"nav-link text-white\">Home</a></li>
         <li class=\"nav-item\"><a href=\"/figure/tricks\" class=\"nav-link text-white\">Tricks</a></li>
-        <li class=\"nav-item\"><a href=\"/user/sign-in\" class=\"nav-link text-white\">Sign-in</a></li>
-        <li class=\"nav-item\"><a href=\"/user/sign-up\" class=\"nav-link text-white\">Sign-up</a></li>
-      </ul>
+        ";
+        // line 11
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 12
+            echo "          <li class=\"nav-item\"><a href=\"/user/logout\" class=\"nav-link text-white\">Logout</a></li>
+        ";
+        } else {
+            // line 14
+            echo "          <li class=\"nav-item\"><a href=\"/user/sign-in\" class=\"nav-link text-white\">Sign-in</a></li>
+          <li class=\"nav-item\"><a href=\"/user/sign-up\" class=\"nav-link text-white\">Sign-up</a></li>
+        ";
+        }
+        // line 17
+        echo "      </ul>
 </div>
 </header>
 
@@ -91,7 +102,7 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
 
     public function getDebugInfo()
     {
-        return array (  63 => 2,  44 => 1,);
+        return array (  85 => 17,  80 => 14,  76 => 12,  74 => 11,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -106,8 +117,12 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
       <ul class=\"nav nav-pills text-decoration-none\">
         <li class=\"nav-item\"><a href=\"/\" class=\"nav-link text-white\">Home</a></li>
         <li class=\"nav-item\"><a href=\"/figure/tricks\" class=\"nav-link text-white\">Tricks</a></li>
-        <li class=\"nav-item\"><a href=\"/user/sign-in\" class=\"nav-link text-white\">Sign-in</a></li>
-        <li class=\"nav-item\"><a href=\"/user/sign-up\" class=\"nav-link text-white\">Sign-up</a></li>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+          <li class=\"nav-item\"><a href=\"/user/logout\" class=\"nav-link text-white\">Logout</a></li>
+        {% else %}
+          <li class=\"nav-item\"><a href=\"/user/sign-in\" class=\"nav-link text-white\">Sign-in</a></li>
+          <li class=\"nav-item\"><a href=\"/user/sign-up\" class=\"nav-link text-white\">Sign-up</a></li>
+        {% endif %}
       </ul>
 </div>
 </header>
