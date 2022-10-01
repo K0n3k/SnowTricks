@@ -1,42 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Log in!
+{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+	<div class="container px-5 my-5 justify-content-center">
+		<form id="SignInForm" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+			{% if app.user %}
+				<div class="mb-3">
+					You are logged in as
+					{{ app.user.userIdentifier }},
+					<a href="{{ path('app_logout') }}">Logout</a>
+				</div>
+			{% endif %}
+			<div class="mb-3">
+				<label class="form-label" for="inputEmail">Email Address</label>
+				<input class="form-control" id="inputEmail" name="email" type="email" placeholder="Email Address" data-sb-validations="required,email"/>
+				<div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+				<div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" for="password">Password</label>
+				<input class="form-control" id="password" name="password" type="text" placeholder="Password" data-sb-validations="required"/>
+				<div class="invalid-feedback" data-sb-feedback="password:required">Password is required.</div>
+			</div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			<div class="d-grid">
+				<button class="btn btn-primary btn-lg" id="submitButton" type="submit">Login</button>
+			</div>
+		</form>
+	</div>
+	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}

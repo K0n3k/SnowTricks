@@ -1,0 +1,177 @@
+html,
+body {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+a:link, a:visited, a:hover, a:active { 
+    text-decoration: none; 
+}
+
+.hero {
+    background-color: black;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero.jpg") no-repeat center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogan {
+    color: #FFFFFF;
+    transform: translateX(-30%);
+}
+
+
+.arrow_container {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-60px, -60px);
+    width: 24px;
+    height: 24px;
+    margin: 0px;
+  }
+
+  .chevron {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+  }
+
+  .chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: rgb(255, 255, 255);
+}
+ 
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+ 
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+.chevron:first-child {
+    animation: move 3s ease-out 1s infinite;
+  }
+   
+  .chevron:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+  }
+
+@keyframes pulse { 
+    to {
+        opacity: 1;
+      }
+}
+
+@keyframes move {
+      25% {
+        opacity: 1;
+     
+      }
+      33% {
+        opacity: 1;
+        transform: translateY(30px);
+      }
+      67% {
+        opacity: 1;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+      }
+}
+
+.arrow_container2 {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-60px, -100px);
+    width: 24px;
+    height: 24px;
+    margin: 0px;
+  }
+
+  .chevron2 {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+  }
+
+  .chevron2:before,
+.chevron2:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: rgb(0, 0, 0);
+}
+ 
+.chevron2:before {
+  left: 0;
+  transform: skew(0deg, -30deg);
+}
+ 
+.chevron2:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron2:first-child {
+    animation: move 3s ease-out 1s infinite;
+  }
+   
+  .chevron2:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+  }
+
+@keyframes pulse { 
+    to {
+        opacity: 1;
+      }
+}
+
+@keyframes move {
+      25% {
+        opacity: 1;
+     
+      }
+      33% {
+        opacity: 1;
+        transform: translateY(30px);
+      }
+      67% {
+        opacity: 1;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+      }
+}
+
