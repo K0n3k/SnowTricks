@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -32,17 +34,18 @@ class UserController extends AbstractController
     }
 
     #[Route(path: '/user/sign-up', name: 'sign-up')]
-    public function sign_up(ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
+    public function sign_up(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $entityManager = $doctrine->getManager();
         $user = new User();
 
         $userForm = $this->createForm(UserType::class, $user);
 
         $userForm->handleRequest($request);
         if ($userForm->isSubmitted() && $userForm->isValid()) {
-            $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
-            $user->setIsValidated(false);
+            
+            $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()))
+                 ->setIsValidated(false);
+
             $entityManager->persist($user);
             $entityManager->flush();
             return $this->redirectToRoute('home');

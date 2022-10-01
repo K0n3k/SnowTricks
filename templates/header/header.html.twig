@@ -1,21 +1,33 @@
 {% block header %}
 
-<header class="d-flex flex-wrap justify-content-end py-3 text-bg-dark text-white">
-<div class="row">
-
-</div>
-<div class="row">
-      <ul class="nav nav-pills text-decoration-none">
-        <li class="nav-item"><a href="/" class="nav-link text-white">Home</a></li>
-        <li class="nav-item"><a href="/figure/tricks" class="nav-link text-white">Tricks</a></li>
-        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-          <li class="nav-item"><a href="/user/logout" class="nav-link text-white">Logout</a></li>
-        {% else %}
-          <li class="nav-item"><a href="/user/sign-in" class="nav-link text-white">Sign-in</a></li>
-          <li class="nav-item"><a href="/user/sign-up" class="nav-link text-white">Sign-up</a></li>
-        {% endif %}
-      </ul>
-</div>
-</header>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <div class="col justify-content-start">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <strong>Snowtricks</strong>
+            </a>
+        </div>
+        <div class="col justify-content-end text-white d-flex">
+            <a href={{ path('app_trick') }} class="text-white">Home</a> &nbsp;|&nbsp;
+            <a href="#tricks" class="text-white">Tricks</a> &nbsp;|&nbsp;
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								<div class="dropdown">
+							<a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ app.user.Firstname }}
+								{{ app.user.Lastname }}</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+								<li>
+									<a class="dropdown-item" href={{path('logout')}}>Logout</a>
+								</li>
+							</ul>
+						</div>
+						{% else %}
+            <a href={{path('sign-in')}} class="text-white">Sign-in</a> &nbsp;|&nbsp;
+            <a href={{path('sign-up')}} class="text-white">Sign-up</a>
+		{% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
 
 {% endblock %}

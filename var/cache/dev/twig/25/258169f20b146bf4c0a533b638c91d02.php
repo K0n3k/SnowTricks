@@ -61,30 +61,59 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
 
         // line 2
         echo "
-<header class=\"d-flex flex-wrap justify-content-end py-3 text-bg-dark text-white\">
-<div class=\"row\">
-
-</div>
-<div class=\"row\">
-      <ul class=\"nav nav-pills text-decoration-none\">
-        <li class=\"nav-item\"><a href=\"/\" class=\"nav-link text-white\">Home</a></li>
-        <li class=\"nav-item\"><a href=\"/figure/tricks\" class=\"nav-link text-white\">Tricks</a></li>
-        ";
-        // line 11
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 12
-            echo "          <li class=\"nav-item\"><a href=\"/user/logout\" class=\"nav-link text-white\">Logout</a></li>
-        ";
+<header>
+    <div class=\"navbar navbar-dark bg-dark shadow-sm\">
+      <div class=\"container\">
+        <div class=\"col justify-content-start\">
+            <a href=\"#\" class=\"navbar-brand d-flex align-items-center\">
+              <strong>Snowtricks</strong>
+            </a>
+        </div>
+        <div class=\"col justify-content-end text-white d-flex\">
+            <a href=";
+        // line 12
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick");
+        echo " class=\"text-white\">Home</a> &nbsp;|&nbsp;
+            <a href=\"#tricks\" class=\"text-white\">Tricks</a> &nbsp;|&nbsp;
+\t\t";
+        // line 14
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 15
+            echo "\t\t\t\t\t\t\t\t<div class=\"dropdown\">
+\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle text-white\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"false\">";
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16), "Firstname", [], "any", false, false, false, 16), "html", null, true);
+            echo "
+\t\t\t\t\t\t\t\t";
+            // line 17
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17), "Lastname", [], "any", false, false, false, 17), "html", null, true);
+            echo "</a>
+\t\t\t\t\t\t\t<ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\">
+\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=";
+            // line 20
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo ">Logout</a>
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t";
         } else {
-            // line 14
-            echo "          <li class=\"nav-item\"><a href=\"/user/sign-in\" class=\"nav-link text-white\">Sign-in</a></li>
-          <li class=\"nav-item\"><a href=\"/user/sign-up\" class=\"nav-link text-white\">Sign-up</a></li>
-        ";
+            // line 25
+            echo "            <a href=";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign-in");
+            echo " class=\"text-white\">Sign-in</a> &nbsp;|&nbsp;
+            <a href=";
+            // line 26
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign-up");
+            echo " class=\"text-white\">Sign-up</a>
+\t\t";
         }
-        // line 17
-        echo "      </ul>
-</div>
-</header>
+        // line 28
+        echo "        </div>
+      </div>
+    </div>
+  </header>
 
 ";
         
@@ -102,31 +131,44 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
 
     public function getDebugInfo()
     {
-        return array (  85 => 17,  80 => 14,  76 => 12,  74 => 11,  63 => 2,  44 => 1,);
+        return array (  113 => 28,  108 => 26,  103 => 25,  95 => 20,  89 => 17,  85 => 16,  82 => 15,  80 => 14,  75 => 12,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% block header %}
 
-<header class=\"d-flex flex-wrap justify-content-end py-3 text-bg-dark text-white\">
-<div class=\"row\">
+<header>
+    <div class=\"navbar navbar-dark bg-dark shadow-sm\">
+      <div class=\"container\">
+        <div class=\"col justify-content-start\">
+            <a href=\"#\" class=\"navbar-brand d-flex align-items-center\">
+              <strong>Snowtricks</strong>
+            </a>
+        </div>
+        <div class=\"col justify-content-end text-white d-flex\">
+            <a href={{ path('app_trick') }} class=\"text-white\">Home</a> &nbsp;|&nbsp;
+            <a href=\"#tricks\" class=\"text-white\">Tricks</a> &nbsp;|&nbsp;
+\t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+\t\t\t\t\t\t\t\t<div class=\"dropdown\">
+\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle text-white\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"false\">{{ app.user.Firstname }}
+\t\t\t\t\t\t\t\t{{ app.user.Lastname }}</a>
+\t\t\t\t\t\t\t<ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\">
+\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item\" href={{path('logout')}}>Logout</a>
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t{% else %}
+            <a href={{path('sign-in')}} class=\"text-white\">Sign-in</a> &nbsp;|&nbsp;
+            <a href={{path('sign-up')}} class=\"text-white\">Sign-up</a>
+\t\t{% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
 
-</div>
-<div class=\"row\">
-      <ul class=\"nav nav-pills text-decoration-none\">
-        <li class=\"nav-item\"><a href=\"/\" class=\"nav-link text-white\">Home</a></li>
-        <li class=\"nav-item\"><a href=\"/figure/tricks\" class=\"nav-link text-white\">Tricks</a></li>
-        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-          <li class=\"nav-item\"><a href=\"/user/logout\" class=\"nav-link text-white\">Logout</a></li>
-        {% else %}
-          <li class=\"nav-item\"><a href=\"/user/sign-in\" class=\"nav-link text-white\">Sign-in</a></li>
-          <li class=\"nav-item\"><a href=\"/user/sign-up\" class=\"nav-link text-white\">Sign-up</a></li>
-        {% endif %}
-      </ul>
-</div>
-</header>
-
-{% endblock %}", "header/header.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\header\\header.html.twig");
+{% endblock %}
+", "header/header.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\header\\header.html.twig");
     }
 }

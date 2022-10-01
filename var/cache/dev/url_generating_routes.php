@@ -19,6 +19,7 @@ return [
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
+    'app_trick' => [[], ['_controller' => 'App\\Controller\\TrickController::tricksList'], [], [['text', '/figure/tricks']], [], [], []],
     'sign-in' => [[], ['_controller' => 'App\\Controller\\UserController::sign_in'], [], [['text', '/user/sign-in']], [], [], []],
     'sign-up' => [[], ['_controller' => 'App\\Controller\\UserController::sign_up'], [], [['text', '/user/sign-up']], [], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\UserController::logout'], [], [['text', '/user/logout']], [], [], []],
