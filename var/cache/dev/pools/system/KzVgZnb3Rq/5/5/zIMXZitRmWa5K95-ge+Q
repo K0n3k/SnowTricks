@@ -1,0 +1,3 @@
+<?php //App%255CController%255CTrickController%2523getMax
+
+return [PHP_INT_MAX, []];
