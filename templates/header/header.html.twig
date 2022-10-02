@@ -13,8 +13,7 @@
             <a href="#tricks" class="text-white">Tricks</a> &nbsp;|&nbsp;
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 								<div class="dropdown">
-							<a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ app.user.Firstname }}
-								{{ app.user.Lastname }}</a>
+							<a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ app.user.Username }}</a>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 								<li>
 									<a class="dropdown-item" href={{path('logout')}}>Logout</a>
