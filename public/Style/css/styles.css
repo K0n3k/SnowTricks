@@ -175,3 +175,10 @@ a:link, a:visited, a:hover, a:active {
       }
 }
 
+#loadMore {
+  width: 200px;
+}
+
+#downArrow {
+  visibility: hidden;
+}

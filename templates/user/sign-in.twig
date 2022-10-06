@@ -4,39 +4,42 @@
 {% endblock %}
 
 {% block body %}
+    <main>
 
-
-	<div class="container px-5 my-5 justify-content-center">
-		<form id="SignInForm" method="post">
-        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-			{% if error %}
+        <div class="album py-5 bg-light justify-content-center" id="tricks">
+            <div class="input-group justify-content-center">
+                <form method="post">
+                    <div class="justify-content-center">
+                        <h1>Login</h1>
+                    </div>
+								{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
-
-			{% if app.user %}
+						{% if app.user %}
 				<div class="mb-3">
 					You are logged in as
 					{{ app.user.userIdentifier }},
 					<a href="{{ path('app_logout') }}">Logout</a>
 				</div>
 			{% endif %}
-			<div class="mb-3">
-				<label class="form-label" for="inputEmail">Email Address</label>
-				<input class="form-control" id="inputEmail" name="email" type="email" placeholder="Email Address" data-sb-validations="required,email"/>
-				<div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-				<div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-			</div>
-			<div class="mb-3">
-				<label class="form-label" for="password">Password</label>
-				<input class="form-control" id="password" name="password" type="text" placeholder="Password" data-sb-validations="required"/>
-				<div class="invalid-feedback" data-sb-feedback="password:required">Password is required.</div>
-			</div>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-			<div class="d-grid">
-				<button class="btn btn-primary btn-lg" id="submitButton" type="submit">Login</button>
-			</div>
-		</form>
-	</div>
-	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+                    <div class="mb-3">
+                        <label for="InputUsername" class="form-label justify-content-center">Username</label>
+                        <input type="email" class="form-control" id="InputUsername" name="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
 
 {% endblock %}

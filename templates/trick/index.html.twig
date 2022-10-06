@@ -3,6 +3,84 @@
 {% block title %}Hello TrickController!
 {% endblock %}
 
+{% block javascript %}
+<script language = "javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+<script language = "javascript">
+
+offset = 15;
+maxTricks = {{ maxTricks }};
+countTricks = {{ tricks|length }};
+
+window.onload = function() {
+  showLoadMore();
+  showDownArrow();
+};
+
+function showDownArrow() {
+	downArrow = document.getElementById('downArrow');
+	if(countTricks > 15) {
+		downArrow.style.visibility = 'visible';
+	} else {
+		downArrow.style.visibility = 'hidden';
+	}
+}
+
+function showLoadMore() {
+	if(offset >= maxTricks) {
+		btn = document.getElementById('loadMore');
+		btn.style.visibility = 'hidden';
+	}
+}
+
+function loadMore() {
+	$.ajax({
+		url: "{{ path('app_trick') }}",
+		type: "POST",
+		data: {offset},
+
+		success: function(result) {
+			jsonContent = $.parseJSON(result);
+			$.each(jsonContent, function(key, value){
+			countTricks++;
+			html = "";
+			html += '						<div class="col" id="' + value.id + '">';
+			html += '				<div class="card shadow-sm">';
+			html += '					<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail" preserveaspectratio="xMidYMid slice" role="img" focusable="false">';
+			html += '						<title>Placeholder</title>';
+			html += '						<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>';
+			html += '					</svg>';
+            html += '                ';
+			html += '					<div class="card-body">';
+html += '';
+			html += '						<div class="d-flex justify-content-between align-items-center col">';
+			html += '							<small class="text-muted">' + value.id + '</small>';
+			html += '							{% if is_granted("IS_AUTHENTICATED_FULLY") %}';
+			html += '							<div class="btn-group">';
+			html += '								<button type="button" class="btn btn-sm btn-outline-secondary">View</button>';
+			html += '								<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>';
+			html += '							</div>';
+			html += '							{% endif %}';
+			html += '						</div>';
+			html += '					</div>';
+			html += '				</div>';
+			html += '			</div>';
+			
+			$('#tricksCards').append(html);	
+			});
+			offset += 15;
+			showLoadMore();
+			showDownArrow();
+
+		}
+	})
+}
+
+</script>
+
+
+
+{% endblock %}
+
 {% block body %}
 
 	<main>
@@ -21,7 +99,7 @@
 		<div class="album py-5 bg-light position-relative" id="tricks">
 			<div class="container">
 
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3 mb-3" id="tricksCards">
 
 
 					{% for trick in tricks %}
@@ -35,11 +113,13 @@
 								<div class="card-body">
 
 									<div class="d-flex justify-content-between align-items-center col">
-										<small class="text-muted">{{ trick.name }}</small>
+										<small class="text-muted">{{ trick.id }}</small>
+										{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 										<div class="btn-group">
 											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 											<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
 										</div>
+										{% endif %}
 									</div>
 								</div>
 							</div>
@@ -47,7 +127,8 @@
 					{% endfor %}
 
 				</div>
-				<a href="#tricks">
+				<button onClick="loadMore()" class="btn btn-dark my-3 position-absolute bottom-0 start-50 translate-middle-x" id="loadMore">Load More</button>
+				<a href="#tricks" id="downArrow">
 					<div class="arrow_container">
 						<div class="chevron2"></div>
 						<div class="chevron2"></div>

@@ -82,16 +82,12 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
             echo "\t\t\t\t\t\t\t\t<div class=\"dropdown\">
 \t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle text-white\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"false\">";
             // line 16
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16), "Firstname", [], "any", false, false, false, 16), "html", null, true);
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 17
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "user", [], "any", false, false, false, 17), "Lastname", [], "any", false, false, false, 17), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 16, $this->source); })()), "user", [], "any", false, false, false, 16), "Username", [], "any", false, false, false, 16), "html", null, true);
             echo "</a>
 \t\t\t\t\t\t\t<ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\">
 \t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"dropdown-item\" href=";
-            // line 20
+            // line 19
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
             echo ">Logout</a>
 \t\t\t\t\t\t\t\t</li>
@@ -99,17 +95,17 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t";
         } else {
-            // line 25
+            // line 24
             echo "            <a href=";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign-in");
             echo " class=\"text-white\">Sign-in</a> &nbsp;|&nbsp;
             <a href=";
-            // line 26
+            // line 25
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sign-up");
             echo " class=\"text-white\">Sign-up</a>
 \t\t";
         }
-        // line 28
+        // line 27
         echo "        </div>
       </div>
     </div>
@@ -131,7 +127,7 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
 
     public function getDebugInfo()
     {
-        return array (  113 => 28,  108 => 26,  103 => 25,  95 => 20,  89 => 17,  85 => 16,  82 => 15,  80 => 14,  75 => 12,  63 => 2,  44 => 1,);
+        return array (  109 => 27,  104 => 25,  99 => 24,  91 => 19,  85 => 16,  82 => 15,  80 => 14,  75 => 12,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -151,8 +147,7 @@ class __TwigTemplate_e6412856cd9b612b533bfeb0e34a927e extends Template
             <a href=\"#tricks\" class=\"text-white\">Tricks</a> &nbsp;|&nbsp;
 \t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 \t\t\t\t\t\t\t\t<div class=\"dropdown\">
-\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle text-white\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"false\">{{ app.user.Firstname }}
-\t\t\t\t\t\t\t\t{{ app.user.Lastname }}</a>
+\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle text-white\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"false\">{{ app.user.Username }}</a>
 \t\t\t\t\t\t\t<ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton1\">
 \t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<a class=\"dropdown-item\" href={{path('logout')}}>Logout</a>
