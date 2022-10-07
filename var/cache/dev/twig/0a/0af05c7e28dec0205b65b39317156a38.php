@@ -214,7 +214,9 @@ class __TwigTemplate_a34b78e2d740d463b80d0fcc1138aa0f extends Template
         $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 101, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["commentary"]) {
             // line 102
-            echo "                    <div class=\"row shadow-sm\">
+            echo "                    <div class=\"row shadow-sm\" id=\"Commentary_";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "id", [], "any", false, false, false, 102), "html", null, true);
+            echo "\">
                       <div class=\"col col-1 mx-3\">
                         <?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
                         <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -292,14 +294,22 @@ class __TwigTemplate_a34b78e2d740d463b80d0fcc1138aa0f extends Template
                           <g>
                           </g>
                         </svg>
-
+                        ";
+            // line 180
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "userId", [], "any", false, false, false, 180), "Username", [], "any", false, false, false, 180), "html", null, true);
+            echo "
+                      <br>
+                      ";
+            // line 182
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "publishedDate", [], "any", false, false, false, 182), "Y-m-d"), "html", null, true);
+            echo "
+                      <br>
                       </div>
                       <div class=\"col\">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem temporibus quibusdam
-                          eaque labore nulla, optio consequatur asperiores esse. Maiores omnis tempore nisi iure labore.
-                          Distinctio ea a, itaque consequatur dolorem enim unde rerum non eius saepe corporis earum!
-                          Totam quos repellendus harum esse adipisci commodi hic numquam necessitatibus tempora ducimus
-                          provident non dicta, quisquam impedit quia id quis quasi qui?</p>
+                        <p>";
+            // line 186
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "commentary", [], "any", false, false, false, 186), "html", null, true);
+            echo "</p>
                       </div>
                     </div>
                     ";
@@ -307,7 +317,7 @@ class __TwigTemplate_a34b78e2d740d463b80d0fcc1138aa0f extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentary'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 191
+        // line 190
         echo "                  </div>
                 </div>
               </div>
@@ -340,7 +350,7 @@ class __TwigTemplate_a34b78e2d740d463b80d0fcc1138aa0f extends Template
 
     public function getDebugInfo()
     {
-        return array (  311 => 191,  217 => 102,  212 => 101,  198 => 89,  196 => 88,  189 => 83,  184 => 82,  181 => 81,  177 => 80,  175 => 79,  170 => 77,  166 => 76,  162 => 75,  155 => 71,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  321 => 190,  311 => 186,  304 => 182,  299 => 180,  217 => 102,  212 => 101,  198 => 89,  196 => 88,  189 => 83,  184 => 82,  181 => 81,  177 => 80,  175 => 79,  170 => 77,  166 => 76,  162 => 75,  155 => 71,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -446,7 +456,7 @@ class __TwigTemplate_a34b78e2d740d463b80d0fcc1138aa0f extends Template
                       <hr>
                     {% endif %}
                    {% for commentary in commentarys %}
-                    <div class=\"row shadow-sm\">
+                    <div class=\"row shadow-sm\" id=\"Commentary_{{ commentary.id }}\">
                       <div class=\"col col-1 mx-3\">
                         <?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
                         <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -524,14 +534,13 @@ class __TwigTemplate_a34b78e2d740d463b80d0fcc1138aa0f extends Template
                           <g>
                           </g>
                         </svg>
-
+                        {{ commentary.userId.Username }}
+                      <br>
+                      {{ commentary.publishedDate|date('Y-m-d') }}
+                      <br>
                       </div>
                       <div class=\"col\">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem temporibus quibusdam
-                          eaque labore nulla, optio consequatur asperiores esse. Maiores omnis tempore nisi iure labore.
-                          Distinctio ea a, itaque consequatur dolorem enim unde rerum non eius saepe corporis earum!
-                          Totam quos repellendus harum esse adipisci commodi hic numquam necessitatibus tempora ducimus
-                          provident non dicta, quisquam impedit quia id quis quasi qui?</p>
+                        <p>{{ commentary.commentary }}</p>
                       </div>
                     </div>
                     {% endfor %}
