@@ -99,7 +99,7 @@
                       <hr>
                     {% endif %}
                    {% for commentary in commentarys %}
-                    <div class="row shadow-sm">
+                    <div class="row shadow-sm" id="Commentary_{{ commentary.id }}">
                       <div class="col col-1 mx-3">
                         <?xml version="1.0" encoding="iso-8859-1"?>
                         <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -177,14 +177,13 @@
                           <g>
                           </g>
                         </svg>
-
+                        {{ commentary.userId.Username }}
+                      <br>
+                      {{ commentary.publishedDate|date('Y-m-d') }}
+                      <br>
                       </div>
                       <div class="col">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem temporibus quibusdam
-                          eaque labore nulla, optio consequatur asperiores esse. Maiores omnis tempore nisi iure labore.
-                          Distinctio ea a, itaque consequatur dolorem enim unde rerum non eius saepe corporis earum!
-                          Totam quos repellendus harum esse adipisci commodi hic numquam necessitatibus tempora ducimus
-                          provident non dicta, quisquam impedit quia id quis quasi qui?</p>
+                        <p>{{ commentary.commentary }}</p>
                       </div>
                     </div>
                     {% endfor %}
