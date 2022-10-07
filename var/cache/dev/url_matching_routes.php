@@ -40,7 +40,10 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/figure/tricks/([^/]++)(*:192)'
+                .'|/figure/tricks/(?'
+                    .'|([^/]++)(*:195)'
+                    .'|ajax(*:207)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -51,8 +54,9 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        192 => [
-            [['_route' => 'app_trick', '_controller' => 'App\\Controller\\TrickController::trick'], ['id'], null, null, false, true, null],
+        195 => [[['_route' => 'app_trick', '_controller' => 'App\\Controller\\TrickController::trick'], ['trickId'], null, null, false, true, null]],
+        207 => [
+            [['_route' => 'app_commentarysAjax', '_controller' => 'App\\Controller\\TrickController::commentarysListAjax'], [], ['POST' => 0], null, true, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

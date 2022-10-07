@@ -26,7 +26,7 @@ class Commentary
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(name: 'trick_id', nullable: false)]
-    private ?trick $trickId = null;
+    private ?Trick $trickId = null;
 
     public function getId(): ?int
     {

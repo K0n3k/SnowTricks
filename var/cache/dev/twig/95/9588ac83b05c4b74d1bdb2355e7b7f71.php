@@ -105,7 +105,7 @@ function showDownArrow() {
 \tdownArrow = document.getElementById('downArrow');
 \tif(countTricks > ";
         // line 20
-        echo twig_escape_filter($this->env, (isset($context["limit"]) || array_key_exists("limit", $context) ? $context["limit"] : (function () { throw new RuntimeError('Variable "limit" does not exist.', 20, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["tricksLimit"]) || array_key_exists("tricksLimit", $context) ? $context["tricksLimit"] : (function () { throw new RuntimeError('Variable "tricksLimit" does not exist.', 20, $this->source); })()), "html", null, true);
         echo ") {
 \t\tdownArrow.style.visibility = 'visible';
 \t} else {
@@ -329,7 +329,7 @@ window.onload = function() {
 
 function showDownArrow() {
 \tdownArrow = document.getElementById('downArrow');
-\tif(countTricks > {{ limit }}) {
+\tif(countTricks > {{ tricksLimit }}) {
 \t\tdownArrow.style.visibility = 'visible';
 \t} else {
 \t\tdownArrow.style.visibility = 'hidden';
