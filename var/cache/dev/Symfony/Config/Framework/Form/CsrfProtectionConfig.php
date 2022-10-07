@@ -13,7 +13,7 @@ class CsrfProtectionConfig
     private $enabled;
     private $fieldName;
     private $_usedProperties = [];
-
+    
     /**
      * @default null
      * @param ParamConfigurator|bool $value
@@ -23,10 +23,10 @@ class CsrfProtectionConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default '_token'
      * @param ParamConfigurator|mixed $value
@@ -36,10 +36,10 @@ class CsrfProtectionConfig
     {
         $this->_usedProperties['fieldName'] = true;
         $this->fieldName = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -47,18 +47,18 @@ class CsrfProtectionConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('field_name', $value)) {
             $this->_usedProperties['fieldName'] = true;
             $this->fieldName = $value['field_name'];
             unset($value['field_name']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -68,7 +68,7 @@ class CsrfProtectionConfig
         if (isset($this->_usedProperties['fieldName'])) {
             $output['field_name'] = $this->fieldName;
         }
-
+    
         return $output;
     }
 

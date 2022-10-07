@@ -67,11 +67,14 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
     <body>
         ";
         // line 14
-        $this->loadTemplate("header/header.html.twig", "base.html.twig", 14)->display($context);
+        $this->loadTemplate("header/_header.html.twig", "base.html.twig", 14)->display($context);
         // line 15
         echo "            ";
         $this->displayBlock('body', $context, $blocks);
         // line 16
+        echo "        ";
+        $this->loadTemplate("footer/_footer.html.twig", "base.html.twig", 16)->display($context);
+        // line 17
         echo "    </body>
 </html>
 ";
@@ -150,7 +153,7 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
 
     public function getDebugInfo()
     {
-        return array (  124 => 15,  106 => 11,  87 => 5,  75 => 16,  72 => 15,  70 => 14,  66 => 12,  64 => 11,  58 => 8,  52 => 5,  46 => 1,);
+        return array (  127 => 15,  109 => 11,  90 => 5,  78 => 17,  75 => 16,  72 => 15,  70 => 14,  66 => 12,  64 => 11,  58 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -168,8 +171,9 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
         {% block javascript %}{% endblock %}
     </head>
     <body>
-        {% include \"header/header.html.twig\" %}
+        {% include \"header/_header.html.twig\" %}
             {% block body %}{% endblock %}
+        {% include \"footer/_footer.html.twig\" %}
     </body>
 </html>
 ", "base.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\base.html.twig");

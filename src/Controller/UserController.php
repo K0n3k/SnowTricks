@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Mailer\MyMailer;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -12,6 +13,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
@@ -37,17 +40,17 @@ class UserController extends AbstractController
     public function sign_up(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
-
         $userForm = $this->createForm(UserType::class, $user);
-
+        
         $userForm->handleRequest($request);
         if ($userForm->isSubmitted() && $userForm->isValid()) {
             
             $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()))
-                 ->setIsValidated(false);
-
+            ->setIsValidated(false);
+            
             $entityManager->persist($user);
             $entityManager->flush();
+            new MyMailer(new Address($user->getEmail()), "Snowtrick Registration validation", "coucou");
             return $this->redirectToRoute('home');
         } else {
             return $this->render('user/sign-up.twig', [

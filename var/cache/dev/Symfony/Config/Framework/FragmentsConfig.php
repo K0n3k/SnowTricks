@@ -14,7 +14,7 @@ class FragmentsConfig
     private $hincludeDefaultTemplate;
     private $path;
     private $_usedProperties = [];
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -24,10 +24,10 @@ class FragmentsConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -37,10 +37,10 @@ class FragmentsConfig
     {
         $this->_usedProperties['hincludeDefaultTemplate'] = true;
         $this->hincludeDefaultTemplate = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default '/_fragment'
      * @param ParamConfigurator|mixed $value
@@ -50,10 +50,10 @@ class FragmentsConfig
     {
         $this->_usedProperties['path'] = true;
         $this->path = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -61,24 +61,24 @@ class FragmentsConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('hinclude_default_template', $value)) {
             $this->_usedProperties['hincludeDefaultTemplate'] = true;
             $this->hincludeDefaultTemplate = $value['hinclude_default_template'];
             unset($value['hinclude_default_template']);
         }
-
+    
         if (array_key_exists('path', $value)) {
             $this->_usedProperties['path'] = true;
             $this->path = $value['path'];
             unset($value['path']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -91,7 +91,7 @@ class FragmentsConfig
         if (isset($this->_usedProperties['path'])) {
             $output['path'] = $this->path;
         }
-
+    
         return $output;
     }
 

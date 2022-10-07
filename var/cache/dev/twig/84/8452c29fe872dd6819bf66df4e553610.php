@@ -65,7 +65,8 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello UserController!";
+        echo "Hello UserController!
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -74,7 +75,7 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
 
     }
 
-    // line 5
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,15 +85,19 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<div class=\"container\">
-    <div class=\"form-group\">
-        ";
-        // line 8
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["userForm"]) || array_key_exists("userForm", $context) ? $context["userForm"] : (function () { throw new RuntimeError('Variable "userForm" does not exist.', 8, $this->source); })()), 'form');
+        // line 7
+        echo "\t<main>
+\t\t<div class=\"album py-5 bg-light\">
+
+\t\t\t\t<h1 class=\"position-relative start-50 bottom-0 translate-middle-x\">Registration</h1>
+\t\t\t<div class=\"input-group justify-content-center\">
+\t\t\t\t";
+        // line 12
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["userForm"]) || array_key_exists("userForm", $context) ? $context["userForm"] : (function () { throw new RuntimeError('Variable "userForm" does not exist.', 12, $this->source); })()), 'form');
         echo "
-    </div>
-</div>
+\t\t\t</div>
+\t\t</div>
+\t</main>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -114,21 +119,26 @@ class __TwigTemplate_2603862a75809f5b9492a04f34bd4ecb extends Template
 
     public function getDebugInfo()
     {
-        return array (  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  96 => 12,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Hello UserController!
+{% endblock %}
 
 {% block body %}
-<div class=\"container\">
-    <div class=\"form-group\">
-        {{ form(userForm) }}
-    </div>
-</div>
+\t<main>
+\t\t<div class=\"album py-5 bg-light\">
+
+\t\t\t\t<h1 class=\"position-relative start-50 bottom-0 translate-middle-x\">Registration</h1>
+\t\t\t<div class=\"input-group justify-content-center\">
+\t\t\t\t{{ form(userForm) }}
+\t\t\t</div>
+\t\t</div>
+\t</main>
 {% endblock %}
 ", "user/sign-up.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\user\\sign-up.twig");
     }
