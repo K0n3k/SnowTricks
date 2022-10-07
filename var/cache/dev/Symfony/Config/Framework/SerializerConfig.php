@@ -20,9 +20,9 @@ class SerializerConfig
     private $mapping;
     private $defaultContext;
     private $_usedProperties = [];
-
+    
     /**
-     * @default false
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */
@@ -30,10 +30,10 @@ class SerializerConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -43,10 +43,10 @@ class SerializerConfig
     {
         $this->_usedProperties['enableAnnotations'] = true;
         $this->enableAnnotations = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -56,10 +56,10 @@ class SerializerConfig
     {
         $this->_usedProperties['nameConverter'] = true;
         $this->nameConverter = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -69,10 +69,10 @@ class SerializerConfig
     {
         $this->_usedProperties['circularReferenceHandler'] = true;
         $this->circularReferenceHandler = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default null
      * @param ParamConfigurator|mixed $value
@@ -82,10 +82,10 @@ class SerializerConfig
     {
         $this->_usedProperties['maxDepthHandler'] = true;
         $this->maxDepthHandler = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default {"paths":[]}
     */
@@ -97,10 +97,10 @@ class SerializerConfig
         } elseif (0 < \func_num_args()) {
             throw new InvalidConfigurationException('The node created by "mapping()" has already been initialized. You cannot pass values the second time you call mapping().');
         }
-
+    
         return $this->mapping;
     }
-
+    
     /**
      * @return $this
      */
@@ -108,10 +108,10 @@ class SerializerConfig
     {
         $this->_usedProperties['defaultContext'] = true;
         $this->defaultContext[$name] = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -119,48 +119,48 @@ class SerializerConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('enable_annotations', $value)) {
             $this->_usedProperties['enableAnnotations'] = true;
             $this->enableAnnotations = $value['enable_annotations'];
             unset($value['enable_annotations']);
         }
-
+    
         if (array_key_exists('name_converter', $value)) {
             $this->_usedProperties['nameConverter'] = true;
             $this->nameConverter = $value['name_converter'];
             unset($value['name_converter']);
         }
-
+    
         if (array_key_exists('circular_reference_handler', $value)) {
             $this->_usedProperties['circularReferenceHandler'] = true;
             $this->circularReferenceHandler = $value['circular_reference_handler'];
             unset($value['circular_reference_handler']);
         }
-
+    
         if (array_key_exists('max_depth_handler', $value)) {
             $this->_usedProperties['maxDepthHandler'] = true;
             $this->maxDepthHandler = $value['max_depth_handler'];
             unset($value['max_depth_handler']);
         }
-
+    
         if (array_key_exists('mapping', $value)) {
             $this->_usedProperties['mapping'] = true;
             $this->mapping = new \Symfony\Config\Framework\Serializer\MappingConfig($value['mapping']);
             unset($value['mapping']);
         }
-
+    
         if (array_key_exists('default_context', $value)) {
             $this->_usedProperties['defaultContext'] = true;
             $this->defaultContext = $value['default_context'];
             unset($value['default_context']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -185,7 +185,7 @@ class SerializerConfig
         if (isset($this->_usedProperties['defaultContext'])) {
             $output['default_context'] = $this->defaultContext;
         }
-
+    
         return $output;
     }
 

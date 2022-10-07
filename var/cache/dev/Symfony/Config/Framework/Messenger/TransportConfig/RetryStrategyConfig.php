@@ -16,7 +16,7 @@ class RetryStrategyConfig
     private $multiplier;
     private $maxDelay;
     private $_usedProperties = [];
-
+    
     /**
      * Service id to override the retry strategy entirely
      * @default null
@@ -27,10 +27,10 @@ class RetryStrategyConfig
     {
         $this->_usedProperties['service'] = true;
         $this->service = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 3
      * @param ParamConfigurator|int $value
@@ -40,10 +40,10 @@ class RetryStrategyConfig
     {
         $this->_usedProperties['maxRetries'] = true;
         $this->maxRetries = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Time in ms to delay (or the initial value when multiplier is used)
      * @default 1000
@@ -54,10 +54,10 @@ class RetryStrategyConfig
     {
         $this->_usedProperties['delay'] = true;
         $this->delay = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * If greater than 1, delay will grow exponentially for each retry: this delay = (delay * (multiple ^ retries))
      * @default 2
@@ -68,10 +68,10 @@ class RetryStrategyConfig
     {
         $this->_usedProperties['multiplier'] = true;
         $this->multiplier = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * Max time in ms that a retry should ever be delayed (0 = infinite)
      * @default 0
@@ -82,10 +82,10 @@ class RetryStrategyConfig
     {
         $this->_usedProperties['maxDelay'] = true;
         $this->maxDelay = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('service', $value)) {
@@ -93,36 +93,36 @@ class RetryStrategyConfig
             $this->service = $value['service'];
             unset($value['service']);
         }
-
+    
         if (array_key_exists('max_retries', $value)) {
             $this->_usedProperties['maxRetries'] = true;
             $this->maxRetries = $value['max_retries'];
             unset($value['max_retries']);
         }
-
+    
         if (array_key_exists('delay', $value)) {
             $this->_usedProperties['delay'] = true;
             $this->delay = $value['delay'];
             unset($value['delay']);
         }
-
+    
         if (array_key_exists('multiplier', $value)) {
             $this->_usedProperties['multiplier'] = true;
             $this->multiplier = $value['multiplier'];
             unset($value['multiplier']);
         }
-
+    
         if (array_key_exists('max_delay', $value)) {
             $this->_usedProperties['maxDelay'] = true;
             $this->maxDelay = $value['max_delay'];
             unset($value['max_delay']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -141,7 +141,7 @@ class RetryStrategyConfig
         if (isset($this->_usedProperties['maxDelay'])) {
             $output['max_delay'] = $this->maxDelay;
         }
-
+    
         return $output;
     }
 

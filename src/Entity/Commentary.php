@@ -14,45 +14,23 @@ class Commentary
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $trickId = null;
-
-    #[ORM\Column]
-    private ?int $userId = null;
-
     #[ORM\Column(length: 255)]
     private ?string $commentary = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $publishedDate = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(name: 'user_id', nullable: false)]
+    private ?user $userId = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(name: 'trick_id', nullable: false)]
+    private ?trick $trickId = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTrickId(): ?int
-    {
-        return $this->trickId;
-    }
-
-    public function setTrickId(int $trickId): self
-    {
-        $this->trickId = $trickId;
-
-        return $this;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(int $userId): self
-    {
-        $this->userId = $userId;
-
-        return $this;
     }
 
     public function getCommentary(): ?string
@@ -75,6 +53,30 @@ class Commentary
     public function setPublishedDate(\DateTimeInterface $publishedDate): self
     {
         $this->publishedDate = $publishedDate;
+
+        return $this;
+    }
+
+    public function getUserId(): ?user
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?user $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getTrickId(): ?trick
+    {
+        return $this->trickId;
+    }
+
+    public function setTrickId(?trick $trickId): self
+    {
+        $this->trickId = $trickId;
 
         return $this;
     }

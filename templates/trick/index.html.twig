@@ -8,17 +8,16 @@
 <script language = "javascript">
 
 offset = 15;
-maxTricks = {{ maxTricks }};
 countTricks = {{ tricks|length }};
 
 window.onload = function() {
-  showLoadMore();
-  showDownArrow();
+	showLoadMore();
+	showDownArrow();
 };
 
 function showDownArrow() {
 	downArrow = document.getElementById('downArrow');
-	if(countTricks > 15) {
+	if(countTricks > {{ limit }}) {
 		downArrow.style.visibility = 'visible';
 	} else {
 		downArrow.style.visibility = 'hidden';
@@ -26,7 +25,7 @@ function showDownArrow() {
 }
 
 function showLoadMore() {
-	if(offset >= maxTricks) {
+	if(offset >= {{ maxTricks }}) {
 		btn = document.getElementById('loadMore');
 		btn.style.visibility = 'hidden';
 	}
@@ -34,7 +33,7 @@ function showLoadMore() {
 
 function loadMore() {
 	$.ajax({
-		url: "{{ path('app_trick') }}",
+		url: "{{ path('app_tricksAjax') }}",
 		type: "POST",
 		data: {offset},
 
@@ -43,17 +42,18 @@ function loadMore() {
 			$.each(jsonContent, function(key, value){
 			countTricks++;
 			html = "";
-			html += '						<div class="col" id="' + value.id + '">';
+			html += '						<div class="col" id="trick_' + value.id + '">';
 			html += '				<div class="card shadow-sm">';
-			html += '					<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail" preserveaspectratio="xMidYMid slice" role="img" focusable="false">';
-			html += '						<title>Placeholder</title>';
-			html += '						<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>';
-			html += '					</svg>';
-            html += '                ';
+			html += '					<a href="{{ path("app_tricks") }}/' + value.id + '">';
+			html += '						<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail" preserveaspectratio="xMidYMid slice" role="img" focusable="false">';
+			html += '							<title>Placeholder</title>';
+			html += '							<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>';
+			html += '						</svg>';
+            html += '					</a>';
 			html += '					<div class="card-body">';
-html += '';
+			html += '';
 			html += '						<div class="d-flex justify-content-between align-items-center col">';
-			html += '							<small class="text-muted">' + value.id + '</small>';
+			html += '							<small class="text-muted">' + value.name + '</small>';
 			html += '							{% if is_granted("IS_AUTHENTICATED_FULLY") %}';
 			html += '							<div class="btn-group">';
 			html += '								<button type="button" class="btn btn-sm btn-outline-secondary">View</button>';
@@ -67,6 +67,7 @@ html += '';
 			
 			$('#tricksCards').append(html);	
 			});
+
 			offset += 15;
 			showLoadMore();
 			showDownArrow();
@@ -76,9 +77,6 @@ html += '';
 }
 
 </script>
-
-
-
 {% endblock %}
 
 {% block body %}
@@ -103,17 +101,18 @@ html += '';
 
 
 					{% for trick in tricks %}
-						<div class="col">
+						<div class="col" id="trick_{{ trick.id }}">
 							<div class="card shadow-sm">
+							<a href="{{ path('app_tricks') }}/{{ trick.id }}">
 								<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail" preserveaspectratio="xMidYMid slice" role="img" focusable="false">
 									<title>Placeholder</title>
 									<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
 								</svg>
-                            
+                            </a>
 								<div class="card-body">
 
 									<div class="d-flex justify-content-between align-items-center col">
-										<small class="text-muted">{{ trick.id }}</small>
+										<small class="text-muted">{{ trick.name }}</small>
 										{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 										<div class="btn-group">
 											<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -139,9 +138,4 @@ html += '';
 
 		</main>
 
-		<footer class="text-muted py-5">
-			<div class="container">
-				<p class="mb-1">Copyright © Kevin NGUYEN-HUU @ 2022</p>
-			</div>
-		</footer>
 	{% endblock %}

@@ -91,23 +91,22 @@ class __TwigTemplate_7b82d2c05e989ba6aa72cc3993ab8af0 extends Template
 <script language = \"javascript\">
 
 offset = 15;
-maxTricks = ";
-        // line 11
-        echo twig_escape_filter($this->env, (isset($context["maxTricks"]) || array_key_exists("maxTricks", $context) ? $context["maxTricks"] : (function () { throw new RuntimeError('Variable "maxTricks" does not exist.', 11, $this->source); })()), "html", null, true);
-        echo ";
 countTricks = ";
-        // line 12
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 12, $this->source); })())), "html", null, true);
+        // line 11
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 11, $this->source); })())), "html", null, true);
         echo ";
 
 window.onload = function() {
-  showLoadMore();
-  showDownArrow();
+\tshowLoadMore();
+\tshowDownArrow();
 };
 
 function showDownArrow() {
 \tdownArrow = document.getElementById('downArrow');
-\tif(countTricks > 15) {
+\tif(countTricks > ";
+        // line 20
+        echo twig_escape_filter($this->env, (isset($context["limit"]) || array_key_exists("limit", $context) ? $context["limit"] : (function () { throw new RuntimeError('Variable "limit" does not exist.', 20, $this->source); })()), "html", null, true);
+        echo ") {
 \t\tdownArrow.style.visibility = 'visible';
 \t} else {
 \t\tdownArrow.style.visibility = 'hidden';
@@ -115,7 +114,10 @@ function showDownArrow() {
 }
 
 function showLoadMore() {
-\tif(offset >= maxTricks) {
+\tif(offset >= ";
+        // line 28
+        echo twig_escape_filter($this->env, (isset($context["maxTricks"]) || array_key_exists("maxTricks", $context) ? $context["maxTricks"] : (function () { throw new RuntimeError('Variable "maxTricks" does not exist.', 28, $this->source); })()), "html", null, true);
+        echo ") {
 \t\tbtn = document.getElementById('loadMore');
 \t\tbtn.style.visibility = 'hidden';
 \t}
@@ -124,8 +126,8 @@ function showLoadMore() {
 function loadMore() {
 \t\$.ajax({
 \t\turl: \"";
-        // line 37
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_trick");
+        // line 36
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricksAjax");
         echo "\",
 \t\ttype: \"POST\",
 \t\tdata: {offset},
@@ -135,17 +137,21 @@ function loadMore() {
 \t\t\t\$.each(jsonContent, function(key, value){
 \t\t\tcountTricks++;
 \t\t\thtml = \"\";
-\t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"' + value.id + '\">';
+\t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"trick_' + value.id + '\">';
 \t\t\thtml += '\t\t\t\t<div class=\"card shadow-sm\">';
-\t\t\thtml += '\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">';
-\t\t\thtml += '\t\t\t\t\t\t<title>Placeholder</title>';
-\t\t\thtml += '\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>';
-\t\t\thtml += '\t\t\t\t\t</svg>';
-            html += '                ';
+\t\t\thtml += '\t\t\t\t\t<a href=\"";
+        // line 47
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks");
+        echo "/' + value.id + '\">';
+\t\t\thtml += '\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">';
+\t\t\thtml += '\t\t\t\t\t\t\t<title>Placeholder</title>';
+\t\t\thtml += '\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>';
+\t\t\thtml += '\t\t\t\t\t\t</svg>';
+            html += '\t\t\t\t\t</a>';
 \t\t\thtml += '\t\t\t\t\t<div class=\"card-body\">';
-html += '';
+\t\t\thtml += '';
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">';
-\t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.id + '</small>';
+\t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.name + '</small>';
 \t\t\thtml += '\t\t\t\t\t\t\t";
         // line 57
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
@@ -165,6 +171,7 @@ html += '';
 \t\t\t
 \t\t\t\$('#tricksCards').append(html);\t
 \t\t\t});
+
 \t\t\toffset += 15;
 \t\t\tshowLoadMore();
 \t\t\tshowDownArrow();
@@ -174,9 +181,6 @@ html += '';
 }
 
 </script>
-
-
-
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -186,7 +190,7 @@ html += '';
 
     }
 
-    // line 84
+    // line 82
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -196,7 +200,7 @@ html += '';
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 85
+        // line 83
         echo "
 \t<main>
 
@@ -218,36 +222,44 @@ html += '';
 
 
 \t\t\t\t\t";
-        // line 105
+        // line 103
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 105, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 103, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["trick"]) {
-            // line 106
-            echo "\t\t\t\t\t\t<div class=\"col\">
+            // line 104
+            echo "\t\t\t\t\t\t<div class=\"col\" id=\"trick_";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 104), "html", null, true);
+            echo "\">
 \t\t\t\t\t\t\t<div class=\"card shadow-sm\">
+\t\t\t\t\t\t\t<a href=\"";
+            // line 106
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks");
+            echo "/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 106), "html", null, true);
+            echo "\">
 \t\t\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
 \t\t\t\t\t\t\t\t\t<title>Placeholder</title>
 \t\t\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>
 \t\t\t\t\t\t\t\t</svg>
-                            
+                            </a>
 \t\t\t\t\t\t\t\t<div class=\"card-body\">
 
 \t\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">
 \t\t\t\t\t\t\t\t\t\t<small class=\"text-muted\">";
-            // line 116
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 116), "html", null, true);
+            // line 115
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "name", [], "any", false, false, false, 115), "html", null, true);
             echo "</small>
 \t\t\t\t\t\t\t\t\t\t";
-            // line 117
+            // line 116
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-                // line 118
+                // line 117
                 echo "\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\">
 \t\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">View</button>
 \t\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">Edit</button>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t";
             }
-            // line 123
+            // line 122
             echo "\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
@@ -257,7 +269,7 @@ html += '';
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trick'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 128
+        // line 127
         echo "
 \t\t\t\t</div>
 \t\t\t\t<button onClick=\"loadMore()\" class=\"btn btn-dark my-3 position-absolute bottom-0 start-50 translate-middle-x\" id=\"loadMore\">Load More</button>
@@ -272,11 +284,6 @@ html += '';
 
 \t\t</main>
 
-\t\t<footer class=\"text-muted py-5\">
-\t\t\t<div class=\"container\">
-\t\t\t\t<p class=\"mb-1\">Copyright © Kevin NGUYEN-HUU @ 2022</p>
-\t\t\t</div>
-\t\t</footer>
 \t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -298,7 +305,7 @@ html += '';
 
     public function getDebugInfo()
     {
-        return array (  261 => 128,  251 => 123,  244 => 118,  242 => 117,  238 => 116,  226 => 106,  222 => 105,  200 => 85,  190 => 84,  160 => 62,  151 => 57,  128 => 37,  100 => 12,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  273 => 127,  263 => 122,  256 => 117,  254 => 116,  250 => 115,  236 => 106,  230 => 104,  226 => 103,  204 => 83,  194 => 82,  166 => 62,  157 => 57,  144 => 47,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -313,17 +320,16 @@ html += '';
 <script language = \"javascript\">
 
 offset = 15;
-maxTricks = {{ maxTricks }};
 countTricks = {{ tricks|length }};
 
 window.onload = function() {
-  showLoadMore();
-  showDownArrow();
+\tshowLoadMore();
+\tshowDownArrow();
 };
 
 function showDownArrow() {
 \tdownArrow = document.getElementById('downArrow');
-\tif(countTricks > 15) {
+\tif(countTricks > {{ limit }}) {
 \t\tdownArrow.style.visibility = 'visible';
 \t} else {
 \t\tdownArrow.style.visibility = 'hidden';
@@ -331,7 +337,7 @@ function showDownArrow() {
 }
 
 function showLoadMore() {
-\tif(offset >= maxTricks) {
+\tif(offset >= {{ maxTricks }}) {
 \t\tbtn = document.getElementById('loadMore');
 \t\tbtn.style.visibility = 'hidden';
 \t}
@@ -339,7 +345,7 @@ function showLoadMore() {
 
 function loadMore() {
 \t\$.ajax({
-\t\turl: \"{{ path('app_trick') }}\",
+\t\turl: \"{{ path('app_tricksAjax') }}\",
 \t\ttype: \"POST\",
 \t\tdata: {offset},
 
@@ -348,17 +354,18 @@ function loadMore() {
 \t\t\t\$.each(jsonContent, function(key, value){
 \t\t\tcountTricks++;
 \t\t\thtml = \"\";
-\t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"' + value.id + '\">';
+\t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"trick_' + value.id + '\">';
 \t\t\thtml += '\t\t\t\t<div class=\"card shadow-sm\">';
-\t\t\thtml += '\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">';
-\t\t\thtml += '\t\t\t\t\t\t<title>Placeholder</title>';
-\t\t\thtml += '\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>';
-\t\t\thtml += '\t\t\t\t\t</svg>';
-            html += '                ';
+\t\t\thtml += '\t\t\t\t\t<a href=\"{{ path(\"app_tricks\") }}/' + value.id + '\">';
+\t\t\thtml += '\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">';
+\t\t\thtml += '\t\t\t\t\t\t\t<title>Placeholder</title>';
+\t\t\thtml += '\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>';
+\t\t\thtml += '\t\t\t\t\t\t</svg>';
+            html += '\t\t\t\t\t</a>';
 \t\t\thtml += '\t\t\t\t\t<div class=\"card-body\">';
-html += '';
+\t\t\thtml += '';
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">';
-\t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.id + '</small>';
+\t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.name + '</small>';
 \t\t\thtml += '\t\t\t\t\t\t\t{% if is_granted(\"IS_AUTHENTICATED_FULLY\") %}';
 \t\t\thtml += '\t\t\t\t\t\t\t<div class=\"btn-group\">';
 \t\t\thtml += '\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">View</button>';
@@ -372,6 +379,7 @@ html += '';
 \t\t\t
 \t\t\t\$('#tricksCards').append(html);\t
 \t\t\t});
+
 \t\t\toffset += 15;
 \t\t\tshowLoadMore();
 \t\t\tshowDownArrow();
@@ -381,9 +389,6 @@ html += '';
 }
 
 </script>
-
-
-
 {% endblock %}
 
 {% block body %}
@@ -408,17 +413,18 @@ html += '';
 
 
 \t\t\t\t\t{% for trick in tricks %}
-\t\t\t\t\t\t<div class=\"col\">
+\t\t\t\t\t\t<div class=\"col\" id=\"trick_{{ trick.id }}\">
 \t\t\t\t\t\t\t<div class=\"card shadow-sm\">
+\t\t\t\t\t\t\t<a href=\"{{ path('app_tricks') }}/{{ trick.id }}\">
 \t\t\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
 \t\t\t\t\t\t\t\t\t<title>Placeholder</title>
 \t\t\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>
 \t\t\t\t\t\t\t\t</svg>
-                            
+                            </a>
 \t\t\t\t\t\t\t\t<div class=\"card-body\">
 
 \t\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">
-\t\t\t\t\t\t\t\t\t\t<small class=\"text-muted\">{{ trick.id }}</small>
+\t\t\t\t\t\t\t\t\t\t<small class=\"text-muted\">{{ trick.name }}</small>
 \t\t\t\t\t\t\t\t\t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 \t\t\t\t\t\t\t\t\t\t<div class=\"btn-group\">
 \t\t\t\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">View</button>
@@ -444,11 +450,6 @@ html += '';
 
 \t\t</main>
 
-\t\t<footer class=\"text-muted py-5\">
-\t\t\t<div class=\"container\">
-\t\t\t\t<p class=\"mb-1\">Copyright © Kevin NGUYEN-HUU @ 2022</p>
-\t\t\t</div>
-\t\t</footer>
 \t{% endblock %}
 ", "trick/index.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\trick\\index.html.twig");
     }

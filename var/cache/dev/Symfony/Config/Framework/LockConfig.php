@@ -13,7 +13,7 @@ class LockConfig
     private $enabled;
     private $resources;
     private $_usedProperties = [];
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -23,10 +23,10 @@ class LockConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @return $this
      */
@@ -34,10 +34,10 @@ class LockConfig
     {
         $this->_usedProperties['resources'] = true;
         $this->resources[$name] = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -45,18 +45,18 @@ class LockConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('resources', $value)) {
             $this->_usedProperties['resources'] = true;
             $this->resources = $value['resources'];
             unset($value['resources']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -66,7 +66,7 @@ class LockConfig
         if (isset($this->_usedProperties['resources'])) {
             $output['resources'] = $this->resources;
         }
-
+    
         return $output;
     }
 

@@ -17,9 +17,9 @@ class PropertyAccessConfig
     private $throwExceptionOnInvalidIndex;
     private $throwExceptionOnInvalidPropertyPath;
     private $_usedProperties = [];
-
+    
     /**
-     * @default false
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */
@@ -27,10 +27,10 @@ class PropertyAccessConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -40,10 +40,10 @@ class PropertyAccessConfig
     {
         $this->_usedProperties['magicCall'] = true;
         $this->magicCall = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -53,10 +53,10 @@ class PropertyAccessConfig
     {
         $this->_usedProperties['magicGet'] = true;
         $this->magicGet = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -66,10 +66,10 @@ class PropertyAccessConfig
     {
         $this->_usedProperties['magicSet'] = true;
         $this->magicSet = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -79,10 +79,10 @@ class PropertyAccessConfig
     {
         $this->_usedProperties['throwExceptionOnInvalidIndex'] = true;
         $this->throwExceptionOnInvalidIndex = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -92,10 +92,10 @@ class PropertyAccessConfig
     {
         $this->_usedProperties['throwExceptionOnInvalidPropertyPath'] = true;
         $this->throwExceptionOnInvalidPropertyPath = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -103,42 +103,42 @@ class PropertyAccessConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('magic_call', $value)) {
             $this->_usedProperties['magicCall'] = true;
             $this->magicCall = $value['magic_call'];
             unset($value['magic_call']);
         }
-
+    
         if (array_key_exists('magic_get', $value)) {
             $this->_usedProperties['magicGet'] = true;
             $this->magicGet = $value['magic_get'];
             unset($value['magic_get']);
         }
-
+    
         if (array_key_exists('magic_set', $value)) {
             $this->_usedProperties['magicSet'] = true;
             $this->magicSet = $value['magic_set'];
             unset($value['magic_set']);
         }
-
+    
         if (array_key_exists('throw_exception_on_invalid_index', $value)) {
             $this->_usedProperties['throwExceptionOnInvalidIndex'] = true;
             $this->throwExceptionOnInvalidIndex = $value['throw_exception_on_invalid_index'];
             unset($value['throw_exception_on_invalid_index']);
         }
-
+    
         if (array_key_exists('throw_exception_on_invalid_property_path', $value)) {
             $this->_usedProperties['throwExceptionOnInvalidPropertyPath'] = true;
             $this->throwExceptionOnInvalidPropertyPath = $value['throw_exception_on_invalid_property_path'];
             unset($value['throw_exception_on_invalid_property_path']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -160,7 +160,7 @@ class PropertyAccessConfig
         if (isset($this->_usedProperties['throwExceptionOnInvalidPropertyPath'])) {
             $output['throw_exception_on_invalid_property_path'] = $this->throwExceptionOnInvalidPropertyPath;
         }
-
+    
         return $output;
     }
 

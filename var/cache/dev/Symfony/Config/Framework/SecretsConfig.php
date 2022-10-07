@@ -15,7 +15,7 @@ class SecretsConfig
     private $localDotenvFile;
     private $decryptionEnvVar;
     private $_usedProperties = [];
-
+    
     /**
      * @default true
      * @param ParamConfigurator|bool $value
@@ -25,10 +25,10 @@ class SecretsConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default '%kernel.project_dir%/config/secrets/%kernel.runtime_environment%'
      * @param ParamConfigurator|mixed $value
@@ -38,10 +38,10 @@ class SecretsConfig
     {
         $this->_usedProperties['vaultDirectory'] = true;
         $this->vaultDirectory = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default '%kernel.project_dir%/.env.%kernel.environment%.local'
      * @param ParamConfigurator|mixed $value
@@ -51,10 +51,10 @@ class SecretsConfig
     {
         $this->_usedProperties['localDotenvFile'] = true;
         $this->localDotenvFile = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default 'base64:default::SYMFONY_DECRYPTION_SECRET'
      * @param ParamConfigurator|mixed $value
@@ -64,10 +64,10 @@ class SecretsConfig
     {
         $this->_usedProperties['decryptionEnvVar'] = true;
         $this->decryptionEnvVar = $value;
-
+    
         return $this;
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -75,30 +75,30 @@ class SecretsConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('vault_directory', $value)) {
             $this->_usedProperties['vaultDirectory'] = true;
             $this->vaultDirectory = $value['vault_directory'];
             unset($value['vault_directory']);
         }
-
+    
         if (array_key_exists('local_dotenv_file', $value)) {
             $this->_usedProperties['localDotenvFile'] = true;
             $this->localDotenvFile = $value['local_dotenv_file'];
             unset($value['local_dotenv_file']);
         }
-
+    
         if (array_key_exists('decryption_env_var', $value)) {
             $this->_usedProperties['decryptionEnvVar'] = true;
             $this->decryptionEnvVar = $value['decryption_env_var'];
             unset($value['decryption_env_var']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -114,7 +114,7 @@ class SecretsConfig
         if (isset($this->_usedProperties['decryptionEnvVar'])) {
             $output['decryption_env_var'] = $this->decryptionEnvVar;
         }
-
+    
         return $output;
     }
 

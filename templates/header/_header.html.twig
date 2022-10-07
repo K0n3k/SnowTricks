@@ -1,0 +1,32 @@
+{% block header %}
+
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <div class="col justify-content-start">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+              <strong>Snowtricks</strong>
+            </a>
+        </div>
+        <div class="col justify-content-end text-white d-flex">
+            <a href="{{ path('app_tricks') }}" class="text-white">Home</a> &nbsp;|&nbsp;
+            <a href="{{ path('app_tricks') }}#tricks" class="text-white">Tricks</a> &nbsp;|&nbsp;
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								<div class="dropdown">
+							<a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ app.user.Username }}</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+								<li>
+									<a class="dropdown-item" href={{path('logout')}}>Logout</a>
+								</li>
+							</ul>
+						</div>
+						{% else %}
+            <a href={{path('sign-in')}} class="text-white">Sign-in</a> &nbsp;|&nbsp;
+            <a href={{path('sign-up')}} class="text-white">Sign-up</a>
+		{% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+{% endblock %}

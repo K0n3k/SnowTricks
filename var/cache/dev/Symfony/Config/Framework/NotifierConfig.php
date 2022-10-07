@@ -19,9 +19,9 @@ class NotifierConfig
     private $channelPolicy;
     private $adminRecipients;
     private $_usedProperties = [];
-
+    
     /**
-     * @default false
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */
@@ -29,10 +29,10 @@ class NotifierConfig
     {
         $this->_usedProperties['enabled'] = true;
         $this->enabled = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @return $this
      */
@@ -40,10 +40,10 @@ class NotifierConfig
     {
         $this->_usedProperties['chatterTransports'] = true;
         $this->chatterTransports[$name] = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @return $this
      */
@@ -51,10 +51,10 @@ class NotifierConfig
     {
         $this->_usedProperties['texterTransports'] = true;
         $this->texterTransports[$name] = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @default false
      * @param ParamConfigurator|bool $value
@@ -64,10 +64,10 @@ class NotifierConfig
     {
         $this->_usedProperties['notificationOnFailedMessages'] = true;
         $this->notificationOnFailedMessages = $value;
-
+    
         return $this;
     }
-
+    
     /**
      * @return $this
      */
@@ -75,17 +75,17 @@ class NotifierConfig
     {
         $this->_usedProperties['channelPolicy'] = true;
         $this->channelPolicy[$name] = $value;
-
+    
         return $this;
     }
-
+    
     public function adminRecipient(array $value = []): \Symfony\Config\Framework\Notifier\AdminRecipientConfig
     {
         $this->_usedProperties['adminRecipients'] = true;
-
+    
         return $this->adminRecipients[] = new \Symfony\Config\Framework\Notifier\AdminRecipientConfig($value);
     }
-
+    
     public function __construct(array $value = [])
     {
         if (array_key_exists('enabled', $value)) {
@@ -93,42 +93,42 @@ class NotifierConfig
             $this->enabled = $value['enabled'];
             unset($value['enabled']);
         }
-
+    
         if (array_key_exists('chatter_transports', $value)) {
             $this->_usedProperties['chatterTransports'] = true;
             $this->chatterTransports = $value['chatter_transports'];
             unset($value['chatter_transports']);
         }
-
+    
         if (array_key_exists('texter_transports', $value)) {
             $this->_usedProperties['texterTransports'] = true;
             $this->texterTransports = $value['texter_transports'];
             unset($value['texter_transports']);
         }
-
+    
         if (array_key_exists('notification_on_failed_messages', $value)) {
             $this->_usedProperties['notificationOnFailedMessages'] = true;
             $this->notificationOnFailedMessages = $value['notification_on_failed_messages'];
             unset($value['notification_on_failed_messages']);
         }
-
+    
         if (array_key_exists('channel_policy', $value)) {
             $this->_usedProperties['channelPolicy'] = true;
             $this->channelPolicy = $value['channel_policy'];
             unset($value['channel_policy']);
         }
-
+    
         if (array_key_exists('admin_recipients', $value)) {
             $this->_usedProperties['adminRecipients'] = true;
             $this->adminRecipients = array_map(function ($v) { return new \Symfony\Config\Framework\Notifier\AdminRecipientConfig($v); }, $value['admin_recipients']);
             unset($value['admin_recipients']);
         }
-
+    
         if ([] !== $value) {
             throw new InvalidConfigurationException(sprintf('The following keys are not supported by "%s": ', __CLASS__).implode(', ', array_keys($value)));
         }
     }
-
+    
     public function toArray(): array
     {
         $output = [];
@@ -150,7 +150,7 @@ class NotifierConfig
         if (isset($this->_usedProperties['adminRecipients'])) {
             $output['admin_recipients'] = array_map(function ($v) { return $v->toArray(); }, $this->adminRecipients);
         }
-
+    
         return $output;
     }
 

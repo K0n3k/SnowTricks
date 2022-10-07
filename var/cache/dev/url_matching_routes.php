@@ -17,7 +17,8 @@ return [
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/figure/tricks' => [[['_route' => 'app_trick', '_controller' => 'App\\Controller\\TrickController::tricksList'], null, null, null, false, false, null]],
+        '/figure/tricks' => [[['_route' => 'app_tricks', '_controller' => 'App\\Controller\\TrickController::tricksList'], null, null, null, false, false, null]],
+        '/figure/tricks/ajax' => [[['_route' => 'app_tricksAjax', '_controller' => 'App\\Controller\\TrickController::tricksListAjax'], null, ['POST' => 0], null, false, false, null]],
         '/user/sign-in' => [[['_route' => 'sign-in', '_controller' => 'App\\Controller\\UserController::sign_in'], null, null, null, false, false, null]],
         '/user/sign-up' => [[['_route' => 'sign-up', '_controller' => 'App\\Controller\\UserController::sign_up'], null, null, null, false, false, null]],
         '/user/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\UserController::logout'], null, null, null, false, false, null]],
@@ -39,6 +40,7 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/figure/tricks/([^/]++)(*:192)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -48,8 +50,9 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        192 => [
+            [['_route' => 'app_trick', '_controller' => 'App\\Controller\\TrickController::trick'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

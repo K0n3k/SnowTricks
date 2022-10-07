@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '03a286f62f867bebbb11c47ba74a7d143d74ddd8',
+        'reference' => '9ad947c1ffcf62157008bbaba5f3ca915b3fa382',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '03a286f62f867bebbb11c47ba74a7d143d74ddd8',
+            'reference' => '9ad947c1ffcf62157008bbaba5f3ca915b3fa382',
             'dev_requirement' => false,
         ),
         'doctrine/annotations' => array(
@@ -864,12 +864,12 @@
             'dev_requirement' => false,
         ),
         'symfony/mailer' => array(
-            'pretty_version' => 'v6.1.4',
-            'version' => '6.1.4.0',
+            'pretty_version' => 'v6.1.5',
+            'version' => '6.1.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mailer',
             'aliases' => array(),
-            'reference' => '55a7cb8f8518d35e2a039daaec6e1ee20509510e',
+            'reference' => 'e1b32deb9efc48def0c76b876860ad36f2123e89',
             'dev_requirement' => false,
         ),
         'symfony/maker-bundle' => array(

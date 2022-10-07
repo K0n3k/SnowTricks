@@ -88,7 +88,7 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
         // line 7
         echo "    <main>
 
-        <div class=\"album py-5 bg-light justify-content-center\" id=\"tricks\">
+        <div class=\"album py-5 bg-light\">
             <div class=\"input-group justify-content-center\">
                 <form method=\"post\">
                     <div class=\"justify-content-center\">
@@ -178,7 +178,7 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
 {% block body %}
     <main>
 
-        <div class=\"album py-5 bg-light justify-content-center\" id=\"tricks\">
+        <div class=\"album py-5 bg-light\">
             <div class=\"input-group justify-content-center\">
                 <form method=\"post\">
                     <div class=\"justify-content-center\">
