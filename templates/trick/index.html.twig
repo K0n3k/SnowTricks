@@ -17,7 +17,7 @@ window.onload = function() {
 
 function showDownArrow() {
 	downArrow = document.getElementById('downArrow');
-	if(countTricks > {{ limit }}) {
+	if(countTricks > {{ tricksLimit }}) {
 		downArrow.style.visibility = 'visible';
 	} else {
 		downArrow.style.visibility = 'hidden';

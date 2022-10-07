@@ -4,7 +4,11 @@ namespace App\Controller;
 
 use App\Repository\CommentaryRepository;
 use App\Repository\TrickRepository;
+use App\Entity\Commentary;
+use App\Form\CommentaryType;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +20,8 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 class TrickController extends AbstractController
 {
-    private int $limit = 15;
+    private int $tricksLimit = 15;
+    private int $commentaryLimit = 5;
 
     #[Route('/figure/tricks', name: 'app_tricks')]
     public function tricksList(TrickRepository $trickRepository): Response
@@ -24,9 +29,9 @@ class TrickController extends AbstractController
         
         return $this->render('trick/index.html.twig', [
                 'controller_name' => 'TrickController',
-                'tricks' => $trickRepository->findBy([], null, $this->limit, null),
+                'tricks' => $trickRepository->findBy([], null, $this->tricksLimit, null),
                 'maxTricks' => $trickRepository->count([]),
-                'limit' => $this->limit,
+                'tricksLimit' => $this->tricksLimit,
             ]);
         
     }
@@ -39,21 +44,49 @@ class TrickController extends AbstractController
                 return new JsonResponse();
             }
             $serializer = new Serializer([new ObjectNormalizer()], [new XmlEncoder(), new JsonEncoder()]);
-            return new JsonResponse($serializer->serialize($trickRepository->findBy([], null, $this->limit, $offset), 'json'));
+            return new JsonResponse($serializer->serialize($trickRepository->findBy([], null, $this->tricksLimit, $offset), 'json'));
         
     }
 
-    #[Route('/figure/tricks/{id}', name: 'app_trick')]
-    public function trick(TrickRepository $trickRepository, CommentaryRepository $commentaryRepository, int $id): Response
+    #[Route('/figure/tricks/{trickId}', name: 'app_trick')]
+    public function trick(TrickRepository $trickRepository, CommentaryRepository $commentaryRepository, EntityManagerInterface $entityManager, Request $request, int $trickId): Response
     {
+        $commentary = new Commentary();
+        $trick = $trickRepository->findOneBy(['id' => $trickId]);
+        $commentaryForm = $this->createForm(CommentaryType::class, $commentary);
         
+        $commentaryForm->handleRequest($request);
+        if ($commentaryForm->isSubmitted() && $commentaryForm->isValid()) {
+            
+            $commentary->setUserId($this->getUser());
+            $commentary->setTrickId($trick);
+            $commentary->setPublishedDate(new DateTime());
+            $entityManager->persist($commentary);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_trick',['trickId' => $trickId]);
+        }
         return $this->render('trick/trick.html.twig', [
                 'controller_name' => 'TrickController',
-                'trick' => $trickRepository->findOneBy(['id' => $id]),
-                'commentarys' => $commentaryRepository->findAll(),
-                'maxTricks' => $trickRepository->count([]),
-                'limit' => $this->limit,
+                'trick' => $trick,
+                'commentarys' => $commentaryRepository->findBy(['trickId' => $trickId], null, $this->commentaryLimit, null),
+                'maxCommentarys' => $commentaryRepository->count(['trickId' => $trickId]),
+                'commentaryForm' => $commentaryForm->createView(),
+                'commentaryLimit' => $this->commentaryLimit,
             ]);
+        
+    }
+
+    #[Route('/figure/tricks/ajax/', name: 'app_commentarysAjax', methods: ['POST'])]
+    public function commentarysListAjax(CommentaryRepository $commentaryRepository, Request $request): JsonResponse
+    {
+            $offset = $request->request->get('offset');
+            $trickId = $request->request->get('trickId');
+            if($offset >= $commentaryRepository->count(['trickId' => $trickId])) {
+                return new JsonResponse();
+            }
+            $serializer = new Serializer([new ObjectNormalizer()], [new XmlEncoder(), new JsonEncoder()]);
+            return new JsonResponse($serializer->serialize($commentaryRepository->findBy(['trickId' => $trickId], null, $this->tricksLimit, $offset), 'json'));
         
     }
 }
