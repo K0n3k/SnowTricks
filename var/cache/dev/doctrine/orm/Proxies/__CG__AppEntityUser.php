@@ -305,12 +305,12 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function isIsValidated(): ?bool
+    public function getIsValidated(): ?bool
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isIsValidated', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsValidated', []);
 
-        return parent::isIsValidated();
+        return parent::getIsValidated();
     }
 
     /**

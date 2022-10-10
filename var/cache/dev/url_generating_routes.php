@@ -22,8 +22,9 @@ return [
     'app_tricks' => [[], ['_controller' => 'App\\Controller\\TrickController::tricksList'], [], [['text', '/figure/tricks']], [], [], []],
     'app_tricksAjax' => [[], ['_controller' => 'App\\Controller\\TrickController::tricksListAjax'], [], [['text', '/figure/tricks/ajax']], [], [], []],
     'app_trick' => [['trickId'], ['_controller' => 'App\\Controller\\TrickController::trick'], [], [['variable', '/', '[^/]++', 'trickId', true], ['text', '/figure/tricks']], [], [], []],
-    'app_commentarysAjax' => [[], ['_controller' => 'App\\Controller\\TrickController::commentarysListAjax'], [], [['text', '/figure/tricks/ajax/']], [], [], []],
+    'app_commentarysAjax' => [['trickId'], ['_controller' => 'App\\Controller\\TrickController::commentarysListAjax'], [], [['variable', '/', '[^/]++', 'trickId', true], ['text', '/figure/trick/ajax']], [], [], []],
     'sign-in' => [[], ['_controller' => 'App\\Controller\\UserController::sign_in'], [], [['text', '/user/sign-in']], [], [], []],
     'sign-up' => [[], ['_controller' => 'App\\Controller\\UserController::sign_up'], [], [['text', '/user/sign-up']], [], [], []],
+    'app_userToken' => [['token'], ['_controller' => 'App\\Controller\\UserController::validateAccount'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/user/validation']], [], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\UserController::logout'], [], [['text', '/user/logout']], [], [], []],
 ];

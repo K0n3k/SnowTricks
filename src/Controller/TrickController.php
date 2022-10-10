@@ -77,16 +77,16 @@ class TrickController extends AbstractController
         
     }
 
-    #[Route('/figure/tricks/ajax/', name: 'app_commentarysAjax', methods: ['POST'])]
-    public function commentarysListAjax(CommentaryRepository $commentaryRepository, Request $request): JsonResponse
+    #[Route('/figure/trick/ajax/{trickId}', name: 'app_commentarysAjax', methods: ['POST'])]
+    public function commentarysListAjax(CommentaryRepository $commentaryRepository, Request $request, int $trickId): JsonResponse
     {
+        
             $offset = $request->request->get('offset');
-            $trickId = $request->request->get('trickId');
             if($offset >= $commentaryRepository->count(['trickId' => $trickId])) {
                 return new JsonResponse();
             }
             $serializer = new Serializer([new ObjectNormalizer()], [new XmlEncoder(), new JsonEncoder()]);
-            return new JsonResponse($serializer->serialize($commentaryRepository->findBy(['trickId' => $trickId], null, $this->tricksLimit, $offset), 'json'));
+            return new JsonResponse($serializer->serialize($commentaryRepository->findBy(['trickId' => $trickId], null, $this->commentaryLimit, $offset), 'json'));
         
     }
 }

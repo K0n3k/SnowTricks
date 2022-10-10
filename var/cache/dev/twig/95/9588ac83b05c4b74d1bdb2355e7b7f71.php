@@ -231,12 +231,10 @@ function loadMore() {
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 104), "html", null, true);
             echo "\">
 \t\t\t\t\t\t\t<div class=\"card shadow-sm\">
-\t\t\t\t\t\t\t<a href=\"";
+\t\t\t\t\t\t\t<a href=";
             // line 106
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks");
-            echo "/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 106), "html", null, true);
-            echo "\">
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks", ["trickId" => twig_get_attribute($this->env, $this->source, $context["trick"], "id", [], "any", false, false, false, 106)]), "html", null, true);
+            echo ">
 \t\t\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
 \t\t\t\t\t\t\t\t\t<title>Placeholder</title>
 \t\t\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>
@@ -305,7 +303,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  273 => 127,  263 => 122,  256 => 117,  254 => 116,  250 => 115,  236 => 106,  230 => 104,  226 => 103,  204 => 83,  194 => 82,  166 => 62,  157 => 57,  144 => 47,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  271 => 127,  261 => 122,  254 => 117,  252 => 116,  248 => 115,  236 => 106,  230 => 104,  226 => 103,  204 => 83,  194 => 82,  166 => 62,  157 => 57,  144 => 47,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -415,7 +413,7 @@ function loadMore() {
 \t\t\t\t\t{% for trick in tricks %}
 \t\t\t\t\t\t<div class=\"col\" id=\"trick_{{ trick.id }}\">
 \t\t\t\t\t\t\t<div class=\"card shadow-sm\">
-\t\t\t\t\t\t\t<a href=\"{{ path('app_tricks') }}/{{ trick.id }}\">
+\t\t\t\t\t\t\t<a href={{ path(\"app_tricks\", { trickId: trick.id }) }}>
 \t\t\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
 \t\t\t\t\t\t\t\t\t<title>Placeholder</title>
 \t\t\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>

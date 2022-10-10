@@ -11,6 +11,7 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
@@ -39,6 +40,7 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'S' => 
         array (
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
+            'Symfony\\Polyfill\\Uuid\\' => 22,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
@@ -55,6 +57,7 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
             'Symfony\\Component\\VarExporter\\' => 30,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Validator\\' => 28,
+            'Symfony\\Component\\Uid\\' => 22,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Stopwatch\\' => 28,
@@ -180,6 +183,10 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         array (
             0 => __DIR__ . '/..' . '/symfony/runtime/Internal',
         ),
+        'Symfony\\Polyfill\\Uuid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-uuid',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -243,6 +250,10 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'Symfony\\Component\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/validator',
+        ),
+        'Symfony\\Component\\Uid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/uid',
         ),
         'Symfony\\Component\\Translation\\' => 
         array (
@@ -577,15 +588,20 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'App\\Controller\\TrickController' => __DIR__ . '/../..' . '/src/Controller/TrickController.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
         'App\\Entity\\Commentary' => __DIR__ . '/../..' . '/src/Entity/Commentary.php',
+        'App\\Entity\\EmailValidation' => __DIR__ . '/../..' . '/src/Entity/EmailValidation.php',
         'App\\Entity\\Group' => __DIR__ . '/../..' . '/src/Entity/Group.php',
         'App\\Entity\\Media' => __DIR__ . '/../..' . '/src/Entity/Media.php',
+        'App\\Entity\\RegistrationToken' => __DIR__ . '/../..' . '/src/Entity/RegistrationToken.php',
         'App\\Entity\\Trick' => __DIR__ . '/../..' . '/src/Entity/Trick.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Form\\CommentaryType' => __DIR__ . '/../..' . '/src/Form/CommentaryType.php',
         'App\\Form\\UserType' => __DIR__ . '/../..' . '/src/Form/UserType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\CommentaryRepository' => __DIR__ . '/../..' . '/src/Repository/CommentaryRepository.php',
+        'App\\Repository\\EmailValidationRepository' => __DIR__ . '/../..' . '/src/Repository/EmailValidationRepository.php',
         'App\\Repository\\GroupRepository' => __DIR__ . '/../..' . '/src/Repository/GroupRepository.php',
         'App\\Repository\\MediaRepository' => __DIR__ . '/../..' . '/src/Repository/MediaRepository.php',
+        'App\\Repository\\RegistrationTokenRepository' => __DIR__ . '/../..' . '/src/Repository/RegistrationTokenRepository.php',
         'App\\Repository\\TrickRepository' => __DIR__ . '/../..' . '/src/Repository/TrickRepository.php',
         'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'App\\Security\\UsersAuthenticator' => __DIR__ . '/../..' . '/src/Security/UsersAuthenticator.php',
@@ -5667,6 +5683,26 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'Symfony\\Component\\Translation\\Util\\XliffUtils' => __DIR__ . '/..' . '/symfony/translation/Util/XliffUtils.php',
         'Symfony\\Component\\Translation\\Writer\\TranslationWriter' => __DIR__ . '/..' . '/symfony/translation/Writer/TranslationWriter.php',
         'Symfony\\Component\\Translation\\Writer\\TranslationWriterInterface' => __DIR__ . '/..' . '/symfony/translation/Writer/TranslationWriterInterface.php',
+        'Symfony\\Component\\Uid\\AbstractUid' => __DIR__ . '/..' . '/symfony/uid/AbstractUid.php',
+        'Symfony\\Component\\Uid\\BinaryUtil' => __DIR__ . '/..' . '/symfony/uid/BinaryUtil.php',
+        'Symfony\\Component\\Uid\\Command\\GenerateUlidCommand' => __DIR__ . '/..' . '/symfony/uid/Command/GenerateUlidCommand.php',
+        'Symfony\\Component\\Uid\\Command\\GenerateUuidCommand' => __DIR__ . '/..' . '/symfony/uid/Command/GenerateUuidCommand.php',
+        'Symfony\\Component\\Uid\\Command\\InspectUlidCommand' => __DIR__ . '/..' . '/symfony/uid/Command/InspectUlidCommand.php',
+        'Symfony\\Component\\Uid\\Command\\InspectUuidCommand' => __DIR__ . '/..' . '/symfony/uid/Command/InspectUuidCommand.php',
+        'Symfony\\Component\\Uid\\Factory\\NameBasedUuidFactory' => __DIR__ . '/..' . '/symfony/uid/Factory/NameBasedUuidFactory.php',
+        'Symfony\\Component\\Uid\\Factory\\RandomBasedUuidFactory' => __DIR__ . '/..' . '/symfony/uid/Factory/RandomBasedUuidFactory.php',
+        'Symfony\\Component\\Uid\\Factory\\TimeBasedUuidFactory' => __DIR__ . '/..' . '/symfony/uid/Factory/TimeBasedUuidFactory.php',
+        'Symfony\\Component\\Uid\\Factory\\UlidFactory' => __DIR__ . '/..' . '/symfony/uid/Factory/UlidFactory.php',
+        'Symfony\\Component\\Uid\\Factory\\UuidFactory' => __DIR__ . '/..' . '/symfony/uid/Factory/UuidFactory.php',
+        'Symfony\\Component\\Uid\\NilUlid' => __DIR__ . '/..' . '/symfony/uid/NilUlid.php',
+        'Symfony\\Component\\Uid\\NilUuid' => __DIR__ . '/..' . '/symfony/uid/NilUuid.php',
+        'Symfony\\Component\\Uid\\Ulid' => __DIR__ . '/..' . '/symfony/uid/Ulid.php',
+        'Symfony\\Component\\Uid\\Uuid' => __DIR__ . '/..' . '/symfony/uid/Uuid.php',
+        'Symfony\\Component\\Uid\\UuidV1' => __DIR__ . '/..' . '/symfony/uid/UuidV1.php',
+        'Symfony\\Component\\Uid\\UuidV3' => __DIR__ . '/..' . '/symfony/uid/UuidV3.php',
+        'Symfony\\Component\\Uid\\UuidV4' => __DIR__ . '/..' . '/symfony/uid/UuidV4.php',
+        'Symfony\\Component\\Uid\\UuidV5' => __DIR__ . '/..' . '/symfony/uid/UuidV5.php',
+        'Symfony\\Component\\Uid\\UuidV6' => __DIR__ . '/..' . '/symfony/uid/UuidV6.php',
         'Symfony\\Component\\Validator\\Attribute\\HasNamedArguments' => __DIR__ . '/..' . '/symfony/validator/Attribute/HasNamedArguments.php',
         'Symfony\\Component\\Validator\\Command\\DebugCommand' => __DIR__ . '/..' . '/symfony/validator/Command/DebugCommand.php',
         'Symfony\\Component\\Validator\\Constraint' => __DIR__ . '/..' . '/symfony/validator/Constraint.php',
@@ -6073,6 +6109,7 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\Regex' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Resources/unidata/Regex.php',
         'Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Normalizer.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
+        'Symfony\\Polyfill\\Uuid\\Uuid' => __DIR__ . '/..' . '/symfony/polyfill-uuid/Uuid.php',
         'Symfony\\Runtime\\Symfony\\Component\\Console\\ApplicationRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/Console/ApplicationRuntime.php',
         'Symfony\\Runtime\\Symfony\\Component\\Console\\Command\\CommandRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/Console/Command/CommandRuntime.php',
         'Symfony\\Runtime\\Symfony\\Component\\Console\\Input\\InputInterfaceRuntime' => __DIR__ . '/..' . '/symfony/runtime/Internal/Console/Input/InputInterfaceRuntime.php',

@@ -22,7 +22,7 @@ class Commentary
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(name: 'user_id', nullable: false)]
-    private ?user $userId = null;
+    private ?User $userId = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(name: 'trick_id', nullable: false)]

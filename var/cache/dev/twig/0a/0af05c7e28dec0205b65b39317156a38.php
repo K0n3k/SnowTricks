@@ -96,9 +96,10 @@ window.onload = function() {
 };
 
 function showLoadMore() {
+  console.log(offset);
 \tif(offset >= ";
-        // line 17
-        echo twig_escape_filter($this->env, (isset($context["maxCommentarys"]) || array_key_exists("maxCommentarys", $context) ? $context["maxCommentarys"] : (function () { throw new RuntimeError('Variable "maxCommentarys" does not exist.', 17, $this->source); })()), "html", null, true);
+        // line 18
+        echo twig_escape_filter($this->env, (isset($context["maxCommentarys"]) || array_key_exists("maxCommentarys", $context) ? $context["maxCommentarys"] : (function () { throw new RuntimeError('Variable "maxCommentarys" does not exist.', 18, $this->source); })()), "html", null, true);
         echo ") {
 \t\tbtn = document.getElementById('loadMore');
 \t\tbtn.style.visibility = 'hidden';
@@ -108,14 +109,11 @@ function showLoadMore() {
 function loadMore() {
 \t\$.ajax({
 \t\turl: \"";
-        // line 25
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_commentarysAjax");
+        // line 26
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_commentarysAjax", ["trickId" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 26, $this->source); })()), "id", [], "any", false, false, false, 26)]), "html", null, true);
         echo "\",
 \t\ttype: \"POST\",
-\t\tdata: {offset: offset, trickId: '";
-        // line 27
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 27, $this->source); })()), "id", [], "any", false, false, false, 27), "html", null, true);
-        echo "'},
+\t\tdata: {offset},
 
 \t\tsuccess: function(result) {
 \t\t\tjsonContent = \$.parseJSON(result);
@@ -229,7 +227,7 @@ function loadMore() {
 
     }
 
-    // line 134
+    // line 135
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -239,7 +237,7 @@ function loadMore() {
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 135
+        // line 136
         echo " <main>
     <div class=\"album py-5 bg-light position-relative trickPage\">
       <div class=\"container\">
@@ -306,70 +304,70 @@ function loadMore() {
                     </div>
                     <div class=\"row\">
                       <p>";
-        // line 200
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 200, $this->source); })()), "description", [], "any", false, false, false, 200), "html", null, true);
+        // line 201
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 201, $this->source); })()), "description", [], "any", false, false, false, 201), "html", null, true);
         echo "</p>
                     </div>
                     <div class=\"row\">
                       <div class=\"d-inline-flex justify-content-center\">
                         <h4 class=\"mx-3\">Created <span class=\"badge bg-secondary col\">";
-        // line 204
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 204, $this->source); })()), "publishedDate", [], "any", false, false, false, 204), "Y-m-d"), "html", null, true);
+        // line 205
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 205, $this->source); })()), "publishedDate", [], "any", false, false, false, 205), "Y-m-d"), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">By <span class=\"badge bg-secondary col\">";
-        // line 205
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 205, $this->source); })()), "userId", [], "any", false, false, false, 205), "username", [], "any", false, false, false, 205), "html", null, true);
+        // line 206
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 206, $this->source); })()), "userId", [], "any", false, false, false, 206), "username", [], "any", false, false, false, 206), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">In group <span class=\"badge bg-secondary col\">";
-        // line 206
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 206, $this->source); })()), "groupId", [], "any", false, false, false, 206), "name", [], "any", false, false, false, 206), "html", null, true);
+        // line 207
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 207, $this->source); })()), "groupId", [], "any", false, false, false, 207), "name", [], "any", false, false, false, 207), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">Last update <span class=\"badge bg-secondary col\">
                         ";
-        // line 208
-        if ((null === twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 208, $this->source); })()), "lastUpdated", [], "any", false, false, false, 208))) {
-            // line 209
+        // line 209
+        if ((null === twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 209, $this->source); })()), "lastUpdated", [], "any", false, false, false, 209))) {
+            // line 210
             echo "                          Never
                         ";
         } else {
-            // line 210
+            // line 211
             echo "  
                           ";
-            // line 211
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 211, $this->source); })()), "lastUpdated", [], "any", false, false, false, 211), "Y-m-d"), "html", null, true);
+            // line 212
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 212, $this->source); })()), "lastUpdated", [], "any", false, false, false, 212), "Y-m-d"), "html", null, true);
             echo "
                         ";
         }
-        // line 212
+        // line 213
         echo "                          
                         </span></h4>
                       </div>
                     </div>
                     <hr>
                     ";
-        // line 217
+        // line 218
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 218
+            // line 219
             echo "                      <div class=\"row\">
                         ";
-            // line 219
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 219, $this->source); })()), 'form');
+            // line 220
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 220, $this->source); })()), 'form');
             echo "
                       </div>
                       <hr>
                     ";
         }
-        // line 223
+        // line 224
         echo "                    <div id=\"commentarys\" class=\"mb-5\">
                     
                    ";
-        // line 225
+        // line 226
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 225, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 226, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["commentary"]) {
-            // line 226
+            // line 227
             echo "                    <div class=\"row shadow-sm m-3\" id=\"Commentary_";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "id", [], "any", false, false, false, 226), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "id", [], "any", false, false, false, 227), "html", null, true);
             echo "\">
                       <div class=\"col col-1 mx-3\">
                         <?xml version=\"1.0\" encoding=\"iso-8859-1\"?>
@@ -449,20 +447,20 @@ function loadMore() {
                           </g>
                         </svg>
                         <p style=\"white-space: nowrap;\">";
-            // line 304
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "userId", [], "any", false, false, false, 304), "Username", [], "any", false, false, false, 304), "html", null, true);
+            // line 305
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["commentary"], "userId", [], "any", false, false, false, 305), "Username", [], "any", false, false, false, 305), "html", null, true);
             echo "</p>
                       <br>
                       <p style=\"white-space: nowrap;\">";
-            // line 306
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "publishedDate", [], "any", false, false, false, 306), "Y-m-d"), "html", null, true);
+            // line 307
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "publishedDate", [], "any", false, false, false, 307), "Y-m-d"), "html", null, true);
             echo "</p>
                       <br>
                       </div>
                       <div class=\"col\">
                         <p>";
-            // line 310
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "commentary", [], "any", false, false, false, 310), "html", null, true);
+            // line 311
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentary"], "commentary", [], "any", false, false, false, 311), "html", null, true);
             echo "</p>
                       </div>
                     </div>
@@ -471,7 +469,7 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentary'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 314
+        // line 315
         echo "                    </div>
                   </div>
                   <div class=\"row\">
@@ -508,7 +506,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  475 => 314,  465 => 310,  458 => 306,  453 => 304,  371 => 226,  367 => 225,  363 => 223,  356 => 219,  353 => 218,  351 => 217,  344 => 212,  339 => 211,  336 => 210,  332 => 209,  330 => 208,  325 => 206,  321 => 205,  317 => 204,  310 => 200,  243 => 135,  233 => 134,  117 => 27,  112 => 25,  101 => 17,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
+        return array (  473 => 315,  463 => 311,  456 => 307,  451 => 305,  369 => 227,  365 => 226,  361 => 224,  354 => 220,  351 => 219,  349 => 218,  342 => 213,  337 => 212,  334 => 211,  330 => 210,  328 => 209,  323 => 207,  319 => 206,  315 => 205,  308 => 201,  241 => 136,  231 => 135,  113 => 26,  102 => 18,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -529,6 +527,7 @@ window.onload = function() {
 };
 
 function showLoadMore() {
+  console.log(offset);
 \tif(offset >= {{ maxCommentarys }}) {
 \t\tbtn = document.getElementById('loadMore');
 \t\tbtn.style.visibility = 'hidden';
@@ -537,9 +536,9 @@ function showLoadMore() {
 
 function loadMore() {
 \t\$.ajax({
-\t\turl: \"{{ path('app_commentarysAjax') }}\",
+\t\turl: \"{{ path('app_commentarysAjax', {trickId: trick.id}) }}\",
 \t\ttype: \"POST\",
-\t\tdata: {offset: offset, trickId: '{{ trick.id }}'},
+\t\tdata: {offset},
 
 \t\tsuccess: function(result) {
 \t\t\tjsonContent = \$.parseJSON(result);
