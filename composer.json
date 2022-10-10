@@ -39,6 +39,7 @@
         "symfony/string": "6.1.*",
         "symfony/translation": "6.1.*",
         "symfony/twig-bundle": "6.1.*",
+        "symfony/uid": "6.1.*",
         "symfony/validator": "6.1.*",
         "symfony/web-link": "6.1.*",
         "symfony/yaml": "6.1.*",
@@ -105,6 +106,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^6.1",
         "symfony/stopwatch": "6.1.*",
+        "symfony/var-dumper": "6.1.*",
         "symfony/web-profiler-bundle": "6.1.*"
     }
 }

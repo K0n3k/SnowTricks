@@ -14,6 +14,7 @@ window.onload = function() {
 };
 
 function showLoadMore() {
+  console.log(offset);
 	if(offset >= {{ maxCommentarys }}) {
 		btn = document.getElementById('loadMore');
 		btn.style.visibility = 'hidden';
@@ -22,9 +23,9 @@ function showLoadMore() {
 
 function loadMore() {
 	$.ajax({
-		url: "{{ path('app_commentarysAjax') }}",
+		url: "{{ path('app_commentarysAjax', {trickId: trick.id}) }}",
 		type: "POST",
-		data: {offset: offset, trickId: '{{ trick.id }}'},
+		data: {offset},
 
 		success: function(result) {
 			jsonContent = $.parseJSON(result);

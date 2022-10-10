@@ -40,10 +40,11 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/figure/tricks/(?'
-                    .'|([^/]++)(*:195)'
-                    .'|ajax(*:207)'
+                .'|/figure/trick(?'
+                    .'|s/([^/]++)(*:195)'
+                    .'|/ajax/([^/]++)(*:217)'
                 .')'
+                .'|/user/validation/([^/]++)(*:251)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -55,8 +56,9 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         195 => [[['_route' => 'app_trick', '_controller' => 'App\\Controller\\TrickController::trick'], ['trickId'], null, null, false, true, null]],
-        207 => [
-            [['_route' => 'app_commentarysAjax', '_controller' => 'App\\Controller\\TrickController::commentarysListAjax'], [], ['POST' => 0], null, true, false, null],
+        217 => [[['_route' => 'app_commentarysAjax', '_controller' => 'App\\Controller\\TrickController::commentarysListAjax'], ['trickId'], ['POST' => 0], null, false, true, null]],
+        251 => [
+            [['_route' => 'app_userToken', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

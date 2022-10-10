@@ -18,8 +18,8 @@ class RegistrationToken
     private ?string $token = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?user $userId = null;
+    #[ORM\JoinColumn(name: 'user_id',nullable: false)]
+    private ?User $userId = null;
 
     public function getId(): ?int
     {
