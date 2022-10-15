@@ -54,7 +54,6 @@ class UserController extends AbstractController
             
             $userRepository->save($user, true);
             
-
             $registrationToken->setToken(Uuid::v4());
             $registrationToken->setUserId($user);
             $registrationTokenRepository->save($registrationToken, true);
@@ -67,6 +66,7 @@ class UserController extends AbstractController
                     'user' => $user,
                     'registrationToken' => $registrationToken,
                 ]));
+                $this->addFlash('success', 'A token had been send to your email, please validate your account!');
 
             return $this->redirectToRoute('home');
         } else {

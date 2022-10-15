@@ -13,9 +13,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(UserRepository $userRepository): Response
     {
-
         $user = $userRepository->findOneBy(['id' => $this->getUser()]);
         if($user !== null && $user->getIsValidated() === false) {
+            $this->addFlash('error', 'Your account is not validated!');
          return $this->redirectToRoute('logout'); 
          
         }

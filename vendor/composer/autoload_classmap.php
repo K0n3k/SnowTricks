@@ -18,6 +18,7 @@ return array(
     'App\\Entity\\Trick' => $baseDir . '/src/Entity/Trick.php',
     'App\\Entity\\User' => $baseDir . '/src/Entity/User.php',
     'App\\Form\\CommentaryType' => $baseDir . '/src/Form/CommentaryType.php',
+    'App\\Form\\TrickType' => $baseDir . '/src/Form/TrickType.php',
     'App\\Form\\UserType' => $baseDir . '/src/Form/UserType.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\CommentaryRepository' => $baseDir . '/src/Repository/CommentaryRepository.php',
