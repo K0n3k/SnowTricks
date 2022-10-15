@@ -74,6 +74,8 @@ return [[
 '[C]App%5CController%5CTrickController%23trick' => 1,
 'App%5CController%5CTrickController%23commentarysListAjax' => 0,
 '[C]App%5CController%5CTrickController%23commentarysListAjax' => 1,
+'App%5CController%5CTrickController%23addTrick' => 0,
+'[C]App%5CController%5CTrickController%23addTrick' => 1,
 'App%5CController%5CTrickController%24tricksLimit' => 0,
 '[C]App%5CController%5CTrickController%24tricksLimit' => 1,
 'App%5CController%5CTrickController%24commentaryLimit' => 0,
@@ -258,8 +260,8 @@ return [[
 '[C]App%5CEntity%5CUser%23getusername' => 1,
 'App%5CEntity%5CUser%23setusername' => 0,
 '[C]App%5CEntity%5CUser%23setusername' => 1,
-'App%5CEntity%5CUser%23isIsValidated' => 0,
-'[C]App%5CEntity%5CUser%23isIsValidated' => 1,
+'App%5CEntity%5CUser%23getIsValidated' => 0,
+'[C]App%5CEntity%5CUser%23getIsValidated' => 1,
 'App%5CEntity%5CUser%23setIsValidated' => 0,
 '[C]App%5CEntity%5CUser%23setIsValidated' => 1,
 'App%5CEntity%5CUser%24id' => 0,
@@ -824,6 +826,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1665193143,
+1 => 1665694343,
 
 ]];

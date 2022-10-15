@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Repository\CommentaryRepository;
 use App\Repository\TrickRepository;
+use App\Entity\Trick;
 use App\Entity\Commentary;
 use App\Form\CommentaryType;
+use App\Form\TrickType;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
@@ -61,9 +63,8 @@ class TrickController extends AbstractController
             $commentary->setUserId($this->getUser());
             $commentary->setTrickId($trick);
             $commentary->setPublishedDate(new DateTime());
-            $entityManager->persist($commentary);
-            $entityManager->flush();
-
+            $commentaryRepository->save($commentary);
+            //$entityManager->flush();
             return $this->redirectToRoute('app_trick',['trickId' => $trickId]);
         }
         return $this->render('trick/trick.html.twig', [
@@ -88,5 +89,27 @@ class TrickController extends AbstractController
             $serializer = new Serializer([new ObjectNormalizer()], [new XmlEncoder(), new JsonEncoder()]);
             return new JsonResponse($serializer->serialize($commentaryRepository->findBy(['trickId' => $trickId], null, $this->commentaryLimit, $offset), 'json'));
         
+    }
+
+    #[Route('/figure/trick/add/', name: 'app_addTrick')]
+    public function addTrick(Request $request, TrickRepository $trickRepository): Response
+    {
+        $trick = new Trick();
+        
+        $trickForm = $this->createForm(TrickType::class, $trick);
+        $trickForm->handleRequest($request);
+        
+        if ($trickForm->isSubmitted() && $trickForm->isValid()) {
+            $trick->setUserId($this->getUser());
+            $trick->setPublishedDate(new DateTime());
+            $trickRepository->save($trick, true);
+            return $this->redirectToRoute('app_tricks');
+        }
+
+        return $this->render('trick/addTrick.html.twig', [
+            'controller_name' => 'TrickController',
+            'trickForm' => $trickForm->createView(),
+        ]);
+            
     }
 }

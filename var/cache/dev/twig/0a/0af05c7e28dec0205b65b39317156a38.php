@@ -305,7 +305,7 @@ function loadMore() {
                     <div class=\"row\">
                       <p>";
         // line 201
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 201, $this->source); })()), "description", [], "any", false, false, false, 201), "html", null, true);
+        echo twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 201, $this->source); })()), "description", [], "any", false, false, false, 201);
         echo "</p>
                     </div>
                     <div class=\"row\">
@@ -711,7 +711,7 @@ function loadMore() {
                       </div>
                     </div>
                     <div class=\"row\">
-                      <p>{{ trick.description }}</p>
+                      <p>{{ trick.description|raw }}</p>
                     </div>
                     <div class=\"row\">
                       <div class=\"d-inline-flex justify-content-center\">

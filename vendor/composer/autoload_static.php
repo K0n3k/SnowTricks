@@ -595,6 +595,7 @@ class ComposerStaticInit4d5f761a9cbae8377564349764db3e59
         'App\\Entity\\Trick' => __DIR__ . '/../..' . '/src/Entity/Trick.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Form\\CommentaryType' => __DIR__ . '/../..' . '/src/Form/CommentaryType.php',
+        'App\\Form\\TrickType' => __DIR__ . '/../..' . '/src/Form/TrickType.php',
         'App\\Form\\UserType' => __DIR__ . '/../..' . '/src/Form/UserType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\CommentaryRepository' => __DIR__ . '/../..' . '/src/Repository/CommentaryRepository.php',

@@ -19,6 +19,7 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/figure/tricks' => [[['_route' => 'app_tricks', '_controller' => 'App\\Controller\\TrickController::tricksList'], null, null, null, false, false, null]],
         '/figure/tricks/ajax' => [[['_route' => 'app_tricksAjax', '_controller' => 'App\\Controller\\TrickController::tricksListAjax'], null, ['POST' => 0], null, false, false, null]],
+        '/figure/trick/add' => [[['_route' => 'app_addTrick', '_controller' => 'App\\Controller\\TrickController::addTrick'], null, null, null, true, false, null]],
         '/user/sign-in' => [[['_route' => 'sign-in', '_controller' => 'App\\Controller\\UserController::sign_in'], null, null, null, false, false, null]],
         '/user/sign-up' => [[['_route' => 'sign-up', '_controller' => 'App\\Controller\\UserController::sign_up'], null, null, null, false, false, null]],
         '/user/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\UserController::logout'], null, null, null, false, false, null]],
