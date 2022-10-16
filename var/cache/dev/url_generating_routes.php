@@ -31,6 +31,6 @@ return [
     'registration_validation' => [['token'], ['_controller' => 'App\\Controller\\UserController::validateAccount'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/user/validation']], [], [], []],
     'resend_registration_token' => [[], ['_controller' => 'App\\Controller\\UserController::resendRegistrationToken'], [], [['text', '/user/resendRegistrationToken/']], [], [], []],
     'send_password_rerset_link' => [[], ['_controller' => 'App\\Controller\\UserController::sendPasswordResetLink'], [], [['text', '/user/sendPasswordResetLink/']], [], [], []],
-    'reset_password' => [['token'], ['_controller' => 'App\\Controller\\UserController::resetPassword'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/user/reset_password']], [], [], []],
+    'reset_password' => [['token'], ['_controller' => 'App\\Controller\\UserController::resetPassword'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/user/resetPassword']], [], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\UserController::logout'], [], [['text', '/user/logout']], [], [], []],
 ];

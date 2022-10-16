@@ -51,7 +51,7 @@ return [
                 .')'
                 .'|/user/(?'
                     .'|validation/([^/]++)(*:312)'
-                    .'|reset_password/([^/]++)(*:343)'
+                    .'|resetPassword/([^/]++)(*:342)'
                 .')'
             .')/?$}sDu',
     ],
@@ -68,7 +68,7 @@ return [
         252 => [[['_route' => 'delete_trick', '_controller' => 'App\\Controller\\TrickController::deleteTrick'], ['trickId'], null, null, false, true, null]],
         275 => [[['_route' => 'modify_trick', '_controller' => 'App\\Controller\\TrickController::modifyTrick'], ['trickId'], null, null, false, true, null]],
         312 => [[['_route' => 'registration_validation', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null]],
-        343 => [
+        342 => [
             [['_route' => 'reset_password', '_controller' => 'App\\Controller\\UserController::resetPassword'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

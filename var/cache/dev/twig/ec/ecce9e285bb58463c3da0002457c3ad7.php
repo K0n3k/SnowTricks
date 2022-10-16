@@ -102,12 +102,14 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
                         <label for=\"InputPassword1\" class=\"form-label\">Password</label>
                         <input type=\"password\" class=\"form-control\" name=\"password\" id=\"InputPassword1\" required=\"required\">
                     </div>
-                    <div class=\"mb-3 form-check\">
-                        <input type=\"checkbox\" class=\"form-check-input\" id=\"Check1\">
-                        <label class=\"form-check-label\" for=\"Check1\">Check me out</label>
+                    <div class=\"mb-3\">
+                        <a href=\"";
+        // line 24
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("send_password_rerset_link");
+        echo "\">Forgot password?</a>
                     </div>
 \t\t\t\t\t<input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 27
+        // line 26
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\">
                     <button type=\"submit\" class=\"btn btn-primary\">Login</button>
@@ -138,7 +140,7 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
 
     public function getDebugInfo()
     {
-        return array (  111 => 27,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  113 => 26,  108 => 24,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -165,9 +167,8 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
                         <label for=\"InputPassword1\" class=\"form-label\">Password</label>
                         <input type=\"password\" class=\"form-control\" name=\"password\" id=\"InputPassword1\" required=\"required\">
                     </div>
-                    <div class=\"mb-3 form-check\">
-                        <input type=\"checkbox\" class=\"form-check-input\" id=\"Check1\">
-                        <label class=\"form-check-label\" for=\"Check1\">Check me out</label>
+                    <div class=\"mb-3\">
+                        <a href=\"{{ path('send_password_rerset_link') }}\">Forgot password?</a>
                     </div>
 \t\t\t\t\t<input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
                     <button type=\"submit\" class=\"btn btn-primary\">Login</button>

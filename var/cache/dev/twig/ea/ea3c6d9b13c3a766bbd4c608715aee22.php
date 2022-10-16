@@ -44,19 +44,32 @@ class __TwigTemplate_e93f3e568320ecacc1c2a8d5c53609fb extends Template
             // line 2
             echo "<div class=\"modal fade\" id=\"modal_";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2), "html", null, true);
-            echo "\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+            echo "\" tabindex=\"-1\" aria-labelledby=\"ModalLabel_";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2), "html", null, true);
+            echo "\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
     <div class=\"modal-content\">
       <div class=\"modal-header\">
-        <h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Modal title</h1>
+        <h1 class=\"modal-title fs-5\" id=\"ModalLabel_";
+            // line 6
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 6, $this->source); })()), "id", [], "any", false, false, false, 6), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 6, $this->source); })()), "name", [], "any", false, false, false, 6), "html", null, true);
+            echo "</h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
-        ...
+        <p>This action is irremediable, are you sure to delete <strong>";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 10, $this->source); })()), "name", [], "any", false, false, false, 10), "html", null, true);
+            echo "</strong>?</p>
       </div>
       <div class=\"modal-footer\">
-        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>
-        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>
+        <a href=\"";
+            // line 13
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["trickId" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13)]), "html", null, true);
+            echo "\" type=\"button\" class=\"btn btn-dark\">Delete</a>
+        <button type=\"button\" class=\"btn btn-danger\" data-bs-dismiss=\"modal\">Discard</button>
       </div>
     </div>
   </div>
@@ -83,25 +96,25 @@ class __TwigTemplate_e93f3e568320ecacc1c2a8d5c53609fb extends Template
 
     public function getDebugInfo()
     {
-        return array (  45 => 2,  43 => 1,);
+        return array (  70 => 13,  64 => 10,  55 => 6,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-<div class=\"modal fade\" id=\"modal_{{ trick.id }}\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+<div class=\"modal fade\" id=\"modal_{{ trick.id }}\" tabindex=\"-1\" aria-labelledby=\"ModalLabel_{{ trick.id }}\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
     <div class=\"modal-content\">
       <div class=\"modal-header\">
-        <h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Modal title</h1>
+        <h1 class=\"modal-title fs-5\" id=\"ModalLabel_{{ trick.id }}\">{{ trick.name }}</h1>
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
-        ...
+        <p>This action is irremediable, are you sure to delete <strong>{{ trick.name }}</strong>?</p>
       </div>
       <div class=\"modal-footer\">
-        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>
-        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>
+        <a href=\"{{ path('delete_trick', {'trickId': trick.id}) }}\" type=\"button\" class=\"btn btn-dark\">Delete</a>
+        <button type=\"button\" class=\"btn btn-danger\" data-bs-dismiss=\"modal\">Discard</button>
       </div>
     </div>
   </div>

@@ -17,7 +17,7 @@ class RegistrationToken
     #[ORM\Column(type: Types::GUID)]
     private ?string $token = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(targetEntity: 'App\Entity\User')]
     #[ORM\JoinColumn(name: 'user_id',nullable: false)]
     private ?User $userId = null;
 
