@@ -1,0 +1,10 @@
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal_{{ trick.id }}">
+            <img src="{{ asset("Style/img/trash-svgrepo-com.svg") }}" alt="pen icon" height="16"/>
+        </button>
+        <a href="{{ path('modify_trick', {'trickId': trick.id}) }}" class="btn btn-sm btn-outline-secondary">
+            <img src="{{ asset("Style/img/pencil-svgrepo-com.svg") }}" alt="pen icon" height="16"/>
+        </a>
+    </div>
+{% endif %}

@@ -22,7 +22,6 @@ class TrickType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => "Description",
-                    'height' => '300px',
                 ],
             ])
             ->add('groupId', EntityType::class, [
@@ -32,7 +31,8 @@ class TrickType extends AbstractType
             ])
             ->add('Create_Trick', SubmitType::class, [
                     'attr' => [
-                    'class' => 'form-control btn-primary',
+                    'class' => 'form-control btn-dark',
+                    'type' => 'button',
                 ],
             ]);
     }

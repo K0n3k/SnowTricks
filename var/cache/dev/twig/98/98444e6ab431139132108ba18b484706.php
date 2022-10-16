@@ -64,7 +64,7 @@ class __TwigTemplate_2ee3477ed4dd2298d98713f9b7b4162c extends Template
         echo " !</h1>
 <a href=\"http://localhost";
         // line 20
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_userToken", ["token" => twig_get_attribute($this->env, $this->source, (isset($context["registrationToken"]) || array_key_exists("registrationToken", $context) ? $context["registrationToken"] : (function () { throw new RuntimeError('Variable "registrationToken" does not exist.', 20, $this->source); })()), "token", [], "any", false, false, false, 20)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("registration_validation", ["token" => (isset($context["registrationToken"]) || array_key_exists("registrationToken", $context) ? $context["registrationToken"] : (function () { throw new RuntimeError('Variable "registrationToken" does not exist.', 20, $this->source); })())]), "html", null, true);
         echo "\">Validate my account</a>
 
 
@@ -115,7 +115,7 @@ class __TwigTemplate_2ee3477ed4dd2298d98713f9b7b4162c extends Template
 <body>
 
 <h1>Welcome on snowtrick {{ user.username }} !</h1>
-<a href=\"http://localhost{{ path('app_userToken', { 'token': registrationToken.token }) }}\">Validate my account</a>
+<a href=\"http://localhost{{ path('registration_validation', { 'token': registrationToken }) }}\">Validate my account</a>
 
 
 </body>

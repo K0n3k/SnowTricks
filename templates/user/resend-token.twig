@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="album py-5 bg-light">
+
+				<h1 class="position-relative start-50 bottom-0 translate-middle-x">Registration</h1>
+			<div class="input-group justify-content-center">
+				{{ form(resendRegistrationTokenForm) }}
+			</div>
+		</div>
+	</main>
+{% endblock %}

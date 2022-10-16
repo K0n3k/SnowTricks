@@ -72,11 +72,11 @@ class __TwigTemplate_2d6450feb564f3d979750a3cbe1e0b5d extends Template
         <div class=\"col justify-content-end text-white d-flex\">
             <a href=\"";
         // line 12
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_tricks");
         echo "\" class=\"text-white\">Home</a> &nbsp;|&nbsp;
             <a href=\"";
         // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tricks");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_tricks");
         echo "#tricks\" class=\"text-white\">Tricks</a> &nbsp;|&nbsp;
 \t\t";
         // line 14
@@ -146,8 +146,8 @@ class __TwigTemplate_2d6450feb564f3d979750a3cbe1e0b5d extends Template
             </a>
         </div>
         <div class=\"col justify-content-end text-white d-flex\">
-            <a href=\"{{ path('app_tricks') }}\" class=\"text-white\">Home</a> &nbsp;|&nbsp;
-            <a href=\"{{ path('app_tricks') }}#tricks\" class=\"text-white\">Tricks</a> &nbsp;|&nbsp;
+            <a href=\"{{ path('show_tricks') }}\" class=\"text-white\">Home</a> &nbsp;|&nbsp;
+            <a href=\"{{ path('show_tricks') }}#tricks\" class=\"text-white\">Tricks</a> &nbsp;|&nbsp;
 \t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 \t\t\t\t\t\t\t\t<div class=\"dropdown\">
 \t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle text-white\" data-bs-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"false\">{{ app.user.Username }}</a>
