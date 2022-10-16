@@ -377,6 +377,9 @@
     <service id="App\Form\ResendRegistrationTokenType" class="App\Form\ResendRegistrationTokenType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ResetPasswordType" class="App\Form\ResetPasswordType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\TrickType" class="App\Form\TrickType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -1204,6 +1207,7 @@
       <argument type="collection">
         <argument>App\Form\CommentaryType</argument>
         <argument>App\Form\ResendRegistrationTokenType</argument>
+        <argument>App\Form\ResetPasswordType</argument>
         <argument>App\Form\TrickType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -3207,7 +3211,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.CSC8JSH"/>
+      <argument type="service" id=".service_locator.pduZ1C6"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5998,6 +6002,8 @@
     <service id=".abstract.instanceof.App\Form\CommentaryType" class="App\Form\CommentaryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResendRegistrationTokenType" class="App\Form\ResendRegistrationTokenType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ResendRegistrationTokenType" class="App\Form\ResendRegistrationTokenType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordType" class="App\Form\ResetPasswordType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ResetPasswordType" class="App\Form\ResetPasswordType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TrickType" class="App\Form\TrickType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TrickType" class="App\Form\TrickType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
@@ -6403,15 +6409,15 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.__1UljF" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.WHB6p3q" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="registrationTokenRepository" type="service_closure" id="App\Repository\RegistrationTokenRepository"/>
-        <argument key="token" type="service_closure" id=".errored..service_locator.__1UljF.Symfony\Component\Uid\Uuid"/>
-        <argument key="user" type="service_closure" id=".errored..service_locator.__1UljF.App\Entity\User"/>
+        <argument key="passwordHasher" type="service_closure" id="security.user_password_hasher"/>
+        <argument key="tokenRepository" type="service_closure" id="App\Repository\RegistrationTokenRepository"/>
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.jSM8NXu" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.IWHHgNy" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.Q1F27w5"/>
@@ -6423,8 +6429,9 @@
         <argument key="App\Controller\TrickController::modifyTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\TrickController::trick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
         <argument key="App\Controller\TrickController::tricksList" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\UserController::createRegistrationToken" type="service_closure" id=".service_locator.__1UljF"/>
         <argument key="App\Controller\UserController::resendRegistrationToken" type="service_closure" id=".service_locator.eWzQKNp"/>
+        <argument key="App\Controller\UserController::resetPassword" type="service_closure" id=".service_locator.WHB6p3q"/>
+        <argument key="App\Controller\UserController::sendPasswordResetLink" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController::sign_in" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\UserController::sign_up" type="service_closure" id=".service_locator.phlhmTB"/>
         <argument key="App\Controller\UserController::validateAccount" type="service_closure" id=".service_locator.eWzQKNp"/>
@@ -6443,8 +6450,9 @@
         <argument key="App\Controller\TrickController:modifyTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\TrickController:trick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
         <argument key="App\Controller\TrickController:tricksList" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\UserController:createRegistrationToken" type="service_closure" id=".service_locator.__1UljF"/>
         <argument key="App\Controller\UserController:resendRegistrationToken" type="service_closure" id=".service_locator.eWzQKNp"/>
+        <argument key="App\Controller\UserController:resetPassword" type="service_closure" id=".service_locator.WHB6p3q"/>
+        <argument key="App\Controller\UserController:sendPasswordResetLink" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController:sign_in" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\UserController:sign_up" type="service_closure" id=".service_locator.phlhmTB"/>
         <argument key="App\Controller\UserController:validateAccount" type="service_closure" id=".service_locator.eWzQKNp"/>
@@ -6622,11 +6630,12 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.CSC8JSH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.pduZ1C6" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CommentaryType" type="service_closure" id="App\Form\CommentaryType"/>
         <argument key="App\Form\ResendRegistrationTokenType" type="service_closure" id="App\Form\ResendRegistrationTokenType"/>
+        <argument key="App\Form\ResetPasswordType" type="service_closure" id="App\Form\ResetPasswordType"/>
         <argument key="App\Form\TrickType" type="service_closure" id="App\Form\TrickType"/>
         <argument key="App\Form\UserType" type="service_closure" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
@@ -7269,12 +7278,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.jSM8NXu"/>
+      <argument type="service" id=".service_locator.IWHHgNy"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.jSM8NXu"/>
+      <argument type="service" id=".service_locator.IWHHgNy"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7303,8 +7312,6 @@
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
-    <service id=".errored..service_locator.__1UljF.Symfony\Component\Uid\Uuid" class="Symfony\Component\Uid\Uuid"/>
-    <service id=".errored..service_locator.__1UljF.App\Entity\User" class="App\Entity\User"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8223,7 +8230,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.jSM8NXu"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.IWHHgNy"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8246,10 +8253,10 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.ZVM1wx9" alias=".service_locator.Gk1Xrxx"/>
     <service id=".service_locator.9K3hM3_" alias=".service_locator.phlhmTB"/>
-    <service id=".service_locator.JPzKne9" alias=".service_locator.__1UljF"/>
-    <service id=".service_locator.Wr1NhFe" alias=".service_locator.jSM8NXu"/>
+    <service id=".service_locator.RmkQkJi" alias=".service_locator.WHB6p3q"/>
+    <service id=".service_locator.JZ1NV7I" alias=".service_locator.IWHHgNy"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.9CKbBrF" alias=".service_locator.CSC8JSH"/>
+    <service id=".service_locator.VkHDa4O" alias=".service_locator.pduZ1C6"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator._eRAkJb" alias=".service_locator.jIxfAsi"/>
@@ -8306,7 +8313,7 @@
     <service id=".service_locator.lgyV1VX" alias=".service_locator.FvOwFPC"/>
     <service id=".service_locator.CUES.xb" alias=".service_locator.phlhmTB"/>
     <service id=".service_locator.j55JeUV" alias=".service_locator.eWzQKNp"/>
-    <service id=".service_locator.27h9BpL" alias=".service_locator.__1UljF"/>
+    <service id=".service_locator.yg5ntK8" alias=".service_locator.WHB6p3q"/>
     <service id=".service_locator.eAaUVIw" alias=".service_locator.jIxfAsi"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>
