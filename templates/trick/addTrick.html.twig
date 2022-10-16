@@ -98,6 +98,7 @@
 
                         {{ form_start(trickForm) }}
                         {{ form_row(trickForm.name, {'value': trick.name}) }}
+                        {{ form_row(trickForm.images) }}
                         {{ form_row(trickForm.description, {'value': trick.description}) }}
                         {{ form_row(trickForm.groupId, {'value': trick.groupId.id}) }}
                         <div class="buttons row mb-3">

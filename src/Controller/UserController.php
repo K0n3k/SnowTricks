@@ -14,7 +14,7 @@ use Symfony\Component\Mime\Exception\RfcComplianceException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Uid\Uuid;
@@ -193,7 +193,7 @@ class UserController extends AbstractController
 
     }
 
-    #[Route(path: '/user/reset_password/{token}', name: 'reset_password')]
+    #[Route(path: '/user/resetPassword/{token}', name: 'reset_password')]
     public function resetPassword(RegistrationTokenRepository $tokenRepository, UserRepository $userRepository, string $token, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $passwordToken = $tokenRepository->findOneBy(['token' => $token]);
@@ -207,15 +207,16 @@ class UserController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        $user = $userRepository->findOneBy(["id" => $passwordToken->getUserId()->getId()]);
+        $user = $userRepository->find($passwordToken->getUserId()->getId());
         
         $resetPasswordForm = $this->createForm(ResetPasswordType::class, $user);
         $resetPasswordForm->handleRequest($request);
 
         if ($resetPasswordForm->isSubmitted() && $resetPasswordForm->isValid()) {
             $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
+            
             $userRepository->save($user, true);
-            //$tokenRepository->remove($passwordToken, true);
+            $tokenRepository->remove($passwordToken, true);
             $this->addFlash('success', 'Your password had been successfuly reseted!');
             return $this->redirectToRoute('home');
         } 

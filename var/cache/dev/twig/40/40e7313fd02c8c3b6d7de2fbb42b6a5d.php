@@ -141,30 +141,35 @@ function loadMore() {
         // line 45
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
             // line 46
-            echo "\t\t\thtml += '\t<div class=\"modal fade\" id=\"modal_' + value.id + '\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">';
+            echo "\t\t\thtml += '\t<div class=\"modal fade\" id=\"modal_' + value.id + '\" tabindex=\"-1\" aria-labelledby=\"ModalLabel_' + value.id + '\" aria-hidden=\"true\">';
 \t\t\thtml += '\t\t<div class=\"modal-dialog\">';
 \t\t\thtml += '\t\t\t<div class=\"modal-content\">';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-header\">';
-\t\t\thtml += '\t\t\t\t\t<h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Modal title</h1>';
+\t\t\thtml += '\t\t\t\t\t<h1 class=\"modal-title fs-5\" id=\"ModalLabel_' + value.id + '\">Modal title</h1>';
 \t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-body\">';
-\t\t\thtml += '\t\t\t\t\t...';
+\t\t\thtml += '\t\t\t\t\t<p>This action is irremediable, are you sure to delete <strong>' + value.name + '</strong>?</p>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-footer\">';
+\t\t\tvar trickRoute = '";
+            // line 57
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["trickId" => "value_id"]);
+            echo "';
+\t\t\ttrickRoute = trickRoute.replace(\"value_id\", value.id);
+\t\t\thtml += '\t\t\t\t\t<a href=\"' + trickRoute + '\" type=\"button\" class=\"btn btn-dark\">Delete</a>';
 \t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>';
-\t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\">Save changes</button>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t</div>';
 \t\t\thtml += '\t\t</div>';
 \t\t\thtml += '\t</div>';
 \t\t\t";
         }
-        // line 64
+        // line 66
         echo "\t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"trick_' + value.id + '\">';
 \t\t\thtml += '\t\t\t\t<div class=\"card shadow-sm\">';
 \t\t\tvar viewRoute = '";
-        // line 66
+        // line 68
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["trickId" => "value_id"]);
         echo "';
 \t\t\tviewRoute = viewRoute.replace(\"value_id\", value.id);
@@ -179,26 +184,26 @@ function loadMore() {
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">';
 \t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.name + '</small>';
 \t\t\t";
-        // line 78
+        // line 80
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 79
+            // line 81
             echo "\t\t\t\tvar Editroute = '";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modify_trick", ["trickId" => "value_id"]);
             echo "';
 \t\t\t\tEditroute = Editroute.replace(\"value_id\", value.id);
 \t\t\t\thtml += '\t\t\t\t\t\t\t<div class=\"btn-group\">';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-bs-toggle=\"modal\" data-bs-target=\"#modal_' + value.id + '\"><img src=\"";
-            // line 82
+            // line 84
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/trash-svgrepo-com.svg"), "html", null, true);
             echo "\" alt=\"pen icon\" height=\"16\" /></button>';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<a href=\"' + Editroute + '\" class=\"btn btn-sm btn-outline-secondary\"><img src=\"";
-            // line 83
+            // line 85
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/pencil-svgrepo-com.svg"), "html", null, true);
             echo "\" alt=\"pen icon\" height=\"16\" /></a>';
 \t\t\t\thtml += '\t\t\t\t\t\t\t</div>';
 \t\t\t";
         }
-        // line 86
+        // line 88
         echo "\t\t\thtml += '\t\t\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t</div>';
@@ -225,7 +230,7 @@ function loadMore() {
 
     }
 
-    // line 105
+    // line 107
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -235,7 +240,7 @@ function loadMore() {
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 106
+        // line 108
         echo "
 \t<main>
 
@@ -257,9 +262,9 @@ function loadMore() {
 
 
 \t\t\t\t\t";
-        // line 126
+        // line 128
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 126, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 128, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -274,7 +279,7 @@ function loadMore() {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["trick"]) {
-            // line 127
+            // line 129
             echo "\t\t\t\t\t\t";
             echo twig_include($this->env, $context, "trick/_trickCard.html.twig");
             echo "
@@ -291,21 +296,21 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trick'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 129
+        // line 131
         echo "
 \t\t\t\t</div>
 \t\t\t\t<div class=\"text-center\">
 \t\t\t\t\t<button onClick=\"loadMore()\" class=\"btn btn-dark my-3\" id=\"loadMore\">Load More</button>
 \t\t\t\t\t";
-        // line 133
+        // line 135
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 134
+            // line 136
             echo "\t\t\t\t\t<a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_trick");
             echo "\" class=\"btn btn-dark my-3\">Add a trick</a>
 \t\t\t\t\t";
         }
-        // line 136
+        // line 138
         echo "\t\t\t\t</div>
 \t\t\t\t<a href=\"#tricks\" id=\"downArrow\">
 \t\t\t\t\t<div class=\"arrow_container\">
@@ -339,7 +344,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  309 => 136,  303 => 134,  301 => 133,  295 => 129,  278 => 127,  261 => 126,  239 => 106,  229 => 105,  202 => 86,  196 => 83,  192 => 82,  185 => 79,  183 => 78,  168 => 66,  164 => 64,  144 => 46,  142 => 45,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  314 => 138,  308 => 136,  306 => 135,  300 => 131,  283 => 129,  266 => 128,  244 => 108,  234 => 107,  207 => 88,  201 => 85,  197 => 84,  190 => 81,  188 => 80,  173 => 68,  169 => 66,  157 => 57,  144 => 46,  142 => 45,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -389,19 +394,21 @@ function loadMore() {
 \t\t\tcountTricks++;
 \t\t\thtml = \"\";
 \t\t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-\t\t\thtml += '\t<div class=\"modal fade\" id=\"modal_' + value.id + '\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">';
+\t\t\thtml += '\t<div class=\"modal fade\" id=\"modal_' + value.id + '\" tabindex=\"-1\" aria-labelledby=\"ModalLabel_' + value.id + '\" aria-hidden=\"true\">';
 \t\t\thtml += '\t\t<div class=\"modal-dialog\">';
 \t\t\thtml += '\t\t\t<div class=\"modal-content\">';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-header\">';
-\t\t\thtml += '\t\t\t\t\t<h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Modal title</h1>';
+\t\t\thtml += '\t\t\t\t\t<h1 class=\"modal-title fs-5\" id=\"ModalLabel_' + value.id + '\">Modal title</h1>';
 \t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-body\">';
-\t\t\thtml += '\t\t\t\t\t...';
+\t\t\thtml += '\t\t\t\t\t<p>This action is irremediable, are you sure to delete <strong>' + value.name + '</strong>?</p>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-footer\">';
+\t\t\tvar trickRoute = '{{ path(\"delete_trick\", {'trickId': 'value_id'}) }}';
+\t\t\ttrickRoute = trickRoute.replace(\"value_id\", value.id);
+\t\t\thtml += '\t\t\t\t\t<a href=\"' + trickRoute + '\" type=\"button\" class=\"btn btn-dark\">Delete</a>';
 \t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>';
-\t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\">Save changes</button>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t</div>';
 \t\t\thtml += '\t\t</div>';

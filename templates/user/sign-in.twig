@@ -20,9 +20,8 @@
                         <label for="InputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" name="password" id="InputPassword1" required="required">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="Check1">
-                        <label class="form-check-label" for="Check1">Check me out</label>
+                    <div class="mb-3">
+                        <a href="{{ path('send_password_rerset_link') }}">Forgot password?</a>
                     </div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     <button type="submit" class="btn btn-primary">Login</button>

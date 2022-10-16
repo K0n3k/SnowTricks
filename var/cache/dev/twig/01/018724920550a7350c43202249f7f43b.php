@@ -230,27 +230,31 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
         echo "
                         ";
         // line 101
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 101, $this->source); })()), "description", [], "any", false, false, false, 101), 'row', ["value" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 101, $this->source); })()), "description", [], "any", false, false, false, 101)]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 101, $this->source); })()), "images", [], "any", false, false, false, 101), 'row');
         echo "
                         ";
         // line 102
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 102, $this->source); })()), "groupId", [], "any", false, false, false, 102), 'row', ["value" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 102, $this->source); })()), "groupId", [], "any", false, false, false, 102), "id", [], "any", false, false, false, 102)]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 102, $this->source); })()), "description", [], "any", false, false, false, 102), 'row', ["value" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 102, $this->source); })()), "description", [], "any", false, false, false, 102)]);
+        echo "
+                        ";
+        // line 103
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 103, $this->source); })()), "groupId", [], "any", false, false, false, 103), 'row', ["value" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 103, $this->source); })()), "groupId", [], "any", false, false, false, 103), "id", [], "any", false, false, false, 103)]);
         echo "
                         <div class=\"buttons row mb-3\">
                           <div class=\"btn-group justify-content-center\">
                           <p class=\"mx-2\">";
-        // line 105
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 105, $this->source); })()), "Create_Trick", [], "any", false, false, false, 105), 'widget', ["label" => (isset($context["submitButtonText"]) || array_key_exists("submitButtonText", $context) ? $context["submitButtonText"] : (function () { throw new RuntimeError('Variable "submitButtonText" does not exist.', 105, $this->source); })())]);
+        // line 106
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 106, $this->source); })()), "Create_Trick", [], "any", false, false, false, 106), 'widget', ["label" => (isset($context["submitButtonText"]) || array_key_exists("submitButtonText", $context) ? $context["submitButtonText"] : (function () { throw new RuntimeError('Variable "submitButtonText" does not exist.', 106, $this->source); })())]);
         echo "</p>
                           <p><a href=\"";
-        // line 106
-        echo twig_escape_filter($this->env, (isset($context["cancelPath"]) || array_key_exists("cancelPath", $context) ? $context["cancelPath"] : (function () { throw new RuntimeError('Variable "cancelPath" does not exist.', 106, $this->source); })()), "html", null, true);
+        // line 107
+        echo twig_escape_filter($this->env, (isset($context["cancelPath"]) || array_key_exists("cancelPath", $context) ? $context["cancelPath"] : (function () { throw new RuntimeError('Variable "cancelPath" does not exist.', 107, $this->source); })()), "html", null, true);
         echo "\" class=\"btn btn-danger\">Cancel</a></p>
                           </div>
                         </div>
                         ";
-        // line 109
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 109, $this->source); })()), 'form_end');
+        // line 110
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 110, $this->source); })()), 'form_end');
         echo "
                       </div>
                     </div>
@@ -285,7 +289,7 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  253 => 109,  247 => 106,  243 => 105,  237 => 102,  233 => 101,  229 => 100,  225 => 99,  222 => 98,  219 => 97,  216 => 96,  213 => 95,  210 => 94,  207 => 93,  204 => 92,  201 => 91,  199 => 90,  137 => 30,  127 => 29,  99 => 9,  94 => 8,  84 => 7,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  257 => 110,  251 => 107,  247 => 106,  241 => 103,  237 => 102,  233 => 101,  229 => 100,  225 => 99,  222 => 98,  219 => 97,  216 => 96,  213 => 95,  210 => 94,  207 => 93,  204 => 92,  201 => 91,  199 => 90,  137 => 30,  127 => 29,  99 => 9,  94 => 8,  84 => 7,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -390,6 +394,7 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
 
                         {{ form_start(trickForm) }}
                         {{ form_row(trickForm.name, {'value': trick.name}) }}
+                        {{ form_row(trickForm.images) }}
                         {{ form_row(trickForm.description, {'value': trick.description}) }}
                         {{ form_row(trickForm.groupId, {'value': trick.groupId.id}) }}
                         <div class=\"buttons row mb-3\">
