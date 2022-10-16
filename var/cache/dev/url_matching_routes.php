@@ -22,7 +22,8 @@ return [
         '/trick/add' => [[['_route' => 'add_trick', '_controller' => 'App\\Controller\\TrickController::addTrick'], null, null, null, true, false, null]],
         '/user/sign-in' => [[['_route' => 'sign-in', '_controller' => 'App\\Controller\\UserController::sign_in'], null, null, null, false, false, null]],
         '/user/sign-up' => [[['_route' => 'sign-up', '_controller' => 'App\\Controller\\UserController::sign_up'], null, null, null, false, false, null]],
-        '/user/resendToken' => [[['_route' => 'resend_registration_token', '_controller' => 'App\\Controller\\UserController::resendRegistrationToken'], null, null, null, true, false, null]],
+        '/user/resendRegistrationToken' => [[['_route' => 'resend_registration_token', '_controller' => 'App\\Controller\\UserController::resendRegistrationToken'], null, null, null, true, false, null]],
+        '/user/sendPasswordResetLink' => [[['_route' => 'send_password_rerset_link', '_controller' => 'App\\Controller\\UserController::sendPasswordResetLink'], null, null, null, true, false, null]],
         '/user/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\UserController::logout'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -48,7 +49,10 @@ return [
                     .'|delete/([^/]++)(*:252)'
                     .'|modify/([^/]++)(*:275)'
                 .')'
-                .'|/user/validation/([^/]++)(*:309)'
+                .'|/user/(?'
+                    .'|validation/([^/]++)(*:312)'
+                    .'|reset_password/([^/]++)(*:343)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -63,8 +67,9 @@ return [
         229 => [[['_route' => 'loadmore_commentarys', '_controller' => 'App\\Controller\\TrickController::loadMoreCommentarys'], ['trickId'], ['POST' => 0], null, false, true, null]],
         252 => [[['_route' => 'delete_trick', '_controller' => 'App\\Controller\\TrickController::deleteTrick'], ['trickId'], null, null, false, true, null]],
         275 => [[['_route' => 'modify_trick', '_controller' => 'App\\Controller\\TrickController::modifyTrick'], ['trickId'], null, null, false, true, null]],
-        309 => [
-            [['_route' => 'registration_validation', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null],
+        312 => [[['_route' => 'registration_validation', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null]],
+        343 => [
+            [['_route' => 'reset_password', '_controller' => 'App\\Controller\\UserController::resetPassword'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
