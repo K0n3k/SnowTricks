@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TrickController!
+{% endblock %}
+
+{% block javascript %}
+<script language = "javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+<script language = "javascript">
+
+offset = 15;
+countTricks = {{ tricks|length }};
+
+window.onload = function() {
+	showLoadMore();
+	showDownArrow();
+};
+
+function showDownArrow() {
+	downArrow = document.getElementById('downArrow');
+	if(countTricks > {{ tricksLimit }}) {
+		downArrow.style.visibility = 'visible';
+	} else {
+		downArrow.style.visibility = 'hidden';
+	}
+}
+
+function showLoadMore() {
+	if(offset >= {{ maxTricks }}) {
+		btn = document.getElementById('loadMore');
+		btn.remove() ;
+	}
+}
+
+function loadMore() {
+	$.ajax({
+		url: "{{ path('loadmore_tricks') }}",
+		type: "POST",
+		data: {offset},
+
+		success: function(result) {
+			jsonContent = $.parseJSON(result);
+			$.each(jsonContent, function(key, value){
+			countTricks++;
+			html = "";
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			html += '	<div class="modal fade" id="modal_' + value.id + '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">';
+			html += '		<div class="modal-dialog">';
+			html += '			<div class="modal-content">';
+			html += '				<div class="modal-header">';
+			html += '					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>';
+			html += '					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+			html += '				</div>';
+			html += '				<div class="modal-body">';
+			html += '					...';
+			html += '				</div>';
+			html += '				<div class="modal-footer">';
+			html += '					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>';
+			html += '					<button type="button" class="btn btn-primary">Save changes</button>';
+			html += '				</div>';
+			html += '			</div>';
+			html += '		</div>';
+			html += '	</div>';
+			{% endif %}
+			html += '						<div class="col" id="trick_' + value.id + '">';
+			html += '				<div class="card shadow-sm">';
+			var viewRoute = '{{ path("show_trick", {'trickId': 'value_id'}) }}';
+			viewRoute = viewRoute.replace("value_id", value.id);
+			html += '					<a href="' + viewRoute + '">';
+			html += '						<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail" preserveaspectratio="xMidYMid slice" role="img" focusable="false">';
+			html += '							<title>Placeholder</title>';
+			html += '							<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>';
+			html += '						</svg>';
+            html += '					</a>';
+			html += '					<div class="card-body">';
+			html += '';
+			html += '						<div class="d-flex justify-content-between align-items-center col">';
+			html += '							<small class="text-muted">' + value.name + '</small>';
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				var Editroute = '{{ path("modify_trick", {'trickId': 'value_id'}) }}';
+				Editroute = Editroute.replace("value_id", value.id);
+				html += '							<div class="btn-group">';
+				html += '								<button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal_' + value.id + '"><img src="{{ asset("Style/img/trash-svgrepo-com.svg") }}" alt="pen icon" height="16" /></button>';
+				html += '								<a href="' + Editroute + '" class="btn btn-sm btn-outline-secondary"><img src="{{ asset("Style/img/pencil-svgrepo-com.svg") }}" alt="pen icon" height="16" /></a>';
+				html += '							</div>';
+			{% endif %}
+			html += '						</div>';
+			html += '					</div>';
+			html += '				</div>';
+			html += '			</div>';
+			
+			$('#tricksCards').append(html);	
+			});
+
+			offset += 15;
+			showLoadMore();
+			showDownArrow();
+
+		}
+	})
+}
+
+</script>
+{% endblock %}
+
+{% block body %}
+
+	<main>
+
+		<div class="hero p-0 m-0">
+			<h1 class="slogan d-inline">The snow must go on</h1>
+			<a href="#tricks">
+				<div class="arrow_container">
+					<div class="chevron"></div>
+					<div class="chevron"></div>
+					<div class="chevron"></div>
+				</div>
+			</a>
+		</div>
+
+		<div class="album py-5 bg-light position-relative" id="tricks">
+			<div class="container">
+
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3 mb-3" id="tricksCards">
+
+
+					{% for trick in tricks %}
+						{{ include('trick/_trickCard.html.twig') }}
+					{% endfor %}
+
+				</div>
+				<div class="text-center">
+					<button onClick="loadMore()" class="btn btn-dark my-3" id="loadMore">Load More</button>
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<a href="{{ path('add_trick') }}" class="btn btn-dark my-3">Add a trick</a>
+					{% endif %}
+				</div>
+				<a href="#tricks" id="downArrow">
+					<div class="arrow_container">
+						<div class="chevron2"></div>
+						<div class="chevron2"></div>
+						<div class="chevron2"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</main>
+
+	{% endblock %}

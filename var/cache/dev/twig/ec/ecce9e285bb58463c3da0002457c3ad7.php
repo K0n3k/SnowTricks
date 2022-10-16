@@ -94,47 +94,20 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
                     <div class=\"justify-content-center\">
                         <h1>Login</h1>
                     </div>
-\t\t\t\t\t\t\t\t";
-        // line 15
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 15, $this->source); })())) {
-            // line 16
-            echo "\t\t\t\t<div class=\"alert alert-danger\">";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 16, $this->source); })()), "messageKey", [], "any", false, false, false, 16), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 16, $this->source); })()), "messageData", [], "any", false, false, false, 16), "security"), "html", null, true);
-            echo "</div>
-\t\t\t";
-        }
-        // line 18
-        echo "\t\t\t\t\t\t";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "user", [], "any", false, false, false, 18)) {
-            // line 19
-            echo "\t\t\t\t<div class=\"mb-3\">
-\t\t\t\t\tYou are logged in as
-\t\t\t\t\t";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 21, $this->source); })()), "user", [], "any", false, false, false, 21), "userIdentifier", [], "any", false, false, false, 21), "html", null, true);
-            echo ",
-\t\t\t\t\t<a href=\"";
-            // line 22
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\">Logout</a>
-\t\t\t\t</div>
-\t\t\t";
-        }
-        // line 25
-        echo "                    <div class=\"mb-3\">
+                    <div class=\"mb-3\">
                         <label for=\"InputUsername\" class=\"form-label justify-content-center\">Username</label>
-                        <input type=\"email\" class=\"form-control\" id=\"InputUsername\" name=\"username\" aria-describedby=\"emailHelp\">
+                        <input type=\"email\" class=\"form-control\" id=\"InputUsername\" name=\"username\" aria-describedby=\"emailHelp\" required=\"required\">
                     </div>
                     <div class=\"mb-3\">
-                        <label for=\"exampleInputPassword1\" class=\"form-label\">Password</label>
-                        <input type=\"password\" class=\"form-control\" name=\"password\" id=\"exampleInputPassword1\">
+                        <label for=\"InputPassword1\" class=\"form-label\">Password</label>
+                        <input type=\"password\" class=\"form-control\" name=\"password\" id=\"InputPassword1\" required=\"required\">
                     </div>
                     <div class=\"mb-3 form-check\">
-                        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">
-                        <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>
+                        <input type=\"checkbox\" class=\"form-check-input\" id=\"Check1\">
+                        <label class=\"form-check-label\" for=\"Check1\">Check me out</label>
                     </div>
 \t\t\t\t\t<input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 37
+        // line 27
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\">
                     <button type=\"submit\" class=\"btn btn-primary\">Login</button>
@@ -165,7 +138,7 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
 
     public function getDebugInfo()
     {
-        return array (  138 => 37,  124 => 25,  118 => 22,  114 => 21,  110 => 19,  107 => 18,  101 => 16,  99 => 15,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  111 => 27,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -184,27 +157,17 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
                     <div class=\"justify-content-center\">
                         <h1>Login</h1>
                     </div>
-\t\t\t\t\t\t\t\t{% if error %}
-\t\t\t\t<div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-\t\t\t{% endif %}
-\t\t\t\t\t\t{% if app.user %}
-\t\t\t\t<div class=\"mb-3\">
-\t\t\t\t\tYou are logged in as
-\t\t\t\t\t{{ app.user.userIdentifier }},
-\t\t\t\t\t<a href=\"{{ path('app_logout') }}\">Logout</a>
-\t\t\t\t</div>
-\t\t\t{% endif %}
                     <div class=\"mb-3\">
                         <label for=\"InputUsername\" class=\"form-label justify-content-center\">Username</label>
-                        <input type=\"email\" class=\"form-control\" id=\"InputUsername\" name=\"username\" aria-describedby=\"emailHelp\">
+                        <input type=\"email\" class=\"form-control\" id=\"InputUsername\" name=\"username\" aria-describedby=\"emailHelp\" required=\"required\">
                     </div>
                     <div class=\"mb-3\">
-                        <label for=\"exampleInputPassword1\" class=\"form-label\">Password</label>
-                        <input type=\"password\" class=\"form-control\" name=\"password\" id=\"exampleInputPassword1\">
+                        <label for=\"InputPassword1\" class=\"form-label\">Password</label>
+                        <input type=\"password\" class=\"form-control\" name=\"password\" id=\"InputPassword1\" required=\"required\">
                     </div>
                     <div class=\"mb-3 form-check\">
-                        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">
-                        <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>
+                        <input type=\"checkbox\" class=\"form-check-input\" id=\"Check1\">
+                        <label class=\"form-check-label\" for=\"Check1\">Check me out</label>
                     </div>
 \t\t\t\t\t<input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
                     <button type=\"submit\" class=\"btn btn-primary\">Login</button>

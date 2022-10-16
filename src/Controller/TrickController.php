@@ -10,7 +10,6 @@ use App\Form\CommentaryType;
 use App\Form\TrickType;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,11 +24,11 @@ class TrickController extends AbstractController
     private int $tricksLimit = 15;
     private int $commentaryLimit = 5;
 
-    #[Route('/figure/tricks', name: 'app_tricks')]
+    #[Route('/tricks', name: 'show_tricks')]
     public function tricksList(TrickRepository $trickRepository): Response
     {
         
-        return $this->render('trick/index.html.twig', [
+        return $this->render('trick/tricks.html.twig', [
                 'controller_name' => 'TrickController',
                 'tricks' => $trickRepository->findBy([], null, $this->tricksLimit, null),
                 'maxTricks' => $trickRepository->count([]),
@@ -38,8 +37,8 @@ class TrickController extends AbstractController
         
     }
 
-    #[Route('/figure/tricks/ajax', name: 'app_tricksAjax', methods: ['POST'])]
-    public function tricksListAjax(TrickRepository $trickRepository, Request $request): JsonResponse
+    #[Route('/tricks/loadmore_tricks', name: 'loadmore_tricks', methods: ['POST'])]
+    public function loadMoreTricks(TrickRepository $trickRepository, Request $request): JsonResponse
     {
             $offset = $request->request->get('offset');
             if($offset >= $trickRepository->count([])) {
@@ -50,9 +49,10 @@ class TrickController extends AbstractController
         
     }
 
-    #[Route('/figure/tricks/{trickId}', name: 'app_trick')]
-    public function trick(TrickRepository $trickRepository, CommentaryRepository $commentaryRepository, EntityManagerInterface $entityManager, Request $request, int $trickId): Response
+    #[Route('/trick/show/{trickId}', name: 'show_trick')]
+    public function trick(TrickRepository $trickRepository, CommentaryRepository $commentaryRepository, Request $request, int $trickId): Response
     {
+
         $commentary = new Commentary();
         $trick = $trickRepository->findOneBy(['id' => $trickId]);
         $commentaryForm = $this->createForm(CommentaryType::class, $commentary);
@@ -63,9 +63,9 @@ class TrickController extends AbstractController
             $commentary->setUserId($this->getUser());
             $commentary->setTrickId($trick);
             $commentary->setPublishedDate(new DateTime());
-            $commentaryRepository->save($commentary);
-            //$entityManager->flush();
-            return $this->redirectToRoute('app_trick',['trickId' => $trickId]);
+            $commentaryRepository->save($commentary, true);
+
+            return $this->redirectToRoute('show_trick',['trickId' => $trickId]);
         }
         return $this->render('trick/trick.html.twig', [
                 'controller_name' => 'TrickController',
@@ -78,8 +78,8 @@ class TrickController extends AbstractController
         
     }
 
-    #[Route('/figure/trick/ajax/{trickId}', name: 'app_commentarysAjax', methods: ['POST'])]
-    public function commentarysListAjax(CommentaryRepository $commentaryRepository, Request $request, int $trickId): JsonResponse
+    #[Route('/trick/loadmore_commentarys/{trickId}', name: 'loadmore_commentarys', methods: ['POST'])]
+    public function loadMoreCommentarys(CommentaryRepository $commentaryRepository, Request $request, int $trickId): JsonResponse
     {
         
             $offset = $request->request->get('offset');
@@ -91,9 +91,13 @@ class TrickController extends AbstractController
         
     }
 
-    #[Route('/figure/trick/add/', name: 'app_addTrick')]
+    #[Route('/trick/add/', name: 'add_trick')]
     public function addTrick(Request $request, TrickRepository $trickRepository): Response
     {
+        if (!$this->getUser() ) {
+
+            return $this->redirectToRoute('home');
+       }
         $trick = new Trick();
         
         $trickForm = $this->createForm(TrickType::class, $trick);
@@ -103,11 +107,45 @@ class TrickController extends AbstractController
             $trick->setUserId($this->getUser());
             $trick->setPublishedDate(new DateTime());
             $trickRepository->save($trick, true);
-            return $this->redirectToRoute('app_tricks');
+            $this->addFlash('success', 'Your new trick had been added!');
+            return $this->redirectToRoute('app_trick',['trickId' => $trick->getId()]);
         }
 
         return $this->render('trick/addTrick.html.twig', [
             'controller_name' => 'TrickController',
+            'trickForm' => $trickForm->createView(),
+        ]);
+            
+    }
+    #[Route('/trick/delete/{trickId}', name: 'delete_trick')]
+    public function deleteTrick(Request $request, TrickRepository $trickRepository, int $trickId): Response
+    {
+        return $this->redirectToRoute('show_tricks');
+    }
+
+
+    #[Route('/trick/modify/{trickId}', name: 'modify_trick')]
+    public function modifyTrick(Request $request, TrickRepository $trickRepository, int $trickId): Response
+    {
+        if (!$this->getUser() ) {
+
+            return $this->redirectToRoute('home');
+       }
+        $trick = $trickRepository->findOneBy(['id' => $trickId]);
+        
+        $trickForm = $this->createForm(TrickType::class, $trick);
+        $trickForm->handleRequest($request);
+        
+        if ($trickForm->isSubmitted() && $trickForm->isValid()) {
+            $trick->setLastUpdated(new DateTime());
+            $trickRepository->save($trick, true);
+            $this->addFlash('success', 'Your trick had been modified!');
+            return $this->redirectToRoute('show_trick',['trickId' => $trick->getId()]);
+        }
+
+        return $this->render('trick/addTrick.html.twig', [
+            'controller_name' => 'TrickController',
+            'trick' => $trick,
             'trickForm' => $trickForm->createView(),
         ]);
             

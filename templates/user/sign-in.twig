@@ -12,27 +12,17 @@
                     <div class="justify-content-center">
                         <h1>Login</h1>
                     </div>
-								{% if error %}
-				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-			{% endif %}
-						{% if app.user %}
-				<div class="mb-3">
-					You are logged in as
-					{{ app.user.userIdentifier }},
-					<a href="{{ path('app_logout') }}">Logout</a>
-				</div>
-			{% endif %}
                     <div class="mb-3">
                         <label for="InputUsername" class="form-label justify-content-center">Username</label>
-                        <input type="email" class="form-control" id="InputUsername" name="username" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="InputUsername" name="username" aria-describedby="emailHelp" required="required">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                        <label for="InputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="InputPassword1" required="required">
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <input type="checkbox" class="form-check-input" id="Check1">
+                        <label class="form-check-label" for="Check1">Check me out</label>
                     </div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     <button type="submit" class="btn btn-primary">Login</button>

@@ -76,6 +76,8 @@ return [[
 '[C]App%5CController%5CTrickController%23commentarysListAjax' => 1,
 'App%5CController%5CTrickController%23addTrick' => 0,
 '[C]App%5CController%5CTrickController%23addTrick' => 1,
+'App%5CController%5CTrickController%23modifyTrick' => 0,
+'[C]App%5CController%5CTrickController%23modifyTrick' => 1,
 'App%5CController%5CTrickController%24tricksLimit' => 0,
 '[C]App%5CController%5CTrickController%24tricksLimit' => 1,
 'App%5CController%5CTrickController%24commentaryLimit' => 0,
@@ -826,6 +828,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1665694343,
+1 => 1665862020,
 
 ]];
