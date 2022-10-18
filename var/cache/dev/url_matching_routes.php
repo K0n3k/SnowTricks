@@ -15,10 +15,9 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/loadmore_tricks' => [[['_route' => 'loadmore_tricks', '_controller' => 'App\\Controller\\HomeController::loadMoreTricks'], null, ['POST' => 0], null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/tricks' => [[['_route' => 'show_tricks', '_controller' => 'App\\Controller\\TrickController::tricksList'], null, null, null, false, false, null]],
-        '/tricks/loadmore_tricks' => [[['_route' => 'loadmore_tricks', '_controller' => 'App\\Controller\\TrickController::loadMoreTricks'], null, ['POST' => 0], null, false, false, null]],
         '/trick/add' => [[['_route' => 'add_trick', '_controller' => 'App\\Controller\\TrickController::addTrick'], null, null, null, true, false, null]],
         '/user/sign-in' => [[['_route' => 'sign-in', '_controller' => 'App\\Controller\\UserController::sign_in'], null, null, null, false, false, null]],
         '/user/sign-up' => [[['_route' => 'sign-up', '_controller' => 'App\\Controller\\UserController::sign_up'], null, null, null, false, false, null]],
@@ -46,12 +45,15 @@ return [
                 .'|/trick/(?'
                     .'|show/([^/]++)(*:192)'
                     .'|loadmore_commentarys/([^/]++)(*:229)'
-                    .'|delete/([^/]++)(*:252)'
-                    .'|modify/([^/]++)(*:275)'
+                    .'|delete(?'
+                        .'|/([^/]++)(*:255)'
+                        .'|Image/([^/]++)(*:277)'
+                    .')'
+                    .'|modify/([^/]++)(*:301)'
                 .')'
                 .'|/user/(?'
-                    .'|validation/([^/]++)(*:312)'
-                    .'|resetPassword/([^/]++)(*:342)'
+                    .'|validation/([^/]++)(*:338)'
+                    .'|resetPassword/([^/]++)(*:368)'
                 .')'
             .')/?$}sDu',
     ],
@@ -63,12 +65,13 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        192 => [[['_route' => 'show_trick', '_controller' => 'App\\Controller\\TrickController::trick'], ['trickId'], null, null, false, true, null]],
+        192 => [[['_route' => 'show_trick', '_controller' => 'App\\Controller\\TrickController::showTrick'], ['trickId'], null, null, false, true, null]],
         229 => [[['_route' => 'loadmore_commentarys', '_controller' => 'App\\Controller\\TrickController::loadMoreCommentarys'], ['trickId'], ['POST' => 0], null, false, true, null]],
-        252 => [[['_route' => 'delete_trick', '_controller' => 'App\\Controller\\TrickController::deleteTrick'], ['trickId'], null, null, false, true, null]],
-        275 => [[['_route' => 'modify_trick', '_controller' => 'App\\Controller\\TrickController::modifyTrick'], ['trickId'], null, null, false, true, null]],
-        312 => [[['_route' => 'registration_validation', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null]],
-        342 => [
+        255 => [[['_route' => 'delete_trick', '_controller' => 'App\\Controller\\TrickController::deleteTrick'], ['trickId'], null, null, false, true, null]],
+        277 => [[['_route' => 'delete_image', '_controller' => 'App\\Controller\\TrickController::deleteImage'], ['id'], null, null, false, true, null]],
+        301 => [[['_route' => 'modify_trick', '_controller' => 'App\\Controller\\TrickController::modifyTrick'], ['trickId'], null, null, false, true, null]],
+        338 => [[['_route' => 'registration_validation', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null]],
+        368 => [
             [['_route' => 'reset_password', '_controller' => 'App\\Controller\\UserController::resetPassword'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

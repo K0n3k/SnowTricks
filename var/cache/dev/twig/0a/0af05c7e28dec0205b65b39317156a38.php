@@ -117,7 +117,7 @@ function loadMore() {
 \t\tsuccess: function(result) {
 \t\t\tjsonContent = \$.parseJSON(result);
 \t\t\t\$.each(jsonContent, function(key, value){
-        date = new Date(value.publishedDate.timestamp * 1000);
+        date = new Date(value.publishedDate.date);
 \t\t\thtml = \"\";
       html += '\t\t\t <div class=\"row shadow-sm m-3\" id=\"Commentary_' + value.id + '\">';
       html += '                      <div class=\"col col-1 mx-3\">';
@@ -254,69 +254,103 @@ function loadMore() {
         echo "
                 <div class=\"justify-content-between align-items-center col\">
                   <div class=\"justify-content-between align-items-center col\">
-                    ";
-        // line 146
-        echo twig_include($this->env, $context, "trick/_medias.html.twig");
-        echo "
+                  <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
+                  ";
+        // line 147
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 147, $this->source); })()), "medias", [], "any", false, false, false, 147));
+        $context['loop'] = [
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        ];
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["media"]) {
+            // line 148
+            echo "                    ";
+            echo twig_include($this->env, $context, "trick/_medias.html.twig");
+            echo "
+                  ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['media'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 150
+        echo "                  </div>
                     <div class=\"row\" style=\"padding: 10px;\">
                       <h1>";
-        // line 148
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 148, $this->source); })()), "name", [], "any", false, false, false, 148), "html", null, true);
+        // line 152
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 152, $this->source); })()), "name", [], "any", false, false, false, 152), "html", null, true);
         echo "</h1><br>
                       <p>";
-        // line 149
-        echo twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 149, $this->source); })()), "description", [], "any", false, false, false, 149);
+        // line 153
+        echo twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 153, $this->source); })()), "description", [], "any", false, false, false, 153);
         echo "</p>
                     </div>
                     <div class=\"row\">
                       <div class=\"d-inline-flex justify-content-center\">
                         <h4 class=\"mx-3\">Created <span class=\"badge bg-secondary col\">";
-        // line 153
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 153, $this->source); })()), "publishedDate", [], "any", false, false, false, 153), "Y-m-d"), "html", null, true);
+        // line 157
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 157, $this->source); })()), "publishedDate", [], "any", false, false, false, 157), "Y-m-d"), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">By <span class=\"badge bg-secondary col\">";
-        // line 154
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 154, $this->source); })()), "userId", [], "any", false, false, false, 154), "username", [], "any", false, false, false, 154), "html", null, true);
+        // line 158
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 158, $this->source); })()), "userId", [], "any", false, false, false, 158), "username", [], "any", false, false, false, 158), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">In group <span class=\"badge bg-secondary col\">";
-        // line 155
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 155, $this->source); })()), "groupId", [], "any", false, false, false, 155), "name", [], "any", false, false, false, 155), "html", null, true);
+        // line 159
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 159, $this->source); })()), "groupId", [], "any", false, false, false, 159), "name", [], "any", false, false, false, 159), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">Last update <span class=\"badge bg-secondary col\">
                         ";
-        // line 157
-        if ((null === twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 157, $this->source); })()), "lastUpdated", [], "any", false, false, false, 157))) {
-            // line 158
+        // line 161
+        if ((null === twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 161, $this->source); })()), "lastUpdated", [], "any", false, false, false, 161))) {
+            // line 162
             echo "                          Never
                         ";
         } else {
-            // line 159
+            // line 163
             echo "  
                           ";
-            // line 160
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 160, $this->source); })()), "lastUpdated", [], "any", false, false, false, 160), "Y-m-d"), "html", null, true);
+            // line 164
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 164, $this->source); })()), "lastUpdated", [], "any", false, false, false, 164), "Y-m-d"), "html", null, true);
             echo "
                         ";
         }
-        // line 161
+        // line 165
         echo "                          
                         </span></h4>
                       </div>
                     </div>
                     <hr>
                     ";
-        // line 166
+        // line 170
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 167
+            // line 171
             echo "                      <div class=\"row\">
                         ";
-            // line 168
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 168, $this->source); })()), 'form');
+            // line 172
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 172, $this->source); })()), 'form');
             echo "
                           <script type=\"text/javascript\">
                             textarea = document.querySelector(\"#";
-            // line 170
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 170, $this->source); })()), "commentary", [], "any", false, false, false, 170), "vars", [], "any", false, false, false, 170), "id", [], "any", false, false, false, 170), "html", null, true);
+            // line 174
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 174, $this->source); })()), "commentary", [], "any", false, false, false, 174), "vars", [], "any", false, false, false, 174), "id", [], "any", false, false, false, 174), "html", null, true);
             echo "\");
                             textarea.addEventListener('input', autoResize, false);
                           
@@ -329,13 +363,13 @@ function loadMore() {
                       <hr>
                     ";
         }
-        // line 181
+        // line 185
         echo "                    <div id=\"commentarys\" class=\"mb-5\">
                     
                     ";
-        // line 183
+        // line 187
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 183, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 187, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -350,7 +384,7 @@ function loadMore() {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["commentary"]) {
-            // line 184
+            // line 188
             echo "                      ";
             echo twig_include($this->env, $context, "trick/_commentarys.html.twig");
             echo "
@@ -367,7 +401,7 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentary'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 186
+        // line 190
         echo "                    </div>
                   </div>
                   <div class=\"row\">
@@ -404,7 +438,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  371 => 186,  354 => 184,  337 => 183,  333 => 181,  319 => 170,  314 => 168,  311 => 167,  309 => 166,  302 => 161,  297 => 160,  294 => 159,  290 => 158,  288 => 157,  283 => 155,  279 => 154,  275 => 153,  268 => 149,  264 => 148,  259 => 146,  253 => 143,  249 => 142,  240 => 135,  230 => 134,  112 => 25,  101 => 17,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
+        return array (  405 => 190,  388 => 188,  371 => 187,  367 => 185,  353 => 174,  348 => 172,  345 => 171,  343 => 170,  336 => 165,  331 => 164,  328 => 163,  324 => 162,  322 => 161,  317 => 159,  313 => 158,  309 => 157,  302 => 153,  298 => 152,  294 => 150,  277 => 148,  260 => 147,  253 => 143,  249 => 142,  240 => 135,  230 => 134,  112 => 25,  101 => 17,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -440,7 +474,7 @@ function loadMore() {
 \t\tsuccess: function(result) {
 \t\t\tjsonContent = \$.parseJSON(result);
 \t\t\t\$.each(jsonContent, function(key, value){
-        date = new Date(value.publishedDate.timestamp * 1000);
+        date = new Date(value.publishedDate.date);
 \t\t\thtml = \"\";
       html += '\t\t\t <div class=\"row shadow-sm m-3\" id=\"Commentary_' + value.id + '\">';
       html += '                      <div class=\"col col-1 mx-3\">';
@@ -554,7 +588,11 @@ function loadMore() {
                 {{ include('trick/_deleteModifyButtons.html.twig') }}
                 <div class=\"justify-content-between align-items-center col\">
                   <div class=\"justify-content-between align-items-center col\">
+                  <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
+                  {% for media in trick.medias %}
                     {{ include('trick/_medias.html.twig') }}
+                  {% endfor %}
+                  </div>
                     <div class=\"row\" style=\"padding: 10px;\">
                       <h1>{{ trick.name }}</h1><br>
                       <p>{{ trick.description|raw }}</p>

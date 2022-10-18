@@ -29,7 +29,7 @@ function loadMore() {
 		success: function(result) {
 			jsonContent = $.parseJSON(result);
 			$.each(jsonContent, function(key, value){
-        date = new Date(value.publishedDate.timestamp * 1000);
+        date = new Date(value.publishedDate.date);
 			html = "";
       html += '			 <div class="row shadow-sm m-3" id="Commentary_' + value.id + '">';
       html += '                      <div class="col col-1 mx-3">';
@@ -143,7 +143,11 @@ function loadMore() {
                 {{ include('trick/_deleteModifyButtons.html.twig') }}
                 <div class="justify-content-between align-items-center col">
                   <div class="justify-content-between align-items-center col">
+                  <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4">
+                  {% for media in trick.medias %}
                     {{ include('trick/_medias.html.twig') }}
+                  {% endfor %}
+                  </div>
                     <div class="row" style="padding: 10px;">
                       <h1>{{ trick.name }}</h1><br>
                       <p>{{ trick.description|raw }}</p>

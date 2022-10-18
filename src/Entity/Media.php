@@ -13,30 +13,19 @@ class Media
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $trickId = null;
-
     #[ORM\Column(length: 255)]
     private ?string $type = null;
 
     #[ORM\Column(length: 255)]
     private ?string $filename = null;
 
+    #[ORM\ManyToOne(inversedBy: 'medias')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Trick $Trick = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTrickId(): ?int
-    {
-        return $this->trickId;
-    }
-
-    public function setTrickId(int $trickId): self
-    {
-        $this->trickId = $trickId;
-
-        return $this;
     }
 
     public function getType(): ?string
@@ -59,6 +48,18 @@ class Media
     public function setFilename(string $filename): self
     {
         $this->filename = $filename;
+
+        return $this;
+    }
+
+    public function getTrick(): ?Trick
+    {
+        return $this->Trick;
+    }
+
+    public function setTrick(?Trick $Trick): self
+    {
+        $this->Trick = $Trick;
 
         return $this;
     }

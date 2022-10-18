@@ -38,6 +38,8 @@ function loadMore() {
 		data: {offset},
 
 		success: function(result) {
+			
+      		console.log(result);
 			jsonContent = $.parseJSON(result);
 			$.each(jsonContent, function(key, value){
 			countTricks++;

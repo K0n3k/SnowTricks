@@ -9,8 +9,8 @@
             </a>
         </div>
         <div class="col justify-content-end text-white d-flex">
-            <a href="{{ path('show_tricks') }}" class="text-white">Home</a> &nbsp;|&nbsp;
-            <a href="{{ path('show_tricks') }}#tricks" class="text-white">Tricks</a> &nbsp;|&nbsp;
+            <a href="{{ path('home') }}" class="text-white">Home</a> &nbsp;|&nbsp;
+            <a href="{{ path('home') }}#tricks" class="text-white">Tricks</a> &nbsp;|&nbsp;
 		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 								<div class="dropdown">
 							<a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ app.user.Username }}</a>
