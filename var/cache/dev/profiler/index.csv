@@ -1735,3 +1735,7 @@ e3051a,::1,GET,http://localhost/trick/show/2,1666052359,,200
 cdd95e,::1,GET,http://localhost/trick/show/2,1666052376,,200
 5893fa,::1,GET,http://localhost/trick/modify/2,1666052384,,200
 ab4346,::1,GET,http://localhost/,1666052400,,200
+24cfb1,::1,GET,http://localhost/trick/show/2,1666052532,,200
+d79c4b,::1,GET,http://localhost/trick/modify/2,1666052533,,200
+ef06ea,::1,GET,http://localhost/trick/show/2,1666052564,,200
+f4e6d6,::1,GET,http://localhost/trick/modify/2,1666052570,,200
