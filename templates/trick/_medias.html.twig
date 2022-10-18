@@ -1,47 +1,39 @@
-                    <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4">
-                      <div class="col mb-2">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="200"
-                          xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                          preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
-                          <title>Placeholder</title>
-                          <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class="col mb-2">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="200"
-                          xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                          preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
-                          <title>Placeholder</title>
-                          <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class="col mb-2">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="200"
-                          xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                          preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
-                          <title>Placeholder</title>
-                          <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class="col mb-2">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="200"
-                          xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                          preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
-                          <title>Placeholder</title>
-                          <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class="col mb-2">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="200"
-                          xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail"
-                          preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
-                          <title>Placeholder</title>
-                          <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                        </svg>
-                      </div>
-                    </div>
+<div class="col mb-2">
+	<img src={{ asset('/uploads/images/' ~ media.filename) }} class="bd-placeholder-img card-img-top" width="100%" height="200" alt="image"/>
+	{% if app.request.attributes.get('_route') == 'modify_trick' or app.request.attributes.get('_route') == 'add_trick' %}
+		<a class="btn btn-danger" href="{{ path('delete_image', {'id': media.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ media.id) }}">Delete</a>
+	{% endif %}
+</div>
+
+{% if app.request.attributes.get('_route') == 'modify_trick' or app.request.attributes.get('_route') == 'add_trick' %}
+	<script>
+		window.onload = () => {
+			btnCancel = document.getElementById('btnCancel');
+			let links = document.querySelectorAll("[data-delete]")
+			for(link of links) {
+				link.addEventListener("click", function(e){
+					e.preventDefault()
+					if(confirm('are you sure to delete this image?')) {
+						fetch(this.getAttribute("href"), {
+							method: "DELETE",
+							headers: {
+								"X-Requested-With": "XMLHttpRequest",
+								"Content-type": "application/json"
+							},
+							body: JSON.stringify({"_token": this.dataset.token})
+						}).then(
+							response => response.json()
+						).then(data => {
+							if(data.success){
+								this.parentElement.remove()
+								btnCancel.remove();
+							} else {
+								alert(data.error)
+							}
+						})
+					}
+				})
+			}
+		}
+	</script>
+{% endif %}

@@ -28,6 +28,14 @@ class Commentary
     #[ORM\JoinColumn(name: 'trick_id', nullable: false)]
     private ?Trick $trickId = null;
 
+    #[ORM\ManyToOne(inversedBy: 'commentaries')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Trick $Trick = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $User = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,15 +77,28 @@ class Commentary
         return $this;
     }
 
-    public function getTrickId(): ?trick
+    public function getTrick(): ?Trick
     {
-        return $this->trickId;
+        return $this->Trick;
     }
 
-    public function setTrickId(?trick $trickId): self
+    public function setTrick(?Trick $Trick): self
     {
-        $this->trickId = $trickId;
+        $this->Trick = $Trick;
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
+
+        return $this;
+    }
+
 }

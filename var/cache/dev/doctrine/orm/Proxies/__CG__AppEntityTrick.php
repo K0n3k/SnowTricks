@@ -67,10 +67,10 @@ class Trick extends \App\Entity\Trick implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'groupId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'userId'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'groupId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'userId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'medias', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'commentaries'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'groupId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'userId'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'groupId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'userId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'medias', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'commentaries'];
     }
 
     /**
@@ -322,6 +322,72 @@ class Trick extends \App\Entity\Trick implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', [$userId]);
 
         return parent::setUserId($userId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMedias(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMedias', []);
+
+        return parent::getMedias();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addMedia(\App\Entity\Media $media): \App\Entity\Trick
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMedia', [$media]);
+
+        return parent::addMedia($media);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeMedia(\App\Entity\Media $media): \App\Entity\Trick
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMedia', [$media]);
+
+        return parent::removeMedia($media);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCommentaries(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCommentaries', []);
+
+        return parent::getCommentaries();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addCommentary(\App\Entity\Commentary $commentary): \App\Entity\Trick
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCommentary', [$commentary]);
+
+        return parent::addCommentary($commentary);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeCommentary(\App\Entity\Commentary $commentary): \App\Entity\Trick
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCommentary', [$commentary]);
+
+        return parent::removeCommentary($commentary);
     }
 
 }

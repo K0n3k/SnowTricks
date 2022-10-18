@@ -133,14 +133,16 @@ function loadMore() {
 \t\tdata: {offset},
 
 \t\tsuccess: function(result) {
+\t\t\t
+      \t\tconsole.log(result);
 \t\t\tjsonContent = \$.parseJSON(result);
 \t\t\t\$.each(jsonContent, function(key, value){
 \t\t\tcountTricks++;
 \t\t\thtml = \"\";
 \t\t\t";
-        // line 45
+        // line 47
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 46
+            // line 48
             echo "\t\t\thtml += '\t<div class=\"modal fade\" id=\"modal_' + value.id + '\" tabindex=\"-1\" aria-labelledby=\"ModalLabel_' + value.id + '\" aria-hidden=\"true\">';
 \t\t\thtml += '\t\t<div class=\"modal-dialog\">';
 \t\t\thtml += '\t\t\t<div class=\"modal-content\">';
@@ -153,7 +155,7 @@ function loadMore() {
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-footer\">';
 \t\t\tvar trickRoute = '";
-            // line 57
+            // line 59
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["trickId" => "value_id"]);
             echo "';
 \t\t\ttrickRoute = trickRoute.replace(\"value_id\", value.id);
@@ -165,11 +167,11 @@ function loadMore() {
 \t\t\thtml += '\t</div>';
 \t\t\t";
         }
-        // line 66
+        // line 68
         echo "\t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"trick_' + value.id + '\">';
 \t\t\thtml += '\t\t\t\t<div class=\"card shadow-sm\">';
 \t\t\tvar viewRoute = '";
-        // line 68
+        // line 70
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["trickId" => "value_id"]);
         echo "';
 \t\t\tviewRoute = viewRoute.replace(\"value_id\", value.id);
@@ -184,26 +186,26 @@ function loadMore() {
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">';
 \t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.name + '</small>';
 \t\t\t";
-        // line 80
+        // line 82
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 81
+            // line 83
             echo "\t\t\t\tvar Editroute = '";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modify_trick", ["trickId" => "value_id"]);
             echo "';
 \t\t\t\tEditroute = Editroute.replace(\"value_id\", value.id);
 \t\t\t\thtml += '\t\t\t\t\t\t\t<div class=\"btn-group\">';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-bs-toggle=\"modal\" data-bs-target=\"#modal_' + value.id + '\"><img src=\"";
-            // line 84
+            // line 86
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/trash-svgrepo-com.svg"), "html", null, true);
             echo "\" alt=\"pen icon\" height=\"16\" /></button>';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<a href=\"' + Editroute + '\" class=\"btn btn-sm btn-outline-secondary\"><img src=\"";
-            // line 85
+            // line 87
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/pencil-svgrepo-com.svg"), "html", null, true);
             echo "\" alt=\"pen icon\" height=\"16\" /></a>';
 \t\t\t\thtml += '\t\t\t\t\t\t\t</div>';
 \t\t\t";
         }
-        // line 88
+        // line 90
         echo "\t\t\thtml += '\t\t\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t</div>';
@@ -230,7 +232,7 @@ function loadMore() {
 
     }
 
-    // line 107
+    // line 109
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -240,7 +242,7 @@ function loadMore() {
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 108
+        // line 110
         echo "
 \t<main>
 
@@ -262,9 +264,9 @@ function loadMore() {
 
 
 \t\t\t\t\t";
-        // line 128
+        // line 130
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 128, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 130, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -279,7 +281,7 @@ function loadMore() {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["trick"]) {
-            // line 129
+            // line 131
             echo "\t\t\t\t\t\t";
             echo twig_include($this->env, $context, "trick/_trickCard.html.twig");
             echo "
@@ -296,21 +298,21 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trick'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 131
+        // line 133
         echo "
 \t\t\t\t</div>
 \t\t\t\t<div class=\"text-center\">
 \t\t\t\t\t<button onClick=\"loadMore()\" class=\"btn btn-dark my-3\" id=\"loadMore\">Load More</button>
 \t\t\t\t\t";
-        // line 135
+        // line 137
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 136
+            // line 138
             echo "\t\t\t\t\t<a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_trick");
             echo "\" class=\"btn btn-dark my-3\">Add a trick</a>
 \t\t\t\t\t";
         }
-        // line 138
+        // line 140
         echo "\t\t\t\t</div>
 \t\t\t\t<a href=\"#tricks\" id=\"downArrow\">
 \t\t\t\t\t<div class=\"arrow_container\">
@@ -344,7 +346,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  314 => 138,  308 => 136,  306 => 135,  300 => 131,  283 => 129,  266 => 128,  244 => 108,  234 => 107,  207 => 88,  201 => 85,  197 => 84,  190 => 81,  188 => 80,  173 => 68,  169 => 66,  157 => 57,  144 => 46,  142 => 45,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  316 => 140,  310 => 138,  308 => 137,  302 => 133,  285 => 131,  268 => 130,  246 => 110,  236 => 109,  209 => 90,  203 => 87,  199 => 86,  192 => 83,  190 => 82,  175 => 70,  171 => 68,  159 => 59,  146 => 48,  144 => 47,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -389,6 +391,8 @@ function loadMore() {
 \t\tdata: {offset},
 
 \t\tsuccess: function(result) {
+\t\t\t
+      \t\tconsole.log(result);
 \t\t\tjsonContent = \$.parseJSON(result);
 \t\t\t\$.each(jsonContent, function(key, value){
 \t\t\tcountTricks++;

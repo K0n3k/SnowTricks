@@ -69,6 +69,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="images_directory">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/public/uploads/images</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -415,6 +416,8 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Security\UsersAuthenticator" class="App\Security\UsersAuthenticator" autowire="true" autoconfigure="true">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="App\Repository\UserRepository"/>
       <argument type="service" id="router.default"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
@@ -6363,22 +6366,23 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.Q1F27w5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CVs7gBF" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="trickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.zFcJjKU" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
     <service id=".service_locator.Rryd9QW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="trickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.zFcJjKU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
     <service id=".service_locator.Gk1Xrxx" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6392,6 +6396,20 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="commentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.PSe2ZZ2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mediaRepository" type="service_closure" id="App\Repository\MediaRepository"/>
+        <argument key="trickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.DUW6s6K" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="image" type="service_closure" id=".errored..service_locator.DUW6s6K.App\Entity\Media"/>
+        <argument key="mediaRepository" type="service_closure" id="App\Repository\MediaRepository"/>
       </argument>
     </service>
     <service id=".service_locator.phlhmTB" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6417,18 +6435,18 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.IWHHgNy" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.zQozsTY" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.CVs7gBF"/>
+        <argument key="App\Controller\HomeController::loadMoreTricks" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
-        <argument key="App\Controller\TrickController::addTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
+        <argument key="App\Controller\TrickController::addTrick" type="service_closure" id=".service_locator.PSe2ZZ2"/>
+        <argument key="App\Controller\TrickController::deleteImage" type="service_closure" id=".service_locator.DUW6s6K"/>
         <argument key="App\Controller\TrickController::deleteTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\TrickController::loadMoreCommentarys" type="service_closure" id=".service_locator.FvOwFPC"/>
-        <argument key="App\Controller\TrickController::loadMoreTricks" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\TrickController::modifyTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\TrickController::trick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
-        <argument key="App\Controller\TrickController::tricksList" type="service_closure" id=".service_locator.Rryd9QW"/>
+        <argument key="App\Controller\TrickController::showTrick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
         <argument key="App\Controller\UserController::resendRegistrationToken" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController::resetPassword" type="service_closure" id=".service_locator.WHB6p3q"/>
         <argument key="App\Controller\UserController::sendPasswordResetLink" type="service_closure" id=".service_locator.eWzQKNp"/>
@@ -6441,15 +6459,15 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
-        <argument key="App\Controller\HomeController:index" type="service_closure" id=".service_locator.Q1F27w5"/>
+        <argument key="App\Controller\HomeController:index" type="service_closure" id=".service_locator.CVs7gBF"/>
+        <argument key="App\Controller\HomeController:loadMoreTricks" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
-        <argument key="App\Controller\TrickController:addTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
+        <argument key="App\Controller\TrickController:addTrick" type="service_closure" id=".service_locator.PSe2ZZ2"/>
+        <argument key="App\Controller\TrickController:deleteImage" type="service_closure" id=".service_locator.DUW6s6K"/>
         <argument key="App\Controller\TrickController:deleteTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\TrickController:loadMoreCommentarys" type="service_closure" id=".service_locator.FvOwFPC"/>
-        <argument key="App\Controller\TrickController:loadMoreTricks" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\TrickController:modifyTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\TrickController:trick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
-        <argument key="App\Controller\TrickController:tricksList" type="service_closure" id=".service_locator.Rryd9QW"/>
+        <argument key="App\Controller\TrickController:showTrick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
         <argument key="App\Controller\UserController:resendRegistrationToken" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController:resetPassword" type="service_closure" id=".service_locator.WHB6p3q"/>
         <argument key="App\Controller\UserController:sendPasswordResetLink" type="service_closure" id=".service_locator.eWzQKNp"/>
@@ -7278,12 +7296,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.IWHHgNy"/>
+      <argument type="service" id=".service_locator.zQozsTY"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.IWHHgNy"/>
+      <argument type="service" id=".service_locator.zQozsTY"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7312,6 +7330,7 @@
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.DUW6s6K.App\Entity\Media" class="App\Entity\Media"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8230,7 +8249,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.IWHHgNy"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.zQozsTY"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8251,10 +8270,12 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
+    <service id=".service_locator.kUJO4ox" alias=".service_locator.CVs7gBF"/>
     <service id=".service_locator.ZVM1wx9" alias=".service_locator.Gk1Xrxx"/>
+    <service id=".service_locator.FHCOUXR" alias=".service_locator.PSe2ZZ2"/>
     <service id=".service_locator.9K3hM3_" alias=".service_locator.phlhmTB"/>
     <service id=".service_locator.RmkQkJi" alias=".service_locator.WHB6p3q"/>
-    <service id=".service_locator.JZ1NV7I" alias=".service_locator.IWHHgNy"/>
+    <service id=".service_locator.b8Fprn0" alias=".service_locator.zQozsTY"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.VkHDa4O" alias=".service_locator.pduZ1C6"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8306,11 +8327,13 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.FatRZu2" alias=".service_locator.bRdave9"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
-    <service id=".service_locator.HO7.gFw" alias=".service_locator.Q1F27w5"/>
-    <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
+    <service id=".service_locator.KOCRHjk" alias=".service_locator.CVs7gBF"/>
     <service id=".service_locator.0jwyZHx" alias=".service_locator.Rryd9QW"/>
+    <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
     <service id=".service_locator.Or.WWiJ" alias=".service_locator.Gk1Xrxx"/>
     <service id=".service_locator.lgyV1VX" alias=".service_locator.FvOwFPC"/>
+    <service id=".service_locator..UnrIn." alias=".service_locator.PSe2ZZ2"/>
+    <service id=".service_locator.KwamPE6" alias=".service_locator.DUW6s6K"/>
     <service id=".service_locator.CUES.xb" alias=".service_locator.phlhmTB"/>
     <service id=".service_locator.j55JeUV" alias=".service_locator.eWzQKNp"/>
     <service id=".service_locator.yg5ntK8" alias=".service_locator.WHB6p3q"/>

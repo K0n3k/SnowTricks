@@ -144,117 +144,101 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
               <div class=\"card-body\">
                 <div class=\"justify-content-between align-items-center col\">
                   <div class=\"justify-content-between align-items-center col\">
-                    <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class=\"row\">
-                      <div id=\"trick\">
-                      
-                        ";
-        // line 90
+
+                    ";
+        // line 41
         if ( !array_key_exists("trick", $context)) {
-            // line 91
-            echo "                          ";
+            // line 42
+            echo "                      ";
             $context["trick"] = ["name" => "", "description" => "", "groupId" => ["id" => "1"]];
-            // line 92
-            echo "                          ";
+            // line 43
+            echo "                      ";
             $context["submitButtonText"] = "Add trick";
-            // line 93
-            echo "                          ";
-            $context["cancelPath"] = $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-            // line 94
-            echo "                        ";
+            // line 44
+            echo "                    ";
         } else {
-            // line 95
-            echo "                          ";
+            // line 45
+            echo "                      ";
             $context["submitButtonText"] = "Modify trick";
-            // line 96
-            echo "                          ";
-            $context["cancelPath"] = $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["trickId" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 96, $this->source); })()), "id", [], "any", false, false, false, 96)]);
-            // line 97
-            echo "                        ";
+            // line 46
+            echo "                      <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
+                        ";
+            // line 47
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 47, $this->source); })()), "medias", [], "any", false, false, false, 47));
+            $context['loop'] = [
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            ];
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["_key"] => $context["media"]) {
+                // line 48
+                echo "                            ";
+                echo twig_include($this->env, $context, "trick/_medias.html.twig");
+                echo "
+                        ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['media'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 50
+            echo "                      </div>
+                    ";
         }
-        // line 98
+        // line 52
+        echo "                    <div class=\"row\">
+                      <div id=\"trick\">
+                        ";
+        // line 54
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 54, $this->source); })()), 'form_start');
         echo "
                         ";
-        // line 99
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 99, $this->source); })()), 'form_start');
+        // line 55
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 55, $this->source); })()), "name", [], "any", false, false, false, 55), 'row', ["value" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 55, $this->source); })()), "name", [], "any", false, false, false, 55)]);
         echo "
                         ";
-        // line 100
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 100, $this->source); })()), "name", [], "any", false, false, false, 100), 'row', ["value" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 100, $this->source); })()), "name", [], "any", false, false, false, 100)]);
+        // line 56
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 56, $this->source); })()), "images", [], "any", false, false, false, 56), 'row');
         echo "
                         ";
-        // line 101
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 101, $this->source); })()), "images", [], "any", false, false, false, 101), 'row');
+        // line 57
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 57, $this->source); })()), "description", [], "any", false, false, false, 57), 'row', ["value" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 57, $this->source); })()), "description", [], "any", false, false, false, 57)]);
         echo "
                         ";
-        // line 102
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 102, $this->source); })()), "description", [], "any", false, false, false, 102), 'row', ["value" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 102, $this->source); })()), "description", [], "any", false, false, false, 102)]);
-        echo "
-                        ";
-        // line 103
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 103, $this->source); })()), "groupId", [], "any", false, false, false, 103), 'row', ["value" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 103, $this->source); })()), "groupId", [], "any", false, false, false, 103), "id", [], "any", false, false, false, 103)]);
+        // line 58
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 58, $this->source); })()), "groupId", [], "any", false, false, false, 58), 'row', ["value" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 58, $this->source); })()), "groupId", [], "any", false, false, false, 58), "id", [], "any", false, false, false, 58)]);
         echo "
                         <div class=\"buttons row mb-3\">
                           <div class=\"btn-group justify-content-center\">
                           <p class=\"mx-2\">";
-        // line 106
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 106, $this->source); })()), "Create_Trick", [], "any", false, false, false, 106), 'widget', ["label" => (isset($context["submitButtonText"]) || array_key_exists("submitButtonText", $context) ? $context["submitButtonText"] : (function () { throw new RuntimeError('Variable "submitButtonText" does not exist.', 106, $this->source); })())]);
+        // line 61
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 61, $this->source); })()), "Create_Trick", [], "any", false, false, false, 61), 'widget', ["label" => (isset($context["submitButtonText"]) || array_key_exists("submitButtonText", $context) ? $context["submitButtonText"] : (function () { throw new RuntimeError('Variable "submitButtonText" does not exist.', 61, $this->source); })())]);
         echo "</p>
                           <p><a href=\"";
-        // line 107
-        echo twig_escape_filter($this->env, (isset($context["cancelPath"]) || array_key_exists("cancelPath", $context) ? $context["cancelPath"] : (function () { throw new RuntimeError('Variable "cancelPath" does not exist.', 107, $this->source); })()), "html", null, true);
-        echo "\" class=\"btn btn-danger\">Cancel</a></p>
+        // line 62
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateRelativePath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 62, $this->source); })()), "request", [], "any", false, false, false, 62), "headers", [], "any", false, false, false, 62), "get", [0 => "referer"], "method", false, false, false, 62)), "html", null, true);
+        echo "\" class=\"btn btn-danger\" id=\"btnCancel\">Cancel</a></p>
                           </div>
                         </div>
                         ";
-        // line 110
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 110, $this->source); })()), 'form_end');
+        // line 65
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["trickForm"]) || array_key_exists("trickForm", $context) ? $context["trickForm"] : (function () { throw new RuntimeError('Variable "trickForm" does not exist.', 65, $this->source); })()), 'form_end');
         echo "
                       </div>
                     </div>
@@ -289,7 +273,7 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  257 => 110,  251 => 107,  247 => 106,  241 => 103,  237 => 102,  233 => 101,  229 => 100,  225 => 99,  222 => 98,  219 => 97,  216 => 96,  213 => 95,  210 => 94,  207 => 93,  204 => 92,  201 => 91,  199 => 90,  137 => 30,  127 => 29,  99 => 9,  94 => 8,  84 => 7,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  241 => 65,  235 => 62,  231 => 61,  225 => 58,  221 => 57,  217 => 56,  213 => 55,  209 => 54,  205 => 52,  201 => 50,  184 => 48,  167 => 47,  164 => 46,  161 => 45,  158 => 44,  155 => 43,  152 => 42,  150 => 41,  137 => 30,  127 => 29,  99 => 9,  94 => 8,  84 => 7,  70 => 3,  60 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -333,65 +317,20 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
               <div class=\"card-body\">
                 <div class=\"justify-content-between align-items-center col\">
                   <div class=\"justify-content-between align-items-center col\">
-                    <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
+
+                    {% if trick is not defined %}
+                      {% set trick = {name: '', description: '', groupId: {'id': '1'}} %}
+                      {% set submitButtonText = 'Add trick' %}
+                    {% else %}
+                      {% set submitButtonText = 'Modify trick' %}
+                      <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
+                        {% for media in trick.medias %}
+                            {{ include('trick/_medias.html.twig') }}
+                        {% endfor %}
                       </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                      <div class=\"col mb-2\">
-                        <svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\"
-                          xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\"
-                          preserveAspectRatio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">
-                          <title>Placeholder</title>
-                          <rect width=\"100%\" height=\"100%\" fill=\"#55595c\" /><text x=\"50%\" y=\"50%\" fill=\"#eceeef\"
-                            dy=\".3em\">Thumbnail</text>
-                        </svg>
-                      </div>
-                    </div>
+                    {% endif %}
                     <div class=\"row\">
                       <div id=\"trick\">
-                      
-                        {% if trick is not defined %}
-                          {% set trick = {name: '', description: '', groupId: {'id': '1'}} %}
-                          {% set submitButtonText = 'Add trick' %}
-                          {% set cancelPath = path('home') %}
-                        {% else %}
-                          {% set submitButtonText = 'Modify trick' %}
-                          {% set cancelPath = path('show_trick', {'trickId' : trick.id }) %}
-                        {% endif %}
-
                         {{ form_start(trickForm) }}
                         {{ form_row(trickForm.name, {'value': trick.name}) }}
                         {{ form_row(trickForm.images) }}
@@ -400,7 +339,7 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
                         <div class=\"buttons row mb-3\">
                           <div class=\"btn-group justify-content-center\">
                           <p class=\"mx-2\">{{ form_widget(trickForm.Create_Trick, {'label': submitButtonText}) }}</p>
-                          <p><a href=\"{{ cancelPath }}\" class=\"btn btn-danger\">Cancel</a></p>
+                          <p><a href=\"{{ relative_path(app.request.headers.get('referer')) }}\" class=\"btn btn-danger\" id=\"btnCancel\">Cancel</a></p>
                           </div>
                         </div>
                         {{ form_end(trickForm) }}
