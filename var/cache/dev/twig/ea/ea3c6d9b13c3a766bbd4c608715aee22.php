@@ -67,7 +67,7 @@ class __TwigTemplate_e93f3e568320ecacc1c2a8d5c53609fb extends Template
       <div class=\"modal-footer\">
         <a href=\"";
             // line 13
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["trickId" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 13, $this->source); })()), "id", [], "any", false, false, false, 13)]), "html", null, true);
             echo "\" type=\"button\" class=\"btn btn-dark\">Delete</a>
         <button type=\"button\" class=\"btn btn-danger\" data-bs-dismiss=\"modal\">Discard</button>
       </div>
@@ -113,12 +113,12 @@ class __TwigTemplate_e93f3e568320ecacc1c2a8d5c53609fb extends Template
         <p>This action is irremediable, are you sure to delete <strong>{{ trick.name }}</strong>?</p>
       </div>
       <div class=\"modal-footer\">
-        <a href=\"{{ path('delete_trick', {'trickId': trick.id}) }}\" type=\"button\" class=\"btn btn-dark\">Delete</a>
+        <a href=\"{{ path('delete_trick', {'id': trick.id}) }}\" type=\"button\" class=\"btn btn-dark\">Delete</a>
         <button type=\"button\" class=\"btn btn-danger\" data-bs-dismiss=\"modal\">Discard</button>
       </div>
     </div>
   </div>
 </div>
-{% endif %}", "trick/_deleteModal.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\trick\\_deleteModal.html.twig");
+{% endif %}", "trick/_deleteModal.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\trick\\_deleteModal.html.twig");
     }
 }

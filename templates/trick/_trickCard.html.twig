@@ -1,11 +1,22 @@
 <div class="col" id="trick_{{ trick.id }}">
 	<div class="card shadow-sm">
-		<a href="{{ path('show_trick', {'trickId': trick.id}) }}">
-			<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: Thumbnail" preserveaspectratio="xMidYMid slice" role="img" focusable="false">
-				<title>Placeholder</title>
-				<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-			</svg>
+		{% if trick.mainMedia.type == 'image' %}
+			{% set src = asset(images_directory ~ trick.mainMedia.filename) %}
+		{% else %}
+			{% if 'youtube' in trick.mainMedia.filename %}
+				{% set src = "https://i3.ytimg.com/vi/" ~ trick.mainMedia.filename|trim('https://www.youtube.com/embed/') ~ "/hqdefault.jpg" %}
+			{% endif %}
+			{% if 'dailymotion' in trick.mainMedia.filename %}
+				{% set src = "https://www.dailymotion.com/thumbnail/video/" ~ trick.mainMedia.filename|trim('https://www.dailymotion.com/embed/video/') %}
+			{% endif %}
+			{% if 'vimeo' in trick.mainMedia.filename %}
+				{% set src = "https://vumbnail.com/" ~ trick.mainMedia.filename|trim('https://player.vimeo.com/video/') ~ ".jpg" %}
+			{% endif %}
+		{% endif %}
+		<a href="{{ path('show_trick', {'id': trick.id}) }}">
+			<img src={{ src }} class="bd-placeholder-img card-img-top" width="100%" height="200" alt="image"/>
 		</a>
+			
 		<div class="card-body">
 			<div class="d-flex justify-content-between align-items-center col">
 				<small class="text-muted">{{ trick.name }}</small>

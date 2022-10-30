@@ -23,6 +23,105 @@
       });
     });
   </script>
+  <script>
+    jQuery(document).ready(function () {
+      const input = document.querySelector("input[type=file]");
+const preview = document.querySelector(".preview");
+input.addEventListener('change', updateImageDisplay);
+
+  function updateImageDisplay() {
+  while(preview.firstChild) {
+    preview.removeChild(preview.firstChild);
+  }
+
+  const curFiles = input.files;
+  if (curFiles.length === 0) {
+    const para = document.createElement('p');
+    para.textContent = 'No files currently selected for upload';
+    preview.appendChild(para);
+  } else {
+    var $form = $('#form');
+
+    for (const file of curFiles) {
+      const listItem = document.createElement('div');
+      
+      
+      listItem.classList.add('col', 'mb-2', 'text-center');
+      if (validFileType(file)) {
+        
+      const para = document.createElement('div');
+      para.classList.add('form-check');
+      
+        const image = document.createElement('img');
+        image.classList.add('bd-placeholder-img', 'card-img-top');
+        image.style.height='200px';
+        image.style.width='100%';
+        image.src = URL.createObjectURL(file);
+
+        listItem.appendChild(image);
+        listItem.appendChild(para);
+      } else {
+        para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
+        listItem.appendChild(para);
+      }
+
+      preview.appendChild(listItem);
+    }
+  }
+}
+
+const fileTypes = [
+  "image/apng",
+  "image/bmp",
+  "image/gif",
+  "image/jpeg",
+  "image/pjpeg",
+  "image/png",
+  "image/svg+xml",
+  "image/tiff",
+  "image/webp",
+  "image/x-icon"
+];
+
+function validFileType(file) {
+  return fileTypes.includes(file.type);
+}
+
+function returnFileSize(number) {
+  if (number < 1024) {
+    return `${number} bytes`;
+  } else if (number >= 1024 && number < 1048576) {
+    return `${(number / 1024).toFixed(1)} KB`;
+  } else if (number >= 1048576) {
+    return `${(number / 1048576).toFixed(1)} MB`;
+  }
+}
+      jQuery('.add-another-collection-widget').click(function (e) {
+          var list = jQuery(jQuery(this).attr('data-list-selector'));
+          // Try to find the counter of the list or use the length of the list
+          var counter = list.data('widget-counter') || list.children().length;
+
+          // grab the prototype template
+          var newWidget = list.attr('data-prototype');
+          // replace the "__name__" used in the id and name of the prototype
+          // with a number that's unique to your emails
+          // end name attribute looks like name="contact[emails][2]"
+          newWidget = newWidget.replace(/__name__/g, counter);
+          // Increase the counter
+          counter++;
+          // And store it, the length cannot be used if deleting widgets is allowed
+          list.data('widget-counter', counter);
+
+          // create a new list element and add it to the list
+          var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
+          newElem.appendTo(list);
+      });
+    });
+
+
+
+  </script>
+  {% block jsDeleteImage %}{% endblock %}
 {% endblock %}
 
 
@@ -37,25 +136,48 @@
               <div class="card-body">
                 <div class="justify-content-between align-items-center col">
                   <div class="justify-content-between align-items-center col">
-
+                        {{ form_start(trickForm) }}
                     {% if trick is not defined %}
-                      {% set trick = {name: '', description: '', groupId: {'id': '1'}} %}
+                      {% set trick = {name: '', description: '', group: {'id': '1'}} %}
                       {% set submitButtonText = 'Add trick' %}
                     {% else %}
                       {% set submitButtonText = 'Modify trick' %}
+                        <div class="row">
+                        {% if trick.mainMedia.type == 'image' %}
+                          <img src="{{ asset('/uploads/images/' ~ trick.mainMedia.filename) }}" alt="">
+                        {% else %}
+                          <iframe width="100%" height="780" src="{{ trick.mainMedia.filename }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {% endif %}
+                        </div>
                       <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4">
+                      
                         {% for media in trick.medias %}
                             {{ include('trick/_medias.html.twig') }}
                         {% endfor %}
                       </div>
                     {% endif %}
                     <div class="row">
+                                            </div>
+                      <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4 preview">
+                      </div>
                       <div id="trick">
-                        {{ form_start(trickForm) }}
+                      
                         {{ form_row(trickForm.name, {'value': trick.name}) }}
                         {{ form_row(trickForm.images) }}
+                        <div class="mb-3">
+                        <ul id="video-fields-list"
+                            style="list-style: none;"
+                            data-prototype="{{ form_widget(trickForm.videos.vars.prototype)|e }}"
+                            data-widget-tags="{{ '<li></li>'|e }}"
+                            data-widget-counter="{{ trickForm.videos|length }}">
+                          {% for video in trickForm.videos %}
+                            <li class="mb-3">{{ form_widget(video) }}</li>
+                          {% endfor %}
+                        </ul>
+                        <button type="button" class="add-another-collection-widget btn btn-dark" data-list-selector="#video-fields-list">Add another video</button>
+                        </div>
                         {{ form_row(trickForm.description, {'value': trick.description}) }}
-                        {{ form_row(trickForm.groupId, {'value': trick.groupId.id}) }}
+                        {{ form_row(trickForm.group, {'value': trick.group.id}) }}
                         <div class="buttons row mb-3">
                           <div class="btn-group justify-content-center">
                           <p class="mx-2">{{ form_widget(trickForm.Create_Trick, {'label': submitButtonText}) }}</p>

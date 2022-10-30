@@ -19,7 +19,7 @@ class RegistrationToken
 
     #[ORM\OneToOne(targetEntity: 'App\Entity\User')]
     #[ORM\JoinColumn(name: 'user_id',nullable: false)]
-    private ?User $userId = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -38,14 +38,14 @@ class RegistrationToken
         return $this;
     }
 
-    public function getUserId(): ?user
+    public function getUser(): ?user
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserId(user $userId): self
+    public function setUser(user $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }

@@ -156,7 +156,7 @@ function loadMore() {
 \t\t\thtml += '\t\t\t\t<div class=\"modal-footer\">';
 \t\t\tvar trickRoute = '";
             // line 59
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["trickId" => "value_id"]);
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete_trick", ["id" => "value_id"]);
             echo "';
 \t\t\ttrickRoute = trickRoute.replace(\"value_id\", value.id);
 \t\t\thtml += '\t\t\t\t\t<a href=\"' + trickRoute + '\" type=\"button\" class=\"btn btn-dark\">Delete</a>';
@@ -172,40 +172,42 @@ function loadMore() {
 \t\t\thtml += '\t\t\t\t<div class=\"card shadow-sm\">';
 \t\t\tvar viewRoute = '";
         // line 70
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["trickId" => "value_id"]);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["id" => "value_id"]);
         echo "';
 \t\t\tviewRoute = viewRoute.replace(\"value_id\", value.id);
 \t\t\thtml += '\t\t\t\t\t<a href=\"' + viewRoute + '\">';
-\t\t\thtml += '\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">';
-\t\t\thtml += '\t\t\t\t\t\t\t<title>Placeholder</title>';
-\t\t\thtml += '\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>';
-\t\t\thtml += '\t\t\t\t\t\t</svg>';
+\t\t\tvar src = value.mainMedia;
+\t\t\tif(value.mainMediaType == 'image') {
+\t\t\t\tvar src = \"/uploads/images/\" + value.mainMedia;
+\t\t\t}
+
+\t\t\thtml += '<img src=\"' + src + '\" width=\"100%\" height=\"225\" alt=\"mainImage\">';
             html += '\t\t\t\t\t</a>';
 \t\t\thtml += '\t\t\t\t\t<div class=\"card-body\">';
 \t\t\thtml += '';
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">';
 \t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.name + '</small>';
 \t\t\t";
-        // line 82
+        // line 84
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 83
+            // line 85
             echo "\t\t\t\tvar Editroute = '";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modify_trick", ["trickId" => "value_id"]);
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modify_trick", ["id" => "value_id"]);
             echo "';
 \t\t\t\tEditroute = Editroute.replace(\"value_id\", value.id);
 \t\t\t\thtml += '\t\t\t\t\t\t\t<div class=\"btn-group\">';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-bs-toggle=\"modal\" data-bs-target=\"#modal_' + value.id + '\"><img src=\"";
-            // line 86
+            // line 88
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/trash-svgrepo-com.svg"), "html", null, true);
             echo "\" alt=\"pen icon\" height=\"16\" /></button>';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<a href=\"' + Editroute + '\" class=\"btn btn-sm btn-outline-secondary\"><img src=\"";
-            // line 87
+            // line 89
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/pencil-svgrepo-com.svg"), "html", null, true);
             echo "\" alt=\"pen icon\" height=\"16\" /></a>';
 \t\t\t\thtml += '\t\t\t\t\t\t\t</div>';
 \t\t\t";
         }
-        // line 90
+        // line 92
         echo "\t\t\thtml += '\t\t\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t</div>';
@@ -232,7 +234,7 @@ function loadMore() {
 
     }
 
-    // line 109
+    // line 111
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -242,7 +244,7 @@ function loadMore() {
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 110
+        // line 112
         echo "
 \t<main>
 
@@ -262,11 +264,10 @@ function loadMore() {
 
 \t\t\t\t<div class=\"row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3 mb-3\" id=\"tricksCards\">
 
-
 \t\t\t\t\t";
-        // line 130
+        // line 131
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 130, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 131, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -281,7 +282,7 @@ function loadMore() {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["trick"]) {
-            // line 131
+            // line 132
             echo "\t\t\t\t\t\t";
             echo twig_include($this->env, $context, "trick/_trickCard.html.twig");
             echo "
@@ -298,21 +299,21 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trick'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 133
-        echo "
+        // line 134
+        echo "\t\t\t\t\t
 \t\t\t\t</div>
 \t\t\t\t<div class=\"text-center\">
 \t\t\t\t\t<button onClick=\"loadMore()\" class=\"btn btn-dark my-3\" id=\"loadMore\">Load More</button>
 \t\t\t\t\t";
-        // line 137
+        // line 138
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 138
+            // line 139
             echo "\t\t\t\t\t<a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_trick");
             echo "\" class=\"btn btn-dark my-3\">Add a trick</a>
 \t\t\t\t\t";
         }
-        // line 140
+        // line 141
         echo "\t\t\t\t</div>
 \t\t\t\t<a href=\"#tricks\" id=\"downArrow\">
 \t\t\t\t\t<div class=\"arrow_container\">
@@ -346,7 +347,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  316 => 140,  310 => 138,  308 => 137,  302 => 133,  285 => 131,  268 => 130,  246 => 110,  236 => 109,  209 => 90,  203 => 87,  199 => 86,  192 => 83,  190 => 82,  175 => 70,  171 => 68,  159 => 59,  146 => 48,  144 => 47,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
+        return array (  317 => 141,  311 => 139,  309 => 138,  303 => 134,  286 => 132,  269 => 131,  248 => 112,  238 => 111,  211 => 92,  205 => 89,  201 => 88,  194 => 85,  192 => 84,  175 => 70,  171 => 68,  159 => 59,  146 => 48,  144 => 47,  130 => 36,  119 => 28,  108 => 20,  96 => 11,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -409,7 +410,7 @@ function loadMore() {
 \t\t\thtml += '\t\t\t\t\t<p>This action is irremediable, are you sure to delete <strong>' + value.name + '</strong>?</p>';
 \t\t\thtml += '\t\t\t\t</div>';
 \t\t\thtml += '\t\t\t\t<div class=\"modal-footer\">';
-\t\t\tvar trickRoute = '{{ path(\"delete_trick\", {'trickId': 'value_id'}) }}';
+\t\t\tvar trickRoute = '{{ path(\"delete_trick\", {'id': 'value_id'}) }}';
 \t\t\ttrickRoute = trickRoute.replace(\"value_id\", value.id);
 \t\t\thtml += '\t\t\t\t\t<a href=\"' + trickRoute + '\" type=\"button\" class=\"btn btn-dark\">Delete</a>';
 \t\t\thtml += '\t\t\t\t\t<button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>';
@@ -420,20 +421,22 @@ function loadMore() {
 \t\t\t{% endif %}
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"col\" id=\"trick_' + value.id + '\">';
 \t\t\thtml += '\t\t\t\t<div class=\"card shadow-sm\">';
-\t\t\tvar viewRoute = '{{ path(\"show_trick\", {'trickId': 'value_id'}) }}';
+\t\t\tvar viewRoute = '{{ path(\"show_trick\", {'id': 'value_id'}) }}';
 \t\t\tviewRoute = viewRoute.replace(\"value_id\", value.id);
 \t\t\thtml += '\t\t\t\t\t<a href=\"' + viewRoute + '\">';
-\t\t\thtml += '\t\t\t\t\t\t<svg class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"225\" xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"Placeholder: Thumbnail\" preserveaspectratio=\"xMidYMid slice\" role=\"img\" focusable=\"false\">';
-\t\t\thtml += '\t\t\t\t\t\t\t<title>Placeholder</title>';
-\t\t\thtml += '\t\t\t\t\t\t\t<rect width=\"100%\" height=\"100%\" fill=\"#55595c\"/><text x=\"50%\" y=\"50%\" fill=\"#eceeef\" dy=\".3em\">Thumbnail</text>';
-\t\t\thtml += '\t\t\t\t\t\t</svg>';
+\t\t\tvar src = value.mainMedia;
+\t\t\tif(value.mainMediaType == 'image') {
+\t\t\t\tvar src = \"/uploads/images/\" + value.mainMedia;
+\t\t\t}
+
+\t\t\thtml += '<img src=\"' + src + '\" width=\"100%\" height=\"225\" alt=\"mainImage\">';
             html += '\t\t\t\t\t</a>';
 \t\t\thtml += '\t\t\t\t\t<div class=\"card-body\">';
 \t\t\thtml += '';
 \t\t\thtml += '\t\t\t\t\t\t<div class=\"d-flex justify-content-between align-items-center col\">';
 \t\t\thtml += '\t\t\t\t\t\t\t<small class=\"text-muted\">' + value.name + '</small>';
 \t\t\t{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-\t\t\t\tvar Editroute = '{{ path(\"modify_trick\", {'trickId': 'value_id'}) }}';
+\t\t\t\tvar Editroute = '{{ path(\"modify_trick\", {'id': 'value_id'}) }}';
 \t\t\t\tEditroute = Editroute.replace(\"value_id\", value.id);
 \t\t\t\thtml += '\t\t\t\t\t\t\t<div class=\"btn-group\">';
 \t\t\t\thtml += '\t\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-bs-toggle=\"modal\" data-bs-target=\"#modal_' + value.id + '\"><img src=\"{{ asset(\"Style/img/trash-svgrepo-com.svg\") }}\" alt=\"pen icon\" height=\"16\" /></button>';
@@ -479,11 +482,10 @@ function loadMore() {
 
 \t\t\t\t<div class=\"row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3 mb-3\" id=\"tricksCards\">
 
-
 \t\t\t\t\t{% for trick in tricks %}
 \t\t\t\t\t\t{{ include('trick/_trickCard.html.twig') }}
 \t\t\t\t\t{% endfor %}
-
+\t\t\t\t\t
 \t\t\t\t</div>
 \t\t\t\t<div class=\"text-center\">
 \t\t\t\t\t<button onClick=\"loadMore()\" class=\"btn btn-dark my-3\" id=\"loadMore\">Load More</button>
@@ -503,6 +505,6 @@ function loadMore() {
 \t</main>
 
 \t{% endblock %}
-", "trick/tricks.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\trick\\tricks.html.twig");
+", "trick/tricks.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\trick\\tricks.html.twig");
     }
 }

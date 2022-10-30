@@ -19,6 +19,7 @@ return [
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/trick/add' => [[['_route' => 'add_trick', '_controller' => 'App\\Controller\\TrickController::addTrick'], null, null, null, true, false, null]],
+        '/trick/test' => [[['_route' => 'test', '_controller' => 'App\\Controller\\TrickController::test'], null, null, null, false, false, null]],
         '/user/sign-in' => [[['_route' => 'sign-in', '_controller' => 'App\\Controller\\UserController::sign_in'], null, null, null, false, false, null]],
         '/user/sign-up' => [[['_route' => 'sign-up', '_controller' => 'App\\Controller\\UserController::sign_up'], null, null, null, false, false, null]],
         '/user/resendRegistrationToken' => [[['_route' => 'resend_registration_token', '_controller' => 'App\\Controller\\UserController::resendRegistrationToken'], null, null, null, true, false, null]],
@@ -47,7 +48,7 @@ return [
                     .'|loadmore_commentarys/([^/]++)(*:229)'
                     .'|delete(?'
                         .'|/([^/]++)(*:255)'
-                        .'|Image/([^/]++)(*:277)'
+                        .'|Media/([^/]++)(*:277)'
                     .')'
                     .'|modify/([^/]++)(*:301)'
                 .')'
@@ -65,11 +66,11 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        192 => [[['_route' => 'show_trick', '_controller' => 'App\\Controller\\TrickController::showTrick'], ['trickId'], null, null, false, true, null]],
-        229 => [[['_route' => 'loadmore_commentarys', '_controller' => 'App\\Controller\\TrickController::loadMoreCommentarys'], ['trickId'], ['POST' => 0], null, false, true, null]],
-        255 => [[['_route' => 'delete_trick', '_controller' => 'App\\Controller\\TrickController::deleteTrick'], ['trickId'], null, null, false, true, null]],
-        277 => [[['_route' => 'delete_image', '_controller' => 'App\\Controller\\TrickController::deleteImage'], ['id'], null, null, false, true, null]],
-        301 => [[['_route' => 'modify_trick', '_controller' => 'App\\Controller\\TrickController::modifyTrick'], ['trickId'], null, null, false, true, null]],
+        192 => [[['_route' => 'show_trick', '_controller' => 'App\\Controller\\TrickController::showTrick'], ['id'], null, null, false, true, null]],
+        229 => [[['_route' => 'loadmore_commentarys', '_controller' => 'App\\Controller\\TrickController::loadMoreCommentarys'], ['id'], ['POST' => 0], null, false, true, null]],
+        255 => [[['_route' => 'delete_trick', '_controller' => 'App\\Controller\\TrickController::deleteTrick'], ['id'], null, null, false, true, null]],
+        277 => [[['_route' => 'delete_media', '_controller' => 'App\\Controller\\TrickController::deleteImage'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        301 => [[['_route' => 'modify_trick', '_controller' => 'App\\Controller\\TrickController::modifyTrick'], ['id'], null, null, false, true, null]],
         338 => [[['_route' => 'registration_validation', '_controller' => 'App\\Controller\\UserController::validateAccount'], ['token'], null, null, false, true, null]],
         368 => [
             [['_route' => 'reset_password', '_controller' => 'App\\Controller\\UserController::resetPassword'], ['token'], null, null, false, true, null],

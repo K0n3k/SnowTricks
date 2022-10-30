@@ -67,10 +67,10 @@ class Trick extends \App\Entity\Trick implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'groupId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'userId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'medias', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'commentaries'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'group', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'medias', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'mainMedia', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'commentaries'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'groupId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'userId', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'medias', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'commentaries'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'publishedDate', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'lastUpdated', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'group', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'medias', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'mainMedia', '' . "\0" . 'App\\Entity\\Trick' . "\0" . 'commentaries'];
     }
 
     /**
@@ -283,45 +283,45 @@ class Trick extends \App\Entity\Trick implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getGroupId(): ?\App\Entity\Group
+    public function getGroup(): ?\App\Entity\Group
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroupId', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroup', []);
 
-        return parent::getGroupId();
+        return parent::getGroup();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setGroupId(?\App\Entity\Group $groupId): \App\Entity\Trick
+    public function setGroup(?\App\Entity\Group $group): \App\Entity\Trick
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGroupId', [$groupId]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGroup', [$group]);
 
-        return parent::setGroupId($groupId);
+        return parent::setGroup($group);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getUserId(): ?\App\Entity\User
+    public function getUser(): ?\App\Entity\User
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserId', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
-        return parent::getUserId();
+        return parent::getUser();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setUserId(?\App\Entity\User $userId): \App\Entity\Trick
+    public function setUser(?\App\Entity\User $User): \App\Entity\Trick
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', [$userId]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$User]);
 
-        return parent::setUserId($userId);
+        return parent::setUser($User);
     }
 
     /**
@@ -360,12 +360,45 @@ class Trick extends \App\Entity\Trick implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getMainMedia(): ?\App\Entity\Media
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMainMedia', []);
+
+        return parent::getMainMedia();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMainMedia(?\App\Entity\Media $mainMedia): \App\Entity\Trick
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMainMedia', [$mainMedia]);
+
+        return parent::setMainMedia($mainMedia);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getCommentaries(): \Doctrine\Common\Collections\Collection
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCommentaries', []);
 
         return parent::getCommentaries();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function purgeTrick(\App\Repository\CommentaryRepository $commentaryRepository, \App\Repository\MediaRepository $mediaRepository): bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'purgeTrick', [$commentaryRepository, $mediaRepository]);
+
+        return parent::purgeTrick($commentaryRepository, $mediaRepository);
     }
 
     /**

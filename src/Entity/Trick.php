@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Repository\CommentaryRepository;
+use App\Repository\MediaRepository;
 use App\Repository\TrickRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -30,16 +32,19 @@ class Trick
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(name : 'group_id', nullable: false)]
-    private ?Group $groupId = null;
+    private ?Group $group = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(name : 'user_id', nullable: false)]
-    private ?User $userId = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $User = null;
 
-    #[ORM\OneToMany(mappedBy: 'Trick', targetEntity: Media::class, orphanRemoval: true, cascade: ['persist'], fetch: 'EAGER')]
+    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: Media::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $medias;
 
-    #[ORM\OneToMany(mappedBy: 'Trick', targetEntity: Commentary::class, orphanRemoval: true)]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Media $mainMedia = null;
+
+    #[ORM\OneToMany(mappedBy: 'trick', targetEntity: Commentary::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $commentaries;
 
     public function __construct()
@@ -101,26 +106,26 @@ class Trick
         return $this;
     }
 
-    public function getGroupId(): ?Group
+    public function getGroup(): ?Group
     {
-        return $this->groupId;
+        return $this->group;
     }
 
-    public function setGroupId(?Group $groupId): self
+    public function setGroup(?Group $group): self
     {
-        $this->groupId = $groupId;
+        $this->group = $group;
 
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->userId;
+        return $this->User;
     }
 
-    public function setUserId(?User $userId): self
+    public function setUser(?User $User): self
     {
-        $this->userId = $userId;
+        $this->User = $User;
 
         return $this;
     }
@@ -155,6 +160,18 @@ class Trick
         return $this;
     }
 
+    public function getMainMedia(): ?Media
+    {
+        return $this->mainMedia;
+    }
+
+    public function setMainMedia(?Media $mainMedia): self
+    {
+        $this->mainMedia = $mainMedia;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Commentary>
      */
@@ -163,12 +180,23 @@ class Trick
         return $this->commentaries;
     }
 
+    public function purgeTrick( CommentaryRepository $commentaryRepository, MediaRepository $mediaRepository): bool
+    {
+        foreach($this->commentaries as $commentary) {
+            $commentaryRepository->remove($commentary, true);
+        }
+        foreach($this->medias as $media) {
+            $mediaRepository->remove($media, true);
+        }
+        return true;
+    }
+
     public function addCommentary(Commentary $commentary): self
     {
         if (!$this->commentaries->contains($commentary)) {
             $this->commentaries->add($commentary);
             $commentary->setTrick($this);
-        }
+    }
 
         return $this;
     }

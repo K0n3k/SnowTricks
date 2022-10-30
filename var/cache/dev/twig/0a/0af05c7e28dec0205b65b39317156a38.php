@@ -109,7 +109,7 @@ function loadMore() {
 \t\$.ajax({
 \t\turl: \"";
         // line 25
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("loadmore_commentarys", ["trickId" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("loadmore_commentarys", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25)]), "html", null, true);
         echo "\",
 \t\ttype: \"POST\",
 \t\tdata: {offset},
@@ -121,83 +121,13 @@ function loadMore() {
 \t\t\thtml = \"\";
       html += '\t\t\t <div class=\"row shadow-sm m-3\" id=\"Commentary_' + value.id + '\">';
       html += '                      <div class=\"col col-1 mx-3\">';
-      html += '                        <?xml version=\"1.0\" encoding=\"iso-8859-1\"?>';
-      html += '                        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->';
-      html += '                        <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\"';
-      html += '                          xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"48px\" viewBox=\"0 0 480 480\"';
-      html += '                          style=\"enable-background:new 0 0 480 480;\" xml:space=\"preserve\">';
-      html += '                          <g>';
-      html += '                            <g>';
-      html += '                              <circle style=\"fill:#B8BAC0;\" cx=\"240\" cy=\"240\" r=\"240\" />';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#FFFFFF;\"';
-      html += '                                  d=\"M240,360.07c-27.944,0-53.297-11.991-72.003-31.372c-0.014,11.615-0.436,28.379-3.516,40.611';
-      html += '\t\t\t\tc2.02,1.235,3.588,3.262,3.894,5.784c3.992,32.484,34.781,56.977,71.625,56.977c36.836,0,67.625-24.496,71.625-56.977';
-      html += '\t\t\t\tc0.31-2.525,1.844-4.549,3.895-5.78c-3.08-12.233-3.503-28.999-3.517-40.615C293.297,348.079,267.944,360.07,240,360.07z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#D7DBE0;\" d=\"M310.44,330.174c-18.549,18.477-43.242,29.896-70.44,29.896';
-      html += '\t\t\t\tc-27.944,0-53.297-11.991-72.003-31.372c-0.014,11.615-0.436,28.379-3.516,40.611c2.02,1.235,3.588,3.262,3.894,5.784';
-      html += '\t\t\t\tc1.765,14.359,8.778,27.144,19.223,36.954C235.766,405.265,290.437,357.702,310.44,330.174z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#FFFFFF;\" d=\"M312,160.07H176c-22.055,0-40,17.945-40,40v48c0,61.758,46.656,112,104,112s104-50.242,104-112';
-      html += '\t\t\t\tv-56C344,174.426,329.648,160.07,312,160.07z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#5C546A;\" d=\"M296,72.07H192c-15.047,0-27.695,10.438-31.102,24.449C133.359,100.02,112,123.598,112,152.07v40';
-      html += '\t\t\t\tc0,20.617,8.752,39.851,24,53.52v-45.52c0-22.055,17.945-40,40-40h136c17.648,0,32,14.355,32,32v53.511';
-      html += '\t\t\t\tc15.251-13.667,24-32.899,24-53.511v-48C368,104.371,335.703,72.07,296,72.07z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <path style=\"fill:#5C546A;\" d=\"M61.632,400.544C105.562,449.319,169.191,480,240,480s134.438-30.681,178.368-79.456';
-      html += '\t\t\tc-7.66-10.356-18.462-18.77-32.352-22.659c-0.32-0.09-0.641-0.16-0.969-0.207l-63.859-9.582c-0.391-0.059-1.227-0.09-1.625-0.09';
-      html += '\t\t\tc-4.039,0-7.445,3.012-7.938,7.023c-4,32.48-34.789,56.977-71.625,56.977c-36.844,0-67.633-24.492-71.625-56.977';
-      html += '\t\t\tc-0.5-4.129-4.219-7.234-8.141-7.02c-0.469-0.027-0.93,0.012-1.422,0.086l-63.859,9.582c-0.328,0.047-0.648,0.117-0.969,0.207';
-      html += '\t\t\tC80.094,381.775,69.292,390.188,61.632,400.544z\" />';
-      html += '                            </g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                        </svg>';
-      html += '                        <p style=\"white-space: nowrap;\">' + value.userId.username + '</p>';
+      var avatarRoute = '";
+        // line 36
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(((isset($context["avatars_directory"]) || array_key_exists("avatars_directory", $context) ? $context["avatars_directory"] : (function () { throw new RuntimeError('Variable "avatars_directory" does not exist.', 36, $this->source); })()) . "image")), "html", null, true);
+        echo "';
+\t\t\tavatarRoute = avatarRoute.replace(\"image\", value.user.avatar);
+      html += '<img src=\"'+ avatarRoute +'\" class=\"bd-placeholder-img card-img-top\" width=\"32\" height=\"32\" alt=\"image\"/>';
+      html += '                        <p style=\"white-space: nowrap;\">' + value.user.username + '</p>';
       html += '                      <br>';
       html += '                      <p style=\"white-space: nowrap;\">' + date.getFullYear() + '-' + (\"0\" + (date.getMonth() + 1)).slice(-2) + '-' + (\"0\" + (date.getDate() + 1)).slice(-2) +'</p>';
       html += '                      <br>';
@@ -226,7 +156,7 @@ function loadMore() {
 
     }
 
-    // line 134
+    // line 61
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -236,7 +166,7 @@ function loadMore() {
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 135
+        // line 62
         echo " <main>
     <div class=\"album py-5 bg-light position-relative trickPage\">
       <div class=\"container\">
@@ -245,20 +175,48 @@ function loadMore() {
             <div class=\"card shadow-sm\">
               <div class=\"card-body\">
                 ";
-        // line 142
+        // line 69
         echo twig_include($this->env, $context, "trick/_deleteModal.html.twig");
         echo "
-                ";
-        // line 143
+                <div class=\"row mb-2\">
+                  <div class=\"col\">
+                    <h1>";
+        // line 72
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 72, $this->source); })()), "name", [], "any", false, false, false, 72), "html", null, true);
+        echo "</h1>
+                  </div>
+                  <div class=\"col text-end\">
+                    ";
+        // line 75
         echo twig_include($this->env, $context, "trick/_deleteModifyButtons.html.twig");
         echo "
+                  </div>
+                </div>
                 <div class=\"justify-content-between align-items-center col\">
                   <div class=\"justify-content-between align-items-center col\">
+                  <div class=\"row\">
+                        ";
+        // line 81
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 81, $this->source); })()), "mainMedia", [], "any", false, false, false, 81), "type", [], "any", false, false, false, 81) == "image")) {
+            // line 82
+            echo "                          <img src=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(((isset($context["images_directory"]) || array_key_exists("images_directory", $context) ? $context["images_directory"] : (function () { throw new RuntimeError('Variable "images_directory" does not exist.', 82, $this->source); })()) . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 82, $this->source); })()), "mainMedia", [], "any", false, false, false, 82), "filename", [], "any", false, false, false, 82))), "html", null, true);
+            echo "\" alt=\"\">
+                        ";
+        } else {
+            // line 84
+            echo "                          <iframe width=\"100%\" height=\"780\" src=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 84, $this->source); })()), "mainMedia", [], "any", false, false, false, 84), "filename", [], "any", false, false, false, 84), "html", null, true);
+            echo "\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
+                        ";
+        }
+        // line 86
+        echo "                  </div>
                   <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
                   ";
-        // line 147
+        // line 88
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 147, $this->source); })()), "medias", [], "any", false, false, false, 147));
+        $context['_seq'] = twig_ensure_traversable(twig_array_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 88, $this->source); })()), "medias", [], "any", false, false, false, 88), function ($__v__) use ($context, $macros) { $context["v"] = $__v__; return ((isset($context["v"]) || array_key_exists("v", $context) ? $context["v"] : (function () { throw new RuntimeError('Variable "v" does not exist.', 88, $this->source); })()) != twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 88, $this->source); })()), "mainMedia", [], "any", false, false, false, 88)); }));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -273,7 +231,7 @@ function loadMore() {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["media"]) {
-            // line 148
+            // line 89
             echo "                    ";
             echo twig_include($this->env, $context, "trick/_medias.html.twig");
             echo "
@@ -290,67 +248,64 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['media'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 150
+        // line 91
         echo "                  </div>
                     <div class=\"row\" style=\"padding: 10px;\">
-                      <h1>";
-        // line 152
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 152, $this->source); })()), "name", [], "any", false, false, false, 152), "html", null, true);
-        echo "</h1><br>
+                      
                       <p>";
-        // line 153
-        echo twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 153, $this->source); })()), "description", [], "any", false, false, false, 153);
+        // line 94
+        echo twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 94, $this->source); })()), "description", [], "any", false, false, false, 94);
         echo "</p>
                     </div>
                     <div class=\"row\">
                       <div class=\"d-inline-flex justify-content-center\">
                         <h4 class=\"mx-3\">Created <span class=\"badge bg-secondary col\">";
-        // line 157
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 157, $this->source); })()), "publishedDate", [], "any", false, false, false, 157), "Y-m-d"), "html", null, true);
+        // line 98
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 98, $this->source); })()), "publishedDate", [], "any", false, false, false, 98), "Y-m-d"), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">By <span class=\"badge bg-secondary col\">";
-        // line 158
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 158, $this->source); })()), "userId", [], "any", false, false, false, 158), "username", [], "any", false, false, false, 158), "html", null, true);
+        // line 99
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 99, $this->source); })()), "user", [], "any", false, false, false, 99), "username", [], "any", false, false, false, 99), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">In group <span class=\"badge bg-secondary col\">";
-        // line 159
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 159, $this->source); })()), "groupId", [], "any", false, false, false, 159), "name", [], "any", false, false, false, 159), "html", null, true);
+        // line 100
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 100, $this->source); })()), "group", [], "any", false, false, false, 100), "name", [], "any", false, false, false, 100), "html", null, true);
         echo "</span></h4>
                         <h4 class=\"mx-3\">Last update <span class=\"badge bg-secondary col\">
                         ";
-        // line 161
-        if ((null === twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 161, $this->source); })()), "lastUpdated", [], "any", false, false, false, 161))) {
-            // line 162
+        // line 102
+        if ((null === twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 102, $this->source); })()), "lastUpdated", [], "any", false, false, false, 102))) {
+            // line 103
             echo "                          Never
                         ";
         } else {
-            // line 163
+            // line 104
             echo "  
                           ";
-            // line 164
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 164, $this->source); })()), "lastUpdated", [], "any", false, false, false, 164), "Y-m-d"), "html", null, true);
+            // line 105
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 105, $this->source); })()), "lastUpdated", [], "any", false, false, false, 105), "Y-m-d"), "html", null, true);
             echo "
                         ";
         }
-        // line 165
+        // line 106
         echo "                          
                         </span></h4>
                       </div>
                     </div>
                     <hr>
                     ";
-        // line 170
+        // line 111
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 171
+            // line 112
             echo "                      <div class=\"row\">
                         ";
-            // line 172
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 172, $this->source); })()), 'form');
+            // line 113
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 113, $this->source); })()), 'form');
             echo "
                           <script type=\"text/javascript\">
                             textarea = document.querySelector(\"#";
-            // line 174
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 174, $this->source); })()), "commentary", [], "any", false, false, false, 174), "vars", [], "any", false, false, false, 174), "id", [], "any", false, false, false, 174), "html", null, true);
+            // line 115
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["commentaryForm"]) || array_key_exists("commentaryForm", $context) ? $context["commentaryForm"] : (function () { throw new RuntimeError('Variable "commentaryForm" does not exist.', 115, $this->source); })()), "commentary", [], "any", false, false, false, 115), "vars", [], "any", false, false, false, 115), "id", [], "any", false, false, false, 115), "html", null, true);
             echo "\");
                             textarea.addEventListener('input', autoResize, false);
                           
@@ -363,13 +318,13 @@ function loadMore() {
                       <hr>
                     ";
         }
-        // line 185
+        // line 126
         echo "                    <div id=\"commentarys\" class=\"mb-5\">
                     
                     ";
-        // line 187
+        // line 128
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 187, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["commentarys"]) || array_key_exists("commentarys", $context) ? $context["commentarys"] : (function () { throw new RuntimeError('Variable "commentarys" does not exist.', 128, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -384,7 +339,7 @@ function loadMore() {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["commentary"]) {
-            // line 188
+            // line 129
             echo "                      ";
             echo twig_include($this->env, $context, "trick/_commentarys.html.twig");
             echo "
@@ -401,7 +356,7 @@ function loadMore() {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentary'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 190
+        // line 131
         echo "                    </div>
                   </div>
                   <div class=\"row\">
@@ -438,7 +393,7 @@ function loadMore() {
 
     public function getDebugInfo()
     {
-        return array (  405 => 190,  388 => 188,  371 => 187,  367 => 185,  353 => 174,  348 => 172,  345 => 171,  343 => 170,  336 => 165,  331 => 164,  328 => 163,  324 => 162,  322 => 161,  317 => 159,  313 => 158,  309 => 157,  302 => 153,  298 => 152,  294 => 150,  277 => 148,  260 => 147,  253 => 143,  249 => 142,  240 => 135,  230 => 134,  112 => 25,  101 => 17,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
+        return array (  360 => 131,  343 => 129,  326 => 128,  322 => 126,  308 => 115,  303 => 113,  300 => 112,  298 => 111,  291 => 106,  286 => 105,  283 => 104,  279 => 103,  277 => 102,  272 => 100,  268 => 99,  264 => 98,  257 => 94,  252 => 91,  235 => 89,  218 => 88,  214 => 86,  208 => 84,  202 => 82,  200 => 81,  191 => 75,  185 => 72,  179 => 69,  170 => 62,  160 => 61,  126 => 36,  112 => 25,  101 => 17,  89 => 7,  79 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -467,7 +422,7 @@ function showLoadMore() {
 
 function loadMore() {
 \t\$.ajax({
-\t\turl: \"{{ path('loadmore_commentarys', {trickId: trick.id}) }}\",
+\t\turl: \"{{ path('loadmore_commentarys', {'id': trick.id}) }}\",
 \t\ttype: \"POST\",
 \t\tdata: {offset},
 
@@ -478,83 +433,10 @@ function loadMore() {
 \t\t\thtml = \"\";
       html += '\t\t\t <div class=\"row shadow-sm m-3\" id=\"Commentary_' + value.id + '\">';
       html += '                      <div class=\"col col-1 mx-3\">';
-      html += '                        <?xml version=\"1.0\" encoding=\"iso-8859-1\"?>';
-      html += '                        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->';
-      html += '                        <svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\"';
-      html += '                          xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" width=\"48px\" viewBox=\"0 0 480 480\"';
-      html += '                          style=\"enable-background:new 0 0 480 480;\" xml:space=\"preserve\">';
-      html += '                          <g>';
-      html += '                            <g>';
-      html += '                              <circle style=\"fill:#B8BAC0;\" cx=\"240\" cy=\"240\" r=\"240\" />';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#FFFFFF;\"';
-      html += '                                  d=\"M240,360.07c-27.944,0-53.297-11.991-72.003-31.372c-0.014,11.615-0.436,28.379-3.516,40.611';
-      html += '\t\t\t\tc2.02,1.235,3.588,3.262,3.894,5.784c3.992,32.484,34.781,56.977,71.625,56.977c36.836,0,67.625-24.496,71.625-56.977';
-      html += '\t\t\t\tc0.31-2.525,1.844-4.549,3.895-5.78c-3.08-12.233-3.503-28.999-3.517-40.615C293.297,348.079,267.944,360.07,240,360.07z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#D7DBE0;\" d=\"M310.44,330.174c-18.549,18.477-43.242,29.896-70.44,29.896';
-      html += '\t\t\t\tc-27.944,0-53.297-11.991-72.003-31.372c-0.014,11.615-0.436,28.379-3.516,40.611c2.02,1.235,3.588,3.262,3.894,5.784';
-      html += '\t\t\t\tc1.765,14.359,8.778,27.144,19.223,36.954C235.766,405.265,290.437,357.702,310.44,330.174z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#FFFFFF;\" d=\"M312,160.07H176c-22.055,0-40,17.945-40,40v48c0,61.758,46.656,112,104,112s104-50.242,104-112';
-      html += '\t\t\t\tv-56C344,174.426,329.648,160.07,312,160.07z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <g>';
-      html += '                                <path style=\"fill:#5C546A;\" d=\"M296,72.07H192c-15.047,0-27.695,10.438-31.102,24.449C133.359,100.02,112,123.598,112,152.07v40';
-      html += '\t\t\t\tc0,20.617,8.752,39.851,24,53.52v-45.52c0-22.055,17.945-40,40-40h136c17.648,0,32,14.355,32,32v53.511';
-      html += '\t\t\t\tc15.251-13.667,24-32.899,24-53.511v-48C368,104.371,335.703,72.07,296,72.07z\" />';
-      html += '                              </g>';
-      html += '                            </g>';
-      html += '                            <g>';
-      html += '                              <path style=\"fill:#5C546A;\" d=\"M61.632,400.544C105.562,449.319,169.191,480,240,480s134.438-30.681,178.368-79.456';
-      html += '\t\t\tc-7.66-10.356-18.462-18.77-32.352-22.659c-0.32-0.09-0.641-0.16-0.969-0.207l-63.859-9.582c-0.391-0.059-1.227-0.09-1.625-0.09';
-      html += '\t\t\tc-4.039,0-7.445,3.012-7.938,7.023c-4,32.48-34.789,56.977-71.625,56.977c-36.844,0-67.633-24.492-71.625-56.977';
-      html += '\t\t\tc-0.5-4.129-4.219-7.234-8.141-7.02c-0.469-0.027-0.93,0.012-1.422,0.086l-63.859,9.582c-0.328,0.047-0.648,0.117-0.969,0.207';
-      html += '\t\t\tC80.094,381.775,69.292,390.188,61.632,400.544z\" />';
-      html += '                            </g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                          <g>';
-      html += '                          </g>';
-      html += '                        </svg>';
-      html += '                        <p style=\"white-space: nowrap;\">' + value.userId.username + '</p>';
+      var avatarRoute = '{{ asset(avatars_directory ~ 'image') }}';
+\t\t\tavatarRoute = avatarRoute.replace(\"image\", value.user.avatar);
+      html += '<img src=\"'+ avatarRoute +'\" class=\"bd-placeholder-img card-img-top\" width=\"32\" height=\"32\" alt=\"image\"/>';
+      html += '                        <p style=\"white-space: nowrap;\">' + value.user.username + '</p>';
       html += '                      <br>';
       html += '                      <p style=\"white-space: nowrap;\">' + date.getFullYear() + '-' + (\"0\" + (date.getMonth() + 1)).slice(-2) + '-' + (\"0\" + (date.getDate() + 1)).slice(-2) +'</p>';
       html += '                      <br>';
@@ -585,23 +467,37 @@ function loadMore() {
             <div class=\"card shadow-sm\">
               <div class=\"card-body\">
                 {{ include('trick/_deleteModal.html.twig') }}
-                {{ include('trick/_deleteModifyButtons.html.twig') }}
+                <div class=\"row mb-2\">
+                  <div class=\"col\">
+                    <h1>{{ trick.name }}</h1>
+                  </div>
+                  <div class=\"col text-end\">
+                    {{ include('trick/_deleteModifyButtons.html.twig') }}
+                  </div>
+                </div>
                 <div class=\"justify-content-between align-items-center col\">
                   <div class=\"justify-content-between align-items-center col\">
+                  <div class=\"row\">
+                        {% if trick.mainMedia.type == 'image' %}
+                          <img src=\"{{ asset(images_directory ~ trick.mainMedia.filename) }}\" alt=\"\">
+                        {% else %}
+                          <iframe width=\"100%\" height=\"780\" src=\"{{ trick.mainMedia.filename }}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
+                        {% endif %}
+                  </div>
                   <div class=\"d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4\">
-                  {% for media in trick.medias %}
+                  {% for media in trick.medias|filter( v => v != trick.mainMedia) %}
                     {{ include('trick/_medias.html.twig') }}
                   {% endfor %}
                   </div>
                     <div class=\"row\" style=\"padding: 10px;\">
-                      <h1>{{ trick.name }}</h1><br>
+                      
                       <p>{{ trick.description|raw }}</p>
                     </div>
                     <div class=\"row\">
                       <div class=\"d-inline-flex justify-content-center\">
                         <h4 class=\"mx-3\">Created <span class=\"badge bg-secondary col\">{{ trick.publishedDate|date('Y-m-d') }}</span></h4>
-                        <h4 class=\"mx-3\">By <span class=\"badge bg-secondary col\">{{ trick.userId.username }}</span></h4>
-                        <h4 class=\"mx-3\">In group <span class=\"badge bg-secondary col\">{{ trick.groupId.name }}</span></h4>
+                        <h4 class=\"mx-3\">By <span class=\"badge bg-secondary col\">{{ trick.user.username }}</span></h4>
+                        <h4 class=\"mx-3\">In group <span class=\"badge bg-secondary col\">{{ trick.group.name }}</span></h4>
                         <h4 class=\"mx-3\">Last update <span class=\"badge bg-secondary col\">
                         {% if trick.lastUpdated is null %}
                           Never
@@ -647,6 +543,6 @@ function loadMore() {
 
   </main>
 
-{% endblock %}", "trick/trick.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\trick\\trick.html.twig");
+{% endblock %}", "trick/trick.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\trick\\trick.html.twig");
     }
 }

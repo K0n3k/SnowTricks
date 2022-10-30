@@ -42,12 +42,19 @@ class HomeController extends AbstractController
             $tricks = $trickRepository->findBy([], null, $this->tricksLimit, $offset);
             $jsonContent = [];
             foreach($tricks as $trick) {
+                $filename = $trick->getMainMedia()->getFilename();
+                if($trick->getMainMedia()->getType() === 'video') {
+                    
+                    $filename = "https://img.youtube.com/vi/" . trim($trick->getMainMedia()->getFilename(), "https://www.youtube.com/embed/") . "/hqdefault.jpg";
+                }
                 array_push($jsonContent, [
                     'id' => $trick->getId(),
                     'groupId' => $trick->getGroupId()->getId(),
                     'name' => $trick->getName(),
                     'description' => $trick->getDescription(),
                     'userId' => $trick->GetUserId(),
+                    'mainMedia' => $filename,
+                    'mainMediaType' => $trick->getMainMedia()->getType(),
                     'publishedDate' => $trick->getPublishedDate(),
                     'lastUpdated' => $trick->getLastUpdated(),
                 ]);

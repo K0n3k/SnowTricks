@@ -42,7 +42,7 @@ class __TwigTemplate_ef9f58d37800a67b007c3742179e5710 extends Template
         // line 1
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
             // line 2
-            echo "    <div class=\"btn-group\">
+            echo "    <div class=\"btn-group m-0\" role=\"group\">
         <button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-bs-toggle=\"modal\" data-bs-target=\"#modal_";
             // line 3
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 3, $this->source); })()), "id", [], "any", false, false, false, 3), "html", null, true);
@@ -54,7 +54,7 @@ class __TwigTemplate_ef9f58d37800a67b007c3742179e5710 extends Template
         </button>
         <a href=\"";
             // line 6
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modify_trick", ["trickId" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 6, $this->source); })()), "id", [], "any", false, false, false, 6)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modify_trick", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 6, $this->source); })()), "id", [], "any", false, false, false, 6)]), "html", null, true);
             echo "\" class=\"btn btn-sm btn-outline-secondary\">
             <img src=\"";
             // line 7
@@ -90,14 +90,14 @@ class __TwigTemplate_ef9f58d37800a67b007c3742179e5710 extends Template
     public function getSourceContext()
     {
         return new Source("{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <div class=\"btn-group\">
+    <div class=\"btn-group m-0\" role=\"group\">
         <button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-bs-toggle=\"modal\" data-bs-target=\"#modal_{{ trick.id }}\">
             <img src=\"{{ asset(\"Style/img/trash-svgrepo-com.svg\") }}\" alt=\"pen icon\" height=\"16\"/>
         </button>
-        <a href=\"{{ path('modify_trick', {'trickId': trick.id}) }}\" class=\"btn btn-sm btn-outline-secondary\">
+        <a href=\"{{ path('modify_trick', {'id': trick.id}) }}\" class=\"btn btn-sm btn-outline-secondary\">
             <img src=\"{{ asset(\"Style/img/pencil-svgrepo-com.svg\") }}\" alt=\"pen icon\" height=\"16\"/>
         </a>
     </div>
-{% endif %}", "trick/_deleteModifyButtons.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\trick\\_deleteModifyButtons.html.twig");
+{% endif %}", "trick/_deleteModifyButtons.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\trick\\_deleteModifyButtons.html.twig");
     }
 }

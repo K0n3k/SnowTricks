@@ -1,10 +1,16 @@
-<div class="col mb-2">
-	<img src={{ asset('/uploads/images/' ~ media.filename) }} class="bd-placeholder-img card-img-top" width="100%" height="200" alt="image"/>
-	{% if app.request.attributes.get('_route') == 'modify_trick' or app.request.attributes.get('_route') == 'add_trick' %}
-		<a class="btn btn-danger" href="{{ path('delete_image', {'id': media.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ media.id) }}">Delete</a>
-	{% endif %}
+	<div class="col mb-2 text-center">
+		{% if media.type == 'image' %}
+			<img src={{ asset(images_directory ~ media.filename) }} class="bd-placeholder-img card-img-top" width="100%" height="200" alt="image"/>
+		{% else %}
+			<iframe width="100%" height="200" src="{{ media.filename }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		{% endif %}
+		{% if app.request.attributes.get('_route') == 'modify_trick' or app.request.attributes.get('_route') == 'add_trick' %}
+			{{ form_widget(trickForm.MainMedia.children[loop.index0], {'label': 'Set as main media'}) }}
+			<a class="btn btn-danger my-2" href="{{ path('delete_media', {'id': media.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ media.id) }}">Delete</a>
+		{% endif %}
 </div>
 
+{% block jsDeleteImage %}
 {% if app.request.attributes.get('_route') == 'modify_trick' or app.request.attributes.get('_route') == 'add_trick' %}
 	<script>
 		window.onload = () => {
@@ -13,7 +19,7 @@
 			for(link of links) {
 				link.addEventListener("click", function(e){
 					e.preventDefault()
-					if(confirm('are you sure to delete this image?')) {
+					if(confirm('are you sure to delete this media?')) {
 						fetch(this.getAttribute("href"), {
 							method: "DELETE",
 							headers: {
@@ -37,3 +43,4 @@
 		}
 	</script>
 {% endif %}
+{% endblock %}

@@ -17,7 +17,7 @@
 <body>
 
 <h1>Welcome on snowtrick {{ user.username }} !</h1>
-<a href="http://localhost{{ path('registration_validation', { 'token': registrationToken }) }}">Validate my account</a>
+<a href="http://localhost{{ path('registration_validation', { 'token': user.token.token }) }}">Validate my account</a>
 
 
 </body>

@@ -10,7 +10,7 @@
         <p>This action is irremediable, are you sure to delete <strong>{{ trick.name }}</strong>?</p>
       </div>
       <div class="modal-footer">
-        <a href="{{ path('delete_trick', {'trickId': trick.id}) }}" type="button" class="btn btn-dark">Delete</a>
+        <a href="{{ path('delete_trick', {'id': trick.id}) }}" type="button" class="btn btn-dark">Delete</a>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Discard</button>
       </div>
     </div>

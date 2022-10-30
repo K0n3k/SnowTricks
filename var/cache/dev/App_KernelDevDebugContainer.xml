@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.project_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</parameter>
+    <parameter key="kernel.project_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev</parameter>
-    <parameter key="kernel.cache_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev</parameter>
-    <parameter key="kernel.logs_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\log</parameter>
+    <parameter key="kernel.build_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="TwigBundle">Symfony\Bundle\TwigBundle\TwigBundle</parameter>
@@ -23,53 +23,54 @@
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\framework-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="TwigExtraBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\twig\extra-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\twig\extra-bundle</parameter>
         <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\debug-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\debug-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\web-profiler-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\monolog-bundle</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\maker-bundle\src</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\maker-bundle\src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
-        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\sensio\framework-extra-bundle\src</parameter>
+        <parameter key="path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\sensio\framework-extra-bundle\src</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
-    <parameter key="images_directory">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/public/uploads/images</parameter>
+    <parameter key="images_directory">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/public/uploads/tricks/</parameter>
+    <parameter key="avatars_directory">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/public/uploads/avatars/</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -105,17 +106,17 @@
     <parameter key="asset.request_context.base_path">null</parameter>
     <parameter key="asset.request_context.secure">null</parameter>
     <parameter key="translator.logging">false</parameter>
-    <parameter key="translator.default_path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/translations</parameter>
+    <parameter key="translator.default_path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/serialization.php</parameter>
-    <parameter key="cache.prefix.seed">_E:\Projets\Openclassrooms\P6_nguyenhuu_kevin.App_KernelDevDebugContainer</parameter>
+    <parameter key="serializer.mapping.cache.file">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/serialization.php</parameter>
+    <parameter key="cache.prefix.seed">_E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
@@ -124,20 +125,20 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/sessions</parameter>
+    <parameter key="session.save_path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
-    <parameter key="validator.mapping.cache.file">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/profiler</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>bootstrap_5_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</parameter>
+    <parameter key="twig.default_path">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</parameter>
     <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
     <parameter key="doctrine.dbal.logger.profiling.class">Doctrine\DBAL\Logging\DebugStack</parameter>
     <parameter key="doctrine.dbal.logger.class">Symfony\Bridge\Doctrine\Logger\DbalLogger</parameter>
@@ -211,7 +212,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -371,7 +372,6 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\UserController"/>
       </call>
     </service>
-    <service id="App\Email\MyMailer" class="App\Email\MyMailer" autowire="true" autoconfigure="true"/>
     <service id="App\Form\CommentaryType" class="App\Form\CommentaryType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -391,10 +391,6 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\EmailValidationRepository" class="App\Repository\EmailValidationRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
     <service id="App\Repository\GroupRepository" class="App\Repository\GroupRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -404,6 +400,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\RegistrationTokenRepository" class="App\Repository\RegistrationTokenRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TokenRepository" class="App\Repository\TokenRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -420,6 +420,8 @@
       <argument type="service" id="App\Repository\UserRepository"/>
       <argument type="service" id="router.default"/>
     </service>
+    <service id="App\Service\MyMailer" class="App\Service\MyMailer" autowire="true" autoconfigure="true"/>
+    <service id="App\Service\VideoUrlParser" class="App\Service\VideoUrlParser" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -485,7 +487,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/http_cache</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -495,7 +497,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -704,7 +706,7 @@
       </argument>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <argument type="service">
         <service>
           <argument type="service" id="request_stack"/>
@@ -737,7 +739,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="filesystem"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -917,7 +919,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument>dev</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <call method="setName">
         <argument>debug:dotenv</argument>
       </call>
@@ -1092,16 +1094,16 @@
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/translations</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/translations</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</argument>
       <argument type="collection">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Email</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </argument>
       <argument type="collection"/>
       <call method="setName">
@@ -1118,16 +1120,16 @@
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
       <argument>en</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/translations</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/translations</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</argument>
       <argument type="collection">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Email</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </argument>
       <argument type="collection"/>
       <call method="setName">
@@ -1358,7 +1360,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1377,7 +1379,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/app</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1651,317 +1653,317 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/translations</argument>
+        <argument key="cache_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
           </argument>
           <argument key="ar" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
           </argument>
           <argument key="be" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
           </argument>
           <argument key="bs" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
           </argument>
           <argument key="da" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
           </argument>
           <argument key="de" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
           </argument>
           <argument key="en" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.et.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.et.xlf</argument>
           </argument>
           <argument key="eu" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
           </argument>
           <argument key="fi" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
           </argument>
           <argument key="he" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
           </argument>
           <argument key="hr" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.hy.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.hy.xlf</argument>
           </argument>
           <argument key="id" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
           </argument>
           <argument key="it" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
           </argument>
           <argument key="lt" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
           </argument>
           <argument key="mn" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
           </argument>
           <argument key="my" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.my.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.my.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.my.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.my.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.my.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.my.xlf</argument>
           </argument>
           <argument key="nb" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
           </argument>
           <argument key="nl" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
           </argument>
           <argument key="no" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
           </argument>
           <argument key="pl" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
           </argument>
           <argument key="ro" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
           </argument>
           <argument key="sq" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
           </argument>
           <argument key="sr_Cyrl" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
           </argument>
           <argument key="sr_Latn" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
           </argument>
           <argument key="sv" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
           </argument>
           <argument key="th" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
           </argument>
           <argument key="tl" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
           </argument>
           <argument key="tr" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
           </argument>
           <argument key="uz" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.uz.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.uz.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.uz.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.uz.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.uz.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.uz.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
           </argument>
           <argument key="zh_CN" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
           </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\framework-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\twig\extra-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\debug-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\web-profiler-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\monolog-bundle/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\maker-bundle\src/translations</argument>
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\sensio\framework-extra-bundle\src/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\framework-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\twig\extra-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\debug-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\web-profiler-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\monolog-bundle/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\sensio\framework-extra-bundle\src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\validator/Resources/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\validator/Resources/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-core/Resources/translations</argument>
             <argument>translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\framework-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\twig\extra-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\debug-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\web-profiler-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\monolog-bundle/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\maker-bundle\src/translations</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\sensio\framework-extra-bundle\src/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\framework-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\twig\extra-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\debug-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\web-profiler-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\monolog-bundle/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\sensio\framework-extra-bundle\src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2208,7 +2210,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter">
       <argument>%env(default::SYMFONY_IDE)%</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <argument type="service_closure" id="debug.file_link_formatter.url_format"/>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -2837,7 +2839,7 @@
       <argument type="service" id=".service_locator.OSH1YoD.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev</argument>
+        <argument key="cache_dir">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2887,7 +2889,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -2950,13 +2952,13 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/annotations.php</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache_adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
       <tag name="container.hot_path"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/annotations.php</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -2969,7 +2971,7 @@
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
       <argument type="service" id="secrets.decryption_key" on-invalid="ignore"/>
     </service>
     <service id="secrets.decryption_key" class="Symfony\Component\String\LazyString">
@@ -2978,7 +2980,7 @@
       <factory class="Symfony\Component\String\LazyString" method="fromCallable"/>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/.env.dev.local</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/.env.dev.local</argument>
     </service>
     <service id="serializer.mapping.class_discriminator_resolver" class="Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata">
       <argument type="service" id="serializer.mapping.class_metadata_factory"/>
@@ -3012,10 +3014,10 @@
           </service>
         </argument>
       </argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/serialization.php</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/serialization.php</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3151,7 +3153,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/sessions</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -3163,7 +3165,7 @@
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler">
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/sessions</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/sessions</argument>
         </service>
       </argument>
     </service>
@@ -3319,7 +3321,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\form/Resources/config/validation.xml</argument>
+          <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -3347,10 +3349,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/validation.php</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/validation.php</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3738,7 +3740,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/profiler</argument>
+      <argument>file:E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -3785,7 +3787,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/App_KernelDevDebugContainer</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -3926,7 +3928,7 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
-        <argument key="cache">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/twig</argument>
+        <argument key="cache">E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -3995,6 +3997,14 @@
       <call method="addRuntimeLoader">
         <argument type="service" id="twig.runtime_loader"/>
       </call>
+      <call method="addGlobal">
+        <argument>images_directory</argument>
+        <argument>/uploads/tricks/</argument>
+      </call>
+      <call method="addGlobal">
+        <argument>avatars_directory</argument>
+        <argument>/uploads/avatars/</argument>
+      </call>
       <call method="registerUndefinedFilterCallback">
         <argument type="collection">
           <argument type="service" id="twig.missing_extension_suggestor"/>
@@ -4032,10 +4042,10 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection">
-        <argument key="E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
-        <argument key="E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+        <argument key="E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
+        <argument key="E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
       </argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</argument>
       <argument type="collection"/>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer">
@@ -4047,60 +4057,60 @@
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>!DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>email</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>!email</argument>
       </call>
       <call method="addPath">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader"/>
@@ -4126,7 +4136,7 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension">
@@ -4215,9 +4225,9 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="twig"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <call method="setName">
         <argument>debug:twig</argument>
@@ -4427,7 +4437,7 @@
       <tag name="doctrine.event_subscriber"/>
       <argument type="tagged_iterator" tag="messenger.receiver"/>
     </service>
-    <service id=".1_ServiceLocator~heXioa7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".1_ServiceLocator~P9pZIhN" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer">
@@ -4448,7 +4458,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.ljo51QP"/>
+      <argument type="service" id=".service_locator.QcfBBUw"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4634,7 +4644,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/doctrine/orm/Proxies</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -4666,7 +4676,7 @@
     </service>
     <service id="doctrine.orm.default_attribute_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AttributeDriver">
       <argument type="collection">
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\src\Entity</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\src\Entity</argument>
       </argument>
     </service>
     <service id="cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
@@ -4732,7 +4742,7 @@
     <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration">
       <call method="addMigrationsDirectory">
         <argument>DoctrineMigrations</argument>
-        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/migrations</argument>
+        <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/migrations</argument>
       </call>
       <call method="setAllOrNothing">
         <argument>false</argument>
@@ -4911,7 +4921,7 @@
         <argument key="source" type="service">
           <service class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider">
             <argument>UTF-8</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
             <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
           </service>
         </argument>
@@ -4933,7 +4943,7 @@
         <argument key="source" type="service">
           <service class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider">
             <argument>UTF-8</argument>
-            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+            <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
             <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
           </service>
         </argument>
@@ -4991,7 +5001,7 @@
       <argument type="service" id="twig"/>
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -5731,7 +5741,7 @@
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <tag name="kernel.reset" method="reset"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\log/dev.log</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\log/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -5753,8 +5763,8 @@
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
       <argument type="service" id="maker.file_link_formatter"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin/templates</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old/templates</argument>
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder">
       <argument>App</argument>
@@ -5914,7 +5924,7 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration">
       <tag name="maker.command"/>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old</argument>
     </service>
     <service id="maker.maker.make_stimulus_controller" class="Symfony\Bundle\MakerBundle\Maker\MakeStimulusController">
       <tag name="maker.command"/>
@@ -6013,14 +6023,14 @@
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentaryRepository" class="App\Repository\CommentaryRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CommentaryRepository" class="App\Repository\CommentaryRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EmailValidationRepository" class="App\Repository\EmailValidationRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\EmailValidationRepository" class="App\Repository\EmailValidationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\GroupRepository" class="App\Repository\GroupRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\GroupRepository" class="App\Repository\GroupRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RegistrationTokenRepository" class="App\Repository\RegistrationTokenRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RegistrationTokenRepository" class="App\Repository\RegistrationTokenRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TokenRepository" class="App\Repository\TokenRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TokenRepository" class="App\Repository\TokenRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TrickRepository" class="App\Repository\TrickRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\TrickRepository" class="App\Repository\TrickRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
@@ -6385,17 +6395,18 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.Gk1Xrxx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.e9zJ0mx" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="commentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+        <argument key="trick" type="service_closure" id=".errored..service_locator.e9zJ0mx.App\Entity\Trick"/>
         <argument key="trickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.FvOwFPC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.W2G6oTa" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="commentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+        <argument key="trick" type="service_closure" id=".errored..service_locator.W2G6oTa.App\Entity\Trick"/>
       </argument>
     </service>
     <service id=".service_locator.PSe2ZZ2" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6405,18 +6416,33 @@
         <argument key="trickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.DUW6s6K" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.paAAmna" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="image" type="service_closure" id=".errored..service_locator.DUW6s6K.App\Entity\Media"/>
+        <argument key="commentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
+        <argument key="mediaRepository" type="service_closure" id="App\Repository\MediaRepository"/>
+        <argument key="trick" type="service_closure" id=".errored..service_locator.paAAmna.App\Entity\Trick"/>
+        <argument key="trickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.cME2Xsc" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="media" type="service_closure" id=".errored..service_locator.cME2Xsc.App\Entity\Media"/>
         <argument key="mediaRepository" type="service_closure" id="App\Repository\MediaRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.phlhmTB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.VeqjPUu" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="passwordHasher" type="service_closure" id="security.user_password_hasher"/>
-        <argument key="registrationTokenRepository" type="service_closure" id="App\Repository\RegistrationTokenRepository"/>
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ywLWD05" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="tokenRepository" type="service_closure" id="App\Repository\TokenRepository"/>
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -6435,24 +6461,24 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.zQozsTY" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.MGG3YM_" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::index" type="service_closure" id=".service_locator.CVs7gBF"/>
         <argument key="App\Controller\HomeController::loadMoreTricks" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\TrickController::addTrick" type="service_closure" id=".service_locator.PSe2ZZ2"/>
-        <argument key="App\Controller\TrickController::deleteImage" type="service_closure" id=".service_locator.DUW6s6K"/>
-        <argument key="App\Controller\TrickController::deleteTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\TrickController::loadMoreCommentarys" type="service_closure" id=".service_locator.FvOwFPC"/>
-        <argument key="App\Controller\TrickController::modifyTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\TrickController::showTrick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
+        <argument key="App\Controller\TrickController::deleteImage" type="service_closure" id=".service_locator.cME2Xsc"/>
+        <argument key="App\Controller\TrickController::deleteTrick" type="service_closure" id=".service_locator.paAAmna"/>
+        <argument key="App\Controller\TrickController::loadMoreCommentarys" type="service_closure" id=".service_locator.W2G6oTa"/>
+        <argument key="App\Controller\TrickController::modifyTrick" type="service_closure" id=".service_locator.e9zJ0mx"/>
+        <argument key="App\Controller\TrickController::showTrick" type="service_closure" id=".service_locator.e9zJ0mx"/>
         <argument key="App\Controller\UserController::resendRegistrationToken" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController::resetPassword" type="service_closure" id=".service_locator.WHB6p3q"/>
         <argument key="App\Controller\UserController::sendPasswordResetLink" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController::sign_in" type="service_closure" id=".service_locator.zFcJjKU"/>
-        <argument key="App\Controller\UserController::sign_up" type="service_closure" id=".service_locator.phlhmTB"/>
-        <argument key="App\Controller\UserController::validateAccount" type="service_closure" id=".service_locator.eWzQKNp"/>
+        <argument key="App\Controller\UserController::sign_up" type="service_closure" id=".service_locator.VeqjPUu"/>
+        <argument key="App\Controller\UserController::validateAccount" type="service_closure" id=".service_locator.ywLWD05"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
@@ -6463,17 +6489,17 @@
         <argument key="App\Controller\HomeController:loadMoreTricks" type="service_closure" id=".service_locator.Rryd9QW"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\TrickController:addTrick" type="service_closure" id=".service_locator.PSe2ZZ2"/>
-        <argument key="App\Controller\TrickController:deleteImage" type="service_closure" id=".service_locator.DUW6s6K"/>
-        <argument key="App\Controller\TrickController:deleteTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\TrickController:loadMoreCommentarys" type="service_closure" id=".service_locator.FvOwFPC"/>
-        <argument key="App\Controller\TrickController:modifyTrick" type="service_closure" id=".service_locator.Rryd9QW"/>
-        <argument key="App\Controller\TrickController:showTrick" type="service_closure" id=".service_locator.Gk1Xrxx"/>
+        <argument key="App\Controller\TrickController:deleteImage" type="service_closure" id=".service_locator.cME2Xsc"/>
+        <argument key="App\Controller\TrickController:deleteTrick" type="service_closure" id=".service_locator.paAAmna"/>
+        <argument key="App\Controller\TrickController:loadMoreCommentarys" type="service_closure" id=".service_locator.W2G6oTa"/>
+        <argument key="App\Controller\TrickController:modifyTrick" type="service_closure" id=".service_locator.e9zJ0mx"/>
+        <argument key="App\Controller\TrickController:showTrick" type="service_closure" id=".service_locator.e9zJ0mx"/>
         <argument key="App\Controller\UserController:resendRegistrationToken" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController:resetPassword" type="service_closure" id=".service_locator.WHB6p3q"/>
         <argument key="App\Controller\UserController:sendPasswordResetLink" type="service_closure" id=".service_locator.eWzQKNp"/>
         <argument key="App\Controller\UserController:sign_in" type="service_closure" id=".service_locator.zFcJjKU"/>
-        <argument key="App\Controller\UserController:sign_up" type="service_closure" id=".service_locator.phlhmTB"/>
-        <argument key="App\Controller\UserController:validateAccount" type="service_closure" id=".service_locator.eWzQKNp"/>
+        <argument key="App\Controller\UserController:sign_up" type="service_closure" id=".service_locator.VeqjPUu"/>
+        <argument key="App\Controller\UserController:validateAccount" type="service_closure" id=".service_locator.ywLWD05"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.bRdave9"/>
@@ -6740,14 +6766,14 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.ljo51QP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.QcfBBUw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CommentaryRepository" type="service_closure" id="App\Repository\CommentaryRepository"/>
-        <argument key="App\Repository\EmailValidationRepository" type="service_closure" id="App\Repository\EmailValidationRepository"/>
         <argument key="App\Repository\GroupRepository" type="service_closure" id="App\Repository\GroupRepository"/>
         <argument key="App\Repository\MediaRepository" type="service_closure" id="App\Repository\MediaRepository"/>
         <argument key="App\Repository\RegistrationTokenRepository" type="service_closure" id="App\Repository\RegistrationTokenRepository"/>
+        <argument key="App\Repository\TokenRepository" type="service_closure" id="App\Repository\TokenRepository"/>
         <argument key="App\Repository\TrickRepository" type="service_closure" id="App\Repository\TrickRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
@@ -7296,12 +7322,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.zQozsTY"/>
+      <argument type="service" id=".service_locator.MGG3YM_"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.zQozsTY"/>
+      <argument type="service" id=".service_locator.MGG3YM_"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7330,7 +7356,10 @@
     </service>
     <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
-    <service id=".errored..service_locator.DUW6s6K.App\Entity\Media" class="App\Entity\Media"/>
+    <service id=".errored..service_locator.e9zJ0mx.App\Entity\Trick" class="App\Entity\Trick"/>
+    <service id=".errored..service_locator.W2G6oTa.App\Entity\Trick" class="App\Entity\Trick"/>
+    <service id=".errored..service_locator.paAAmna.App\Entity\Trick" class="App\Entity\Trick"/>
+    <service id=".errored..service_locator.cME2Xsc.App\Entity\Media" class="App\Entity\Media"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8024,78 +8053,78 @@
       </argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
-      <argument>7S+1rwI0xW</argument>
+      <argument>qvauFDcsSM</argument>
       <argument>0</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/app</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>LjhyWzturz</argument>
+      <argument>A3X7EIuLBP</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>PwePCuVUIm</argument>
+      <argument>lfikfPmUfE</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>hN3odI79k+</argument>
+      <argument>vcK+Yk59gJ</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>KzVgZnb3Rq</argument>
+      <argument>YlZlvQ2pzV</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>OvScCBOKf9</argument>
+      <argument>LbNhKVqdJI</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.messenger.restart_workers_signal.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
-      <argument>mjD2EgqDX9</argument>
+      <argument>s7e9YWIKOi</argument>
       <argument>0</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/app</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.validator_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>XFYoadB0jz</argument>
+      <argument>N--6QsAUu7</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>kzkILdrjAp</argument>
+      <argument>1yHkLcms0w</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin\var\cache\dev/pools/system</argument>
+      <argument>E:\Projets\Openclassrooms\P6_nguyenhuu_kevin_old\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8249,7 +8278,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.zQozsTY"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.MGG3YM_"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8271,11 +8300,12 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.kUJO4ox" alias=".service_locator.CVs7gBF"/>
-    <service id=".service_locator.ZVM1wx9" alias=".service_locator.Gk1Xrxx"/>
+    <service id=".service_locator.JEDmqHR" alias=".service_locator.e9zJ0mx"/>
     <service id=".service_locator.FHCOUXR" alias=".service_locator.PSe2ZZ2"/>
-    <service id=".service_locator.9K3hM3_" alias=".service_locator.phlhmTB"/>
+    <service id=".service_locator.516kCR." alias=".service_locator.paAAmna"/>
+    <service id=".service_locator.Ey6IWzD" alias=".service_locator.VeqjPUu"/>
     <service id=".service_locator.RmkQkJi" alias=".service_locator.WHB6p3q"/>
-    <service id=".service_locator.b8Fprn0" alias=".service_locator.zQozsTY"/>
+    <service id=".service_locator.ZGyyaBa" alias=".service_locator.MGG3YM_"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.VkHDa4O" alias=".service_locator.pduZ1C6"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8330,11 +8360,13 @@
     <service id=".service_locator.KOCRHjk" alias=".service_locator.CVs7gBF"/>
     <service id=".service_locator.0jwyZHx" alias=".service_locator.Rryd9QW"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
-    <service id=".service_locator.Or.WWiJ" alias=".service_locator.Gk1Xrxx"/>
-    <service id=".service_locator.lgyV1VX" alias=".service_locator.FvOwFPC"/>
+    <service id=".service_locator.DjLTuls" alias=".service_locator.e9zJ0mx"/>
+    <service id=".service_locator.F7ExWIL" alias=".service_locator.W2G6oTa"/>
     <service id=".service_locator..UnrIn." alias=".service_locator.PSe2ZZ2"/>
-    <service id=".service_locator.KwamPE6" alias=".service_locator.DUW6s6K"/>
-    <service id=".service_locator.CUES.xb" alias=".service_locator.phlhmTB"/>
+    <service id=".service_locator.aMKtWdZ" alias=".service_locator.paAAmna"/>
+    <service id=".service_locator.QA39N49" alias=".service_locator.cME2Xsc"/>
+    <service id=".service_locator.txR0hrF" alias=".service_locator.VeqjPUu"/>
+    <service id=".service_locator.hbkEjTS" alias=".service_locator.ywLWD05"/>
     <service id=".service_locator.j55JeUV" alias=".service_locator.eWzQKNp"/>
     <service id=".service_locator.yg5ntK8" alias=".service_locator.WHB6p3q"/>
     <service id=".service_locator.eAaUVIw" alias=".service_locator.jIxfAsi"/>
