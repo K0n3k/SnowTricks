@@ -3,60 +3,58 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Repository\UserRepository;
 use App\Repository\TrickRepository;
+use App\Service\MediaTreatment;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
-    private $tricksLimit = 15;
+    private const TRICKS_LIMIT = 15;
 
     #[Route('/', name: 'home')]
-    public function index(UserRepository $userRepository, TrickRepository $trickRepository): Response
-    {
-/*        $user = $userRepository->findOneBy(['id' => $this->getUser()]);
-        if($user !== null && $user->getIsValidated() === false) {
-            $this->addFlash('error', 'Your account is not validated, please check your emails!<br><br> You can also <a href="'.$this->generateUrl('resend_registration_token').'">click here</a> to send a new token');
-            return $this->redirectToRoute('logout'); 
-         
+    public function index(Session $session, TrickRepository $trickRepository): Response
+    {    
+        $session->set('tricks_offset', self::TRICKS_LIMIT);
+        $showLoadMoretricksButton = true;
+        if($session->get('tricks_offset') >= $trickRepository->count([])) {
+            $showLoadMoretricksButton = false;
         }
-  */          
             return $this->render('trick/tricks.html.twig', [
                     'controller_name' => 'TrickController',
-                    'tricks' => $trickRepository->findBy([], null, $this->tricksLimit, null),
-                    'maxTricks' => $trickRepository->count([]),
-                    'tricksLimit' => $this->tricksLimit,
+                    'tricks' => $trickRepository->findBy([], null, self::TRICKS_LIMIT, null),
+                    'showLoadMore' => $showLoadMoretricksButton,
+                    'showDownArrow' => false,
                 ]);
             
     }
     #[Route('/loadmore_tricks', name: 'loadmore_tricks', methods: ['POST'])]
-    public function loadMoreTricks(TrickRepository $trickRepository, Request $request): JsonResponse
+    public function loadMoreTricks(TrickRepository $trickRepository, Session $session): JsonResponse
     {
         
-            $offset = $request->request->get('offset');
-            if($offset >= $trickRepository->count([])) {
-                return new JsonResponse();
+            $offset = $session->get('tricks_offset');
+            $session->set('tricks_offset', $offset + self::TRICKS_LIMIT);
+            $showLoadMoreTricksButton = true;
+            $tricks = $trickRepository->findBy([], null, self::TRICKS_LIMIT, $offset);
+            dump($session->get('tricks_offset'), $trickRepository->count([]));
+            if($session->get('tricks_offset') >= $trickRepository->count([])) {
+                $showLoadMoreTricksButton = false;
             }
-            $tricks = $trickRepository->findBy([], null, $this->tricksLimit, $offset);
             $jsonContent = [];
+            array_push($jsonContent, ['showLoadMore' => $showLoadMoreTricksButton]);
+            array_push($jsonContent, ['showDownArrow' => true]);
             foreach($tricks as $trick) {
                 $filename = $trick->getMainMedia()->getFilename();
-                if($trick->getMainMedia()->getType() === 'video') {
+                if($trick->getMainMedia()->getType() === MediaTreatment::VIDEO) {
                     
-                    $filename = "https://img.youtube.com/vi/" . trim($trick->getMainMedia()->getFilename(), "https://www.youtube.com/embed/") . "/hqdefault.jpg";
+                    $filename = $trick->getMainMedia()->getFilename();
                 }
                 array_push($jsonContent, [
                     'id' => $trick->getId(),
-                    'groupId' => $trick->getGroupId()->getId(),
                     'name' => $trick->getName(),
-                    'description' => $trick->getDescription(),
-                    'userId' => $trick->GetUserId(),
                     'mainMedia' => $filename,
                     'mainMediaType' => $trick->getMainMedia()->getType(),
-                    'publishedDate' => $trick->getPublishedDate(),
-                    'lastUpdated' => $trick->getLastUpdated(),
                 ]);
             }
             return new JsonResponse(json_encode($jsonContent));

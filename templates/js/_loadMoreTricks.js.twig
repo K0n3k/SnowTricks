@@ -1,0 +1,117 @@
+<script language="javascript">
+
+window.onload = function () {
+    showLoadMore({{ showLoadMore }});
+    showDownArrow({{ showDownArrow }});
+};
+
+function showDownArrow(show) {
+    downArrow = document.getElementById('downArrow');
+    if (show) {
+        downArrow.style.visibility = 'visible';
+    } else {
+        downArrow.style.visibility = 'hidden';
+    }
+}
+
+function showLoadMore(show) {
+    if (! show) {
+        btn = document.getElementById('loadMore');
+        btn.remove();
+    }
+}
+
+function loadMore() {
+    $.ajax({
+        url: "{{ path('loadmore_tricks') }}",
+        type: "POST",
+        data: {},
+
+        success: function (result) {
+
+            jsonContent = $.parseJSON(result);
+            firstIteration = true;
+            $.each(jsonContent, function (key, value) {
+                if (key === 0) {
+                    showLoadMore(value.showLoadMore);
+
+                } else if (key === 1) {
+                    showDownArrow(value.showDownArrow);
+                } else {
+                    html = "";
+
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    html += '<div class="modal fade" id="modal_' + value.id + '" tabindex="-1" aria-labelledby="ModalLabel_' + value.id + '" aria-hidden="true">';
+                    html += '   <div class="modal-dialog">';
+                    html += '       <div class="modal-content">';
+                    html += '           <div class="modal-header">';
+                    html += '               <h1 class="modal-title fs-5" id="ModalLabel_' + value.id + '">Modal title</h1>';
+                    html += '               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                    html += '		    </div>';
+                    html += '		    <div class="modal-body">';
+                    html += '		        <p>This action is irremediable, are you sure to delete <strong>' + value.name + '</strong>?</p>';
+                    html += '		    </div>';
+                    html += '		    <div class="modal-footer">';
+
+                    var trickRoute = '{{ path("delete_trick", {'id': 'value_id'}) }}';
+                    trickRoute = trickRoute.replace("value_id", value.id);
+
+                    html += '		        <a href="' + trickRoute + '" type="button" class="btn btn-dark">Delete</a>';
+                    html += '			    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>';
+                    html += '		    </div>';
+                    html += '	    </div>';
+                    html += '   </div>';
+                    html += '</div>';
+                    {% endif %}
+
+                    html += '<div class="col" id="trick_' + value.id + '">';
+                    html += '   <div class="card shadow-sm">';
+
+                    var viewRoute = '{{ path("show_trick", {'slug': 'value_slug'}) }}';
+                    viewRoute = viewRoute.replace("value_slug", value.slug);
+
+                    html += '       <a href="' + viewRoute + '">';
+                    if (value.mainMedia.includes('youtube')) {
+                        var src = value.mainMedia.replace('https://www.youtube.com/embed/', 'https://i3.ytimg.com/vi/') + '/hqdefault.jpg';
+                    }
+                    if (value.mainMedia.includes('dailymotion')) {
+                        var src = value.mainMedia.replace('embed', 'thumbnail');
+                    }
+                    if (value.mainMedia.includes('vimeo')) {
+                        var src = value.mainMedia.replace('https://player.vimeo.com/video/', 'https://vumbnail.com/') + '.jpg';
+                    }
+                    if (value.mainMediaType == 'image') {
+                        var src = "{{ images_directory }}" + value.mainMedia;
+                    }
+                    html += '       <img src="' + src + '" width="100%" height="225" alt="mainImage">';
+                    html += '		</a>';
+                    html += '		<div class="card-body">';
+                    html += '		    <div class="d-flex justify-content-between align-items-center col">';
+                    html += '			    <small class="text-muted">' + value.name + '</small>';
+
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                    var Editroute = '{{ path("modify_trick", {'slug': 'value_slug'}) }}';
+                    Editroute = Editroute.replace("value_slug", value.slug);
+
+                    html += '			    <div class="btn-group">';
+                    html += '			        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal_' + value.id + '"><img src="  {{ asset("Style/img/trash-svgrepo-com.svg") }}" alt="pen icon" height="16" /></button>';
+                    html += '				    <a href="' + Editroute + '" class="btn btn-sm btn-outline-secondary"><img src="  {{ asset("Style/img/pencil-svgrepo-com.svg") }}" alt="pen icon" height="16" /></a>';
+                    html += '			    </div>';
+                    {% endif %}
+                    html += '			</div>';
+                    html += '		</div>';
+                    html += '	</div>';
+                    html += '</div>';
+
+                    $('#tricksCards').append(html);
+                    if (firstIteration) {
+                        window.location.href = '#trick_' + value.id;
+                        firstIteration = false;
+                    }
+                }
+            });
+        }
+    })
+}
+</script>

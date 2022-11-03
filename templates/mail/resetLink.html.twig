@@ -17,7 +17,7 @@
 <body>
 
 <h1>Welcome on snowtrick {{ user.username }} !</h1>
-<a href="http://localhost{{ path('reset_password', { 'token': passwordToken }) }}">Reset my password</a>
+<a href="http://localhost{{ path('reset_password', { 'token': user.token.token }) }}">Reset my password</a>
 
 
 </body>

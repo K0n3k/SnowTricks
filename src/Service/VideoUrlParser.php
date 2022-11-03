@@ -4,13 +4,14 @@ namespace App\Service;
 
 use Exception;
 
+use function PHPUnit\Framework\isEmpty;
 use function PHPUnit\Framework\stringContains;
 use function PHPUnit\Framework\throwException;
 
 class VideoUrlParser {
 
     private const YOUTUBE = [
-        'youtube.com/watch?v=',
+        'youtube.com/',
         'youtu.be/',
     ];
 
@@ -47,35 +48,65 @@ class VideoUrlParser {
     }
 
     private function youtube(string $url) : string {
+        $returnUrl = 'https://www.youtube.com/embed/';
         if(str_contains($url, 'youtu.be/')) {
-            $vars= ['v' => str_replace('/', '' ,parse_url( $url, PHP_URL_PATH ))];
-        } elseif(str_contains($url, 'embed')) {
-            $vars= ['v' => str_replace('/embed/', '' ,parse_url( $url, PHP_URL_PATH ))];
+            $videoId = str_replace('/', '' ,parse_url( $url, PHP_URL_PATH));
+            if(empty($videoId)) {
+                throw new Exception('this video doesn\'t exists');
+            } 
+            return $returnUrl . $videoId;
+        } 
+        if(str_contains($url, 'embed')) {
+            $videoId = str_replace('embed', '' ,parse_url( $url, PHP_URL_PATH));
+            $videoId = str_replace('/', '', $videoId);
+            if(empty($videoId)) {
+                throw new Exception('this video doesn\'t exists');
+            } 
+            return $returnUrl . $videoId;
         } else {
-            parse_str( parse_url( $url, PHP_URL_QUERY ), $vars );
+            parse_str(parse_url( $url, PHP_URL_QUERY), $vars);
+            if(empty($vars['v'])) {
+                throw new Exception('this video doesn\'t exists');
+            } 
+            return $returnUrl . $vars['v'];
         }
-        return 'https://www.youtube.com/embed/'.$vars['v'];
+        throw new Exception('Bad Url');
     }
 
     private function dailymotion(string $url) : string {
+        $returnUrl = 'https://www.dailymotion.com/embed/video/';
         if(str_contains($url, 'dai.ly')) {
-            $vars= ['v' => str_replace('/', '' ,parse_url( $url, PHP_URL_PATH ))];
+            $videoId = str_replace('/', '' ,parse_url( $url, PHP_URL_PATH ));
+            if(empty($videoId)) {
+                throw new Exception('this video doesn\'t exists');
+            } 
+            return $returnUrl . $videoId;
         } else {
-            $vars= ['v' => str_replace('/video/', '' ,parse_url( $url, PHP_URL_PATH ))];
+            $videoId = str_replace('video', '' ,parse_url( $url, PHP_URL_PATH ));
+            $videoId = str_replace('/', '', $videoId);
+            if(empty($videoId)) {
+                throw new Exception('this video doesn\'t exists');
+            } 
+            return $returnUrl . $videoId;
         }
         //dd($vars);
-        return 'https://www.dailymotion.com/embed/video/'.$vars['v'];
+        throw new Exception('Bad Url');
     }
 
     private function vimeo(string $url) : string {
-        
+        $returnUrl = 'https://player.vimeo.com/video/';
         if(str_contains($url, 'player')) {
-            $vars= ['v' => str_replace('/video/', '' ,parse_url( $url, PHP_URL_PATH ))];
+            $videoId = str_replace('video', '' ,parse_url( $url, PHP_URL_PATH ));
+            $videoId = str_replace('/', '', $videoId);
+            if(empty($videoId)) {
+                throw new Exception('this video doesn\'t exists');
+            } 
+            return $returnUrl . $videoId;
         } else {
-            $vars= ['v' => str_replace('/', '' ,parse_url( $url, PHP_URL_PATH ))];
+            return $returnUrl . str_replace('/', '' ,parse_url( $url, PHP_URL_PATH ));
         }
 
-        return 'https://player.vimeo.com/video/'.$vars['v'];
+        throw new Exception('Bad Url');
     }
 
 }

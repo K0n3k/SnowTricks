@@ -21,7 +21,7 @@
                         <input type="password" class="form-control" name="password" id="InputPassword1" required="required">
                     </div>
                     <div class="mb-3">
-                        <a href="{{ path('send_password_rerset_link') }}">Forgot password?</a>
+                        <a href="{{ path('send_password_reset_link') }}">Forgot password?</a>
                     </div>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                     <button type="submit" class="btn btn-primary">Login</button>

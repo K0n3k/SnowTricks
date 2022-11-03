@@ -4,12 +4,9 @@ namespace App\Security;
 
 use App\Repository\UserRepository;
 use App\Entity\User;
-use Doctrine\ORM\EntityManager;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Flash\AutoExpireFlashBag;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -59,7 +56,6 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
             if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
                 return new RedirectResponse($targetPath);
             }
-        //dd($this->verifyIsValidated($request, $this->userRepository->findOneBy(['email' => $username])));
         $user = $this->userRepository->findOneBy(['email' => $request->request->get('username')]);
         if($user !== null && !$user->getIsValidated()) {
             $request->getSession()->getFlashBag()->add('error', 'Your account is not validated, please check your emails!<br><br> You can also <a href="'. $this->urlGenerator->generate('resend_registration_token') .'">click here</a> to send a new token');

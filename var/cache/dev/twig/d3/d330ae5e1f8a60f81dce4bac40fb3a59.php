@@ -64,7 +64,7 @@ class __TwigTemplate_c535349167c94775d381d3baf5b1d34c extends Template
         echo " !</h1>
 <a href=\"http://localhost";
         // line 20
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reset_password", ["token" => (isset($context["passwordToken"]) || array_key_exists("passwordToken", $context) ? $context["passwordToken"] : (function () { throw new RuntimeError('Variable "passwordToken" does not exist.', 20, $this->source); })())]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reset_password", ["token" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 20, $this->source); })()), "token", [], "any", false, false, false, 20), "token", [], "any", false, false, false, 20)]), "html", null, true);
         echo "\">Reset my password</a>
 
 
@@ -115,11 +115,11 @@ class __TwigTemplate_c535349167c94775d381d3baf5b1d34c extends Template
 <body>
 
 <h1>Welcome on snowtrick {{ user.username }} !</h1>
-<a href=\"http://localhost{{ path('reset_password', { 'token': passwordToken }) }}\">Reset my password</a>
+<a href=\"http://localhost{{ path('reset_password', { 'token': user.token.token }) }}\">Reset my password</a>
 
 
 </body>
 
-</html>", "mail/resetLink.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\mail\\resetLink.html.twig");
+</html>", "mail/resetLink.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\mail\\resetLink.html.twig");
     }
 }

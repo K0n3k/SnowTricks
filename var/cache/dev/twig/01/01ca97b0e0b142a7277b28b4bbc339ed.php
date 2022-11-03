@@ -85,7 +85,7 @@ class __TwigTemplate_9eddc4e46aaf56916a5146d2aaf06cdb extends Template
         }
         // line 16
         echo "\t\t<a href=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 16, $this->source); })()), "id", [], "any", false, false, false, 16)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_trick", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 16, $this->source); })()), "slug", [], "any", false, false, false, 16)]), "html", null, true);
         echo "\">
 \t\t\t<img src=";
         // line 17
@@ -151,7 +151,7 @@ class __TwigTemplate_9eddc4e46aaf56916a5146d2aaf06cdb extends Template
 \t\t\t\t{% set src = \"https://vumbnail.com/\" ~ trick.mainMedia.filename|trim('https://player.vimeo.com/video/') ~ \".jpg\" %}
 \t\t\t{% endif %}
 \t\t{% endif %}
-\t\t<a href=\"{{ path('show_trick', {'id': trick.id}) }}\">
+\t\t<a href=\"{{ path('show_trick', {'slug': trick.slug}) }}\">
 \t\t\t<img src={{ src }} class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\" alt=\"image\"/>
 \t\t</a>
 \t\t\t

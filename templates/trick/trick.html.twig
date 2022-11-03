@@ -5,57 +5,7 @@
 
 {% block javascript %}
 <script language = "javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
-<script language = "javascript">
-
-offset = 5;
-
-window.onload = function() {
-	showLoadMore();
-};
-
-function showLoadMore() {
-	if(offset >= {{ maxCommentarys }}) {
-		btn = document.getElementById('loadMore');
-		btn.remove();
-	}
-}
-
-function loadMore() {
-	$.ajax({
-		url: "{{ path('loadmore_commentarys', {'id': trick.id}) }}",
-		type: "POST",
-		data: {offset},
-
-		success: function(result) {
-			jsonContent = $.parseJSON(result);
-			$.each(jsonContent, function(key, value){
-        date = new Date(value.publishedDate.date);
-			html = "";
-      html += '			 <div class="row shadow-sm m-3" id="Commentary_' + value.id + '">';
-      html += '                      <div class="col col-1 mx-3">';
-      var avatarRoute = '{{ asset(avatars_directory ~ 'image') }}';
-			avatarRoute = avatarRoute.replace("image", value.user.avatar);
-      html += '<img src="'+ avatarRoute +'" class="bd-placeholder-img card-img-top" width="32" height="32" alt="image"/>';
-      html += '                        <p style="white-space: nowrap;">' + value.user.username + '</p>';
-      html += '                      <br>';
-      html += '                      <p style="white-space: nowrap;">' + date.getFullYear() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + (date.getDate() + 1)).slice(-2) +'</p>';
-      html += '                      <br>';
-      html += '                      </div>';
-      html += '                      <div class="col">';
-      html += '                        <p>' + value.commentary + '</p>';
-      html += '                      </div>';
-                          html += '</div>';
-			$('#commentarys').append(html);	
-			});
-
-			offset += 5;
-			showLoadMore();
-
-		}
-	})
-}
-
-</script>
+{% include('js/_loadMoreCommentary.js.twig') %}
 {% endblock %}
 
 {% block body %}

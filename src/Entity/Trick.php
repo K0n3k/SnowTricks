@@ -18,7 +18,7 @@ class Trick
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
@@ -47,10 +47,24 @@ class Trick
     #[ORM\OneToMany(mappedBy: 'trick', targetEntity: Commentary::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $commentaries;
 
+    #[ORM\Column(length: 255)]
+    private string $slug;
+    
     public function __construct()
     {
         $this->medias = new ArrayCollection();
         $this->commentaries = new ArrayCollection();
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+        return $this;
     }
 
     public function getId(): ?int
@@ -66,7 +80,6 @@ class Trick
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 

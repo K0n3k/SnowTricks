@@ -6,121 +6,9 @@
 
 {% block javascript %}
   <script type="text/javascript" src="{{ asset("Style/js/jquery.js") }}"></script>
-  <script src="{{ asset("Style/summernote/summernote-lite.min.js") }}"></script>
-  <script>
-    $(document).ready(function() {
-        $('#trick_description').summernote({
-        placeholder: 'Description',
-        tabsize: 2,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-      });
-    });
-  </script>
-  <script>
-    jQuery(document).ready(function () {
-      const input = document.querySelector("input[type=file]");
-const preview = document.querySelector(".preview");
-input.addEventListener('change', updateImageDisplay);
-
-  function updateImageDisplay() {
-  while(preview.firstChild) {
-    preview.removeChild(preview.firstChild);
-  }
-
-  const curFiles = input.files;
-  if (curFiles.length === 0) {
-    const para = document.createElement('p');
-    para.textContent = 'No files currently selected for upload';
-    preview.appendChild(para);
-  } else {
-    var $form = $('#form');
-
-    for (const file of curFiles) {
-      const listItem = document.createElement('div');
-      
-      
-      listItem.classList.add('col', 'mb-2', 'text-center');
-      if (validFileType(file)) {
-        
-      const para = document.createElement('div');
-      para.classList.add('form-check');
-      
-        const image = document.createElement('img');
-        image.classList.add('bd-placeholder-img', 'card-img-top');
-        image.style.height='200px';
-        image.style.width='100%';
-        image.src = URL.createObjectURL(file);
-
-        listItem.appendChild(image);
-        listItem.appendChild(para);
-      } else {
-        para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
-        listItem.appendChild(para);
-      }
-
-      preview.appendChild(listItem);
-    }
-  }
-}
-
-const fileTypes = [
-  "image/apng",
-  "image/bmp",
-  "image/gif",
-  "image/jpeg",
-  "image/pjpeg",
-  "image/png",
-  "image/svg+xml",
-  "image/tiff",
-  "image/webp",
-  "image/x-icon"
-];
-
-function validFileType(file) {
-  return fileTypes.includes(file.type);
-}
-
-function returnFileSize(number) {
-  if (number < 1024) {
-    return `${number} bytes`;
-  } else if (number >= 1024 && number < 1048576) {
-    return `${(number / 1024).toFixed(1)} KB`;
-  } else if (number >= 1048576) {
-    return `${(number / 1048576).toFixed(1)} MB`;
-  }
-}
-      jQuery('.add-another-collection-widget').click(function (e) {
-          var list = jQuery(jQuery(this).attr('data-list-selector'));
-          // Try to find the counter of the list or use the length of the list
-          var counter = list.data('widget-counter') || list.children().length;
-
-          // grab the prototype template
-          var newWidget = list.attr('data-prototype');
-          // replace the "__name__" used in the id and name of the prototype
-          // with a number that's unique to your emails
-          // end name attribute looks like name="contact[emails][2]"
-          newWidget = newWidget.replace(/__name__/g, counter);
-          // Increase the counter
-          counter++;
-          // And store it, the length cannot be used if deleting widgets is allowed
-          list.data('widget-counter', counter);
-
-          // create a new list element and add it to the list
-          var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
-          newElem.appendTo(list);
-      });
-    });
-
-
-
-  </script>
+  <script type="text/javascript" src="{{ asset("Style/summernote/summernote-lite.min.js") }}"></script>
+  <script type="text/javascript" src="{{ asset("Style/js/imagePreview.js") }}"></script>
+  {% include('js/_transformTextArea.js.twig') %}
   {% block jsDeleteImage %}{% endblock %}
 {% endblock %}
 
@@ -141,6 +29,7 @@ function returnFileSize(number) {
                       {% set trick = {name: '', description: '', group: {'id': '1'}} %}
                       {% set submitButtonText = 'Add trick' %}
                     {% else %}
+                    
                       {% set submitButtonText = 'Modify trick' %}
                         <div class="row">
                         {% if trick.mainMedia.type == 'image' %}
@@ -156,13 +45,15 @@ function returnFileSize(number) {
                         {% endfor %}
                       </div>
                     {% endif %}
-                    <div class="row">
-                                            </div>
+                    
                       <div class="d-flex row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 my-4 preview">
                       </div>
                       <div id="trick">
                       
                         {{ form_row(trickForm.name, {'value': trick.name}) }}
+                        {% if trick.id is not defined %}
+                        <p class='text-danger mb-0'>The first image uploaded will be set as main Image!</p>
+                        {% endif %}
                         {{ form_row(trickForm.images) }}
                         <div class="mb-3">
                         <ul id="video-fields-list"

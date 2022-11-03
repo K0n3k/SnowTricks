@@ -2,15 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Media;
-use App\Entity\RegistrationToken;
 use App\Entity\Token;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Form\ResendRegistrationTokenType;
 use App\Form\ResetPasswordType;
 use App\Mailer\MyMailer;
-use App\Repository\RegistrationTokenRepository;
 use App\Repository\TokenRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\Mime\Exception\RfcComplianceException;
@@ -46,7 +43,7 @@ class UserController extends AbstractController
     }
 
     #[Route(path: '/user/sign-up', name: 'sign-up')]
-    public function sign_up(UserRepository $userRepository, Request $request, UserPasswordHasherInterface $passwordHasher): Response
+    public function sign_up(UserRepository $userRepository,TokenRepository $tokenRepository, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         if ($this->getUser() ) {
             $this->addFlash('error', 'You are already logged '.$this->getUser()->getUsername().'!');
@@ -64,14 +61,11 @@ class UserController extends AbstractController
                     $this->getParameter('avatars_directory'),
                     $filename,
                 );
-                
                 $user
                 ->setAvatar($filename)
                 ->setPassword($passwordHasher->hashPassword($user, $user->getPassword()))
-                ->setToken((new Token())
-                    ->setToken(Uuid::v4())
-                    ->setType('registration'))                    
-                ->setIsValidated(false);
+                ->setIsValidated(false)
+                ->setToken($this->createToken($tokenRepository, $user, 'registration'));
                 
                 $userRepository->save($user, true);
 
@@ -105,19 +99,31 @@ class UserController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        $registrationToken = $tokenRepository->findOneBy(['token' => $token]);
+        $registrationToken = $tokenRepository->findOneByToken($token);
+        //dd($registrationToken);
+
+        if(is_null($registrationToken)) {
+            $this->addFlash('error', 'this token does\'t exists!');
+            return $this->redirectToRoute('home');
+        }
+
+        if($registrationToken->getType() !== 'registration') {
+            $this->addFlash('error', 'this token isn\t set for registration!');
+            return $this->redirectToRoute('home');
+        }
         $user = $registrationToken->getUser();
         
         $user->setIsValidated(true);
-        $tokenRepository->remove($registrationToken);
         $userRepository->save($user, true);
+        $tokenRepository->remove($registrationToken, true);
+        //dd($registrationToken);
 
         $this->addFlash('success', 'Your account is now activated, you can <a href="'.$this->generateUrl('sign-in').'">sign-in!</a>');
         return $this->redirectToRoute('home');
     }
 
     #[Route(path: '/user/resendRegistrationToken/', name: 'resend_registration_token')]
-    public function resendRegistrationToken(Request $request, RegistrationTokenRepository $registrationTokenRepository, UserRepository $userRepository): Response
+    public function resendRegistrationToken(Request $request, TokenRepository $tokenRepository, UserRepository $userRepository): Response
     {
         if ($this->getUser()) {
             $this->addFlash('error', 'You are already logged '.$this->getUser()->getUsername().'!');
@@ -127,22 +133,24 @@ class UserController extends AbstractController
         $resendRegistrationTokenForm = $this->createForm(ResendRegistrationTokenType::class);
         $resendRegistrationTokenForm->handleRequest($request);
         if ($resendRegistrationTokenForm->isSubmitted() && $resendRegistrationTokenForm->isValid()) {
-            $registrationToken = Uuid::v4();
-            $user = $userRepository->findOneBy(['email' => $resendRegistrationTokenForm->getData()]);
+            $user = $userRepository->findOneByEmail($resendRegistrationTokenForm->getData());
             if($user === null) {
                 $this->addFlash('error', 'This email adress is not registered, please <a href="'.$this->generateUrl('sign-up').'">create an account!</a>');
                 return $this->redirectToRoute('home');
             }
+            if($user->getIsValidated()) {
+                $this->addFlash('error', 'This user is already validated');
+                return $this->redirectToRoute('home');
+            }
+            $user->setToken($this->createToken($tokenRepository, $user, 'registration'));
             try {
                 new MyMailer(
                     new Address($user->getEmail()),
                     "Snowtrick Registration validation",
                     $this->render('mail/registrationLink.html.twig', [
                         'user' => $user,
-                        'registrationToken' => $registrationToken,
                     ]));
 
-                    $this->createToken($registrationToken, $registrationTokenRepository, $user);
                     $this->addFlash('success', 'A token had been send to your email adress, please validate your account!');
                     return $this->redirectToRoute('home');
             } catch(RfcComplianceException $e) {
@@ -158,8 +166,8 @@ class UserController extends AbstractController
 
     }
 
-    #[Route(path: '/user/sendPasswordResetLink/', name: 'send_password_rerset_link')]
-    public function sendPasswordResetLink(Request $request, RegistrationTokenRepository $registrationTokenRepository, UserRepository $userRepository): Response
+    #[Route(path: '/user/sendPasswordResetLink/', name: 'send_password_reset_link')]
+    public function sendPasswordResetLink(Request $request, TokenRepository $registrationTokenRepository, UserRepository $userRepository): Response
     {
         if ($this->getUser()) {
             $this->addFlash('error', 'You are already logged '.$this->getUser()->getUsername().'!');
@@ -169,7 +177,6 @@ class UserController extends AbstractController
         $sendPasswordLinkTokenForm = $this->createForm(ResendRegistrationTokenType::class);
         $sendPasswordLinkTokenForm->handleRequest($request);
         if ($sendPasswordLinkTokenForm->isSubmitted() && $sendPasswordLinkTokenForm->isValid()) {
-            $passwordToken = Uuid::v4();
             $user = $userRepository->findOneBy(['email' => $sendPasswordLinkTokenForm->getData()]);
             if($user === null) {
                 $this->addFlash('error', 'This email adress is not registered, please <a href="/user/sign-up">create an account!</a>');
@@ -179,17 +186,16 @@ class UserController extends AbstractController
                 $this->addFlash('error', 'Your account is not validated, please check your emails!<br><br> You can also <a href="'.$this->generateUrl('resend_password_token').'">click here</a> to send a new token');
                 return $this->redirectToRoute('home');
             }
-
+            
+            $user->setToken($this->createToken($registrationTokenRepository, $user, 'password'));
             try {
                 new MyMailer(
                     new Address($user->getEmail()),
                     "Snowtrick password validation",
                     $this->render('mail/resetLink.html.twig', [
                         'user' => $user,
-                        'passwordToken' => $passwordToken,
                     ]));
 
-                    $this->createToken($passwordToken, $registrationTokenRepository, $user);
                     $this->addFlash('success', 'A reset link had been sent to your email adress!');
                     return $this->redirectToRoute('home');
             } catch(RfcComplianceException $e) {
@@ -207,7 +213,7 @@ class UserController extends AbstractController
     }
 
     #[Route(path: '/user/resetPassword/{token}', name: 'reset_password')]
-    public function resetPassword(RegistrationTokenRepository $tokenRepository, UserRepository $userRepository, string $token, Request $request, UserPasswordHasherInterface $passwordHasher): Response
+    public function resetPassword(TokenRepository $tokenRepository, UserRepository $userRepository, string $token, Request $request, UserPasswordHasherInterface $passwordHasher): Response
     {
         $passwordToken = $tokenRepository->findOneBy(['token' => $token]);
 
@@ -219,7 +225,10 @@ class UserController extends AbstractController
             $this->addFlash('error', 'Your account is not validated, please check your emails!<br><br> You can also <a href="'.$this->generateUrl('resend_password_token').'">click here</a> to send a new token');
             return $this->redirectToRoute('home');
         }
-
+        if($passwordToken->getType() !== 'password') {
+            $this->addFlash('error', 'this token isn\t set for resetting password!');
+            return $this->redirectToRoute('home');
+        }
         $user = $passwordToken->getUser();
         
         $resetPasswordForm = $this->createForm(ResetPasswordType::class, $user);
@@ -239,16 +248,17 @@ class UserController extends AbstractController
         ]);
     }
 
-    private function createToken(Uuid $token, RegistrationTokenRepository $registrationTokenRepository, User $user): RegistrationToken
+    private function createToken(TokenRepository $registrationTokenRepository, User $user, string $type): Token
     {
-
-        $tempRegistrationToken = $registrationTokenRepository->findOneBy(['userId' => $user]);
+        //dd($user);
+        $tempRegistrationToken = $registrationTokenRepository->findOneByUser($user);
         if($tempRegistrationToken !== null) {
             $registrationTokenRepository->remove($tempRegistrationToken);
         }
-        $registrationToken = new RegistrationToken();
-        $registrationToken->setToken($token);
+        $registrationToken = new Token();
+        $registrationToken->setToken(Uuid::v4());
         $registrationToken->setUser($user);
+        $registrationToken->setType($type);
         $registrationTokenRepository->save($registrationToken, true);
         
 

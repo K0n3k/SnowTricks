@@ -105,7 +105,7 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
                     <div class=\"mb-3\">
                         <a href=\"";
         // line 24
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("send_password_rerset_link");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("send_password_reset_link");
         echo "\">Forgot password?</a>
                     </div>
 \t\t\t\t\t<input type=\"hidden\" name=\"_csrf_token\" value=\"";
@@ -168,7 +168,7 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
                         <input type=\"password\" class=\"form-control\" name=\"password\" id=\"InputPassword1\" required=\"required\">
                     </div>
                     <div class=\"mb-3\">
-                        <a href=\"{{ path('send_password_rerset_link') }}\">Forgot password?</a>
+                        <a href=\"{{ path('send_password_reset_link') }}\">Forgot password?</a>
                     </div>
 \t\t\t\t\t<input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
                     <button type=\"submit\" class=\"btn btn-primary\">Login</button>
@@ -179,6 +179,6 @@ class __TwigTemplate_d63d45539927f9b645d38cc0232ab760 extends Template
     </main>
 
 {% endblock %}
-", "user/sign-in.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\user\\sign-in.twig");
+", "user/sign-in.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\user\\sign-in.twig");
     }
 }
