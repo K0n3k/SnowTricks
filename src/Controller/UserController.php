@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\TokenCreator;
 use App\Entity\Token;
 use App\Entity\User;
 use App\Form\UserType;
@@ -65,7 +66,7 @@ class UserController extends AbstractController
                 ->setAvatar($filename)
                 ->setPassword($passwordHasher->hashPassword($user, $user->getPassword()))
                 ->setIsValidated(false)
-                ->setToken($this->createToken($tokenRepository, $user, 'registration'));
+                ->setToken(TokenCreator::createToken($tokenRepository, $user, TokenCreator::REGISTRATION));
                 
                 $userRepository->save($user, true);
 
@@ -142,7 +143,7 @@ class UserController extends AbstractController
                 $this->addFlash('error', 'This user is already validated');
                 return $this->redirectToRoute('home');
             }
-            $user->setToken($this->createToken($tokenRepository, $user, 'registration'));
+            $user->setToken(TokenCreator::createToken($tokenRepository, $user, TokenCreator::REGISTRATION));
             try {
                 new MyMailer(
                     new Address($user->getEmail()),
@@ -183,11 +184,13 @@ class UserController extends AbstractController
                 return $this->redirectToRoute('home');
             }
             if($user->getIsValidated() === false) {
-                $this->addFlash('error', 'Your account is not validated, please check your emails!<br><br> You can also <a href="'.$this->generateUrl('resend_password_token').'">click here</a> to send a new token');
+                $this->addFlash('error', 'Your account is not validated, please check your emails!<br><br> You can also <a href="'.$this->generateUrl('resend_registration_token').'">click here</a> to send a new token');
                 return $this->redirectToRoute('home');
             }
             
-            $user->setToken($this->createToken($registrationTokenRepository, $user, 'password'));
+            $user->setToken(TokenCreator::createToken($registrationTokenRepository, $user, TokenCreator::PASSWORD));
+            $userRepository->save($user);
+            
             try {
                 new MyMailer(
                     new Address($user->getEmail()),
@@ -246,23 +249,6 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
             'userForm' => $resetPasswordForm->createView(),
         ]);
-    }
-
-    private function createToken(TokenRepository $registrationTokenRepository, User $user, string $type): Token
-    {
-        //dd($user);
-        $tempRegistrationToken = $registrationTokenRepository->findOneByUser($user);
-        if($tempRegistrationToken !== null) {
-            $registrationTokenRepository->remove($tempRegistrationToken);
-        }
-        $registrationToken = new Token();
-        $registrationToken->setToken(Uuid::v4());
-        $registrationToken->setUser($user);
-        $registrationToken->setType($type);
-        $registrationTokenRepository->save($registrationToken, true);
-        
-
-        return $registrationToken;
     }
 
     #[Route(path: '/user/logout', name: 'logout')]

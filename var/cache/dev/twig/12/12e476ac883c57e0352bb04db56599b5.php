@@ -69,7 +69,6 @@ function loadMore() {
 
 \t\tsuccess: function(result) {
 \t\t\tjsonContent = \$.parseJSON(result);
-      firstIteration = true;
 \t\t\t\$.each(jsonContent, function(key, value){
         if(key === 0) {
           console.log(value);
@@ -81,26 +80,25 @@ function loadMore() {
 \t\t\thtml = \"\";
       html += '\t\t\t <div class=\"row shadow-sm m-3\" id=\"Commentary_' + value.id + '\">';
       html += '                      <div class=\"col col-1 mx-3\">';
+\t  html += '                      <div class=\"row\">';
       var avatarRoute = '";
         // line 36
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(((isset($context["avatars_directory"]) || array_key_exists("avatars_directory", $context) ? $context["avatars_directory"] : (function () { throw new RuntimeError('Variable "avatars_directory" does not exist.', 36, $this->source); })()) . "image")), "js", null, true);
         echo "';
 \t\t\tavatarRoute = avatarRoute.replace(\"image\", value.user.avatar);
       html += '<img src=\"'+ avatarRoute +'\" class=\"bd-placeholder-img card-img-top\" width=\"32\" height=\"32\" alt=\"image\"/>';
-      html += '                        <p style=\"white-space: nowrap;\">' + value.user.username + '</p>';
-      html += '                      <br>';
-      html += '                      <p style=\"white-space: nowrap;\">' + date.getFullYear() + '-' + (\"0\" + (date.getMonth() + 1)).slice(-2) + '-' + (\"0\" + (date.getDate() + 1)).slice(-2) +'</p>';
-      html += '                      <br>';
+      html += value.user.username + '<br>';
+      html += date.getFullYear() + '-' + (\"0\" + (date.getMonth() + 1)).slice(-2) + '-' + (\"0\" + (date.getDate())).slice(-2);
+\t  html += '                      </div>';
       html += '                      </div>';
       html += '                      <div class=\"col\">';
+\t  html += '                      <div class=\"row\">';
       html += '                        <p>' + value.commentary + '</p>';
+\t  html += '                      </div>';
       html += '                      </div>';
                           html += '</div>';
 \t\t\t\$('#commentarys').append(html);\t
-      if(firstIteration) {
-\t\t\t\twindow.location.href = '#Commentary_' + value.id;
-\t\t\t\tfirstIteration = false;
-\t\t\t}
+
         }
 \t\t\t});
       
@@ -158,7 +156,6 @@ function loadMore() {
 
 \t\tsuccess: function(result) {
 \t\t\tjsonContent = \$.parseJSON(result);
-      firstIteration = true;
 \t\t\t\$.each(jsonContent, function(key, value){
         if(key === 0) {
           console.log(value);
@@ -170,23 +167,22 @@ function loadMore() {
 \t\t\thtml = \"\";
       html += '\t\t\t <div class=\"row shadow-sm m-3\" id=\"Commentary_' + value.id + '\">';
       html += '                      <div class=\"col col-1 mx-3\">';
+\t  html += '                      <div class=\"row\">';
       var avatarRoute = '{{ asset(avatars_directory ~ 'image') }}';
 \t\t\tavatarRoute = avatarRoute.replace(\"image\", value.user.avatar);
       html += '<img src=\"'+ avatarRoute +'\" class=\"bd-placeholder-img card-img-top\" width=\"32\" height=\"32\" alt=\"image\"/>';
-      html += '                        <p style=\"white-space: nowrap;\">' + value.user.username + '</p>';
-      html += '                      <br>';
-      html += '                      <p style=\"white-space: nowrap;\">' + date.getFullYear() + '-' + (\"0\" + (date.getMonth() + 1)).slice(-2) + '-' + (\"0\" + (date.getDate() + 1)).slice(-2) +'</p>';
-      html += '                      <br>';
+      html += value.user.username + '<br>';
+      html += date.getFullYear() + '-' + (\"0\" + (date.getMonth() + 1)).slice(-2) + '-' + (\"0\" + (date.getDate())).slice(-2);
+\t  html += '                      </div>';
       html += '                      </div>';
       html += '                      <div class=\"col\">';
+\t  html += '                      <div class=\"row\">';
       html += '                        <p>' + value.commentary + '</p>';
+\t  html += '                      </div>';
       html += '                      </div>';
                           html += '</div>';
 \t\t\t\$('#commentarys').append(html);\t
-      if(firstIteration) {
-\t\t\t\twindow.location.href = '#Commentary_' + value.id;
-\t\t\t\tfirstIteration = false;
-\t\t\t}
+
         }
 \t\t\t});
       

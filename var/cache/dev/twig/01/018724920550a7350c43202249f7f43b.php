@@ -103,11 +103,12 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
         // line 10
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/js/imagePreview.js"), "html", null, true);
         echo "\"></script>
-  ";
+  <script type=\"text/javascript\" src=\"";
         // line 11
-        $this->loadTemplate("js/_transformTextArea.js.twig", "trick/addTrick.html.twig", 11)->display($context);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/js/transformTextArea.js"), "html", null, true);
+        echo "\"></script>
+  ";
         // line 12
-        echo "  ";
         $this->displayBlock('jsDeleteImage', $context, $blocks);
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -347,7 +348,7 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  315 => 78,  309 => 75,  305 => 74,  299 => 71,  295 => 70,  290 => 67,  281 => 65,  277 => 64,  273 => 63,  269 => 62,  265 => 61,  257 => 57,  253 => 55,  251 => 54,  247 => 53,  240 => 48,  236 => 46,  219 => 44,  202 => 43,  197 => 40,  191 => 38,  185 => 36,  183 => 35,  180 => 34,  178 => 33,  175 => 32,  172 => 31,  169 => 30,  166 => 29,  164 => 28,  160 => 27,  148 => 17,  138 => 16,  110 => 12,  108 => 11,  104 => 10,  100 => 9,  95 => 8,  85 => 7,  71 => 3,  61 => 2,  38 => 1,);
+        return array (  316 => 78,  310 => 75,  306 => 74,  300 => 71,  296 => 70,  291 => 67,  282 => 65,  278 => 64,  274 => 63,  270 => 62,  266 => 61,  258 => 57,  254 => 55,  252 => 54,  248 => 53,  241 => 48,  237 => 46,  220 => 44,  203 => 43,  198 => 40,  192 => 38,  186 => 36,  184 => 35,  181 => 34,  179 => 33,  176 => 32,  173 => 31,  170 => 30,  167 => 29,  165 => 28,  161 => 27,  149 => 17,  139 => 16,  112 => 12,  108 => 11,  104 => 10,  100 => 9,  95 => 8,  85 => 7,  71 => 3,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -362,7 +363,7 @@ class __TwigTemplate_7e536bc0e338453d05351fefb202a3a0 extends Template
   <script type=\"text/javascript\" src=\"{{ asset(\"Style/js/jquery.js\") }}\"></script>
   <script type=\"text/javascript\" src=\"{{ asset(\"Style/summernote/summernote-lite.min.js\") }}\"></script>
   <script type=\"text/javascript\" src=\"{{ asset(\"Style/js/imagePreview.js\") }}\"></script>
-  {% include('js/_transformTextArea.js.twig') %}
+  <script type=\"text/javascript\" src=\"{{ asset(\"Style/js/transformTextArea.js\") }}\"></script>
   {% block jsDeleteImage %}{% endblock %}
 {% endblock %}
 

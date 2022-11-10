@@ -1,12 +1,16 @@
 <div class="row shadow-sm m-3" id="Commentary_{{ commentary.id }}">
 	<div class="col col-1 mx-3">
+	<div class="row row-cols-1">
 		<img src={{ asset(avatars_directory ~ commentary.user.avatar) }} class="bd-placeholder-img card-img-top" width="32" height="32" alt="image"/>
-		<p style="white-space: nowrap;">{{ commentary.user.Username }}</p>
+		{{ commentary.user.Username }}
 		<br>
-		<p style="white-space: nowrap;">{{ commentary.publishedDate|date('Y-m-d') }}</p>
-		<br>
+		{{ commentary.publishedDate|date('Y-m-d') }}
+		
+	</div>
 	</div>
 	<div class="col">
+	<div class="row">
+	</div>
 		<p>{{ commentary.commentary }}</p>
 	</div>
 </div>

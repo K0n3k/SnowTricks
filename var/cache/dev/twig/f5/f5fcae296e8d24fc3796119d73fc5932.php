@@ -52,7 +52,10 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
+        <link href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/img/icon.png"), "html", null, true);
+        echo "\" rel=\"icon\">
         <link href=\"";
         // line 7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Style/css/bootstrap.min.css"), "html", null, true);
@@ -294,7 +297,7 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
 
     public function getDebugInfo()
     {
-        return array (  268 => 52,  250 => 12,  232 => 9,  213 => 5,  200 => 54,  197 => 53,  194 => 52,  192 => 51,  189 => 50,  171 => 46,  160 => 38,  153 => 35,  136 => 34,  133 => 33,  115 => 29,  104 => 21,  97 => 18,  80 => 17,  74 => 13,  72 => 12,  68 => 10,  66 => 9,  62 => 8,  58 => 7,  53 => 5,  47 => 1,);
+        return array (  271 => 52,  253 => 12,  235 => 9,  216 => 5,  203 => 54,  200 => 53,  197 => 52,  195 => 51,  192 => 50,  174 => 46,  163 => 38,  156 => 35,  139 => 34,  136 => 33,  118 => 29,  107 => 21,  100 => 18,  83 => 17,  77 => 13,  75 => 12,  71 => 10,  69 => 9,  65 => 8,  61 => 7,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -304,7 +307,7 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
     <head>
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
+        <link href=\"{{ asset(\"Style/img/icon.png\")}}\" rel=\"icon\">
         <link href=\"{{ asset(\"Style/css/bootstrap.min.css\")}}\" rel=\"stylesheet\">
         <link href=\"{{ asset(\"Style/css/styles.css\") }}\" rel=\"stylesheet\">
         {% block stylesheet %}{% endblock %}
@@ -355,6 +358,6 @@ class __TwigTemplate_6bfe5ce919ab841cd415ac572ff49493 extends Template
 
     </body>
 </html>
-", "base.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin\\templates\\base.html.twig");
+", "base.html.twig", "E:\\Projets\\Openclassrooms\\P6_nguyenhuu_kevin_old\\templates\\base.html.twig");
     }
 }

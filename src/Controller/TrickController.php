@@ -70,7 +70,7 @@ class TrickController extends AbstractController
         dump($session->get('commentary_offset'), $trick->getCommentaries()->count(), $showLoadMoreCommentaryButton);
 
         array_push($jsonContent, ['showLoadMore' => $showLoadMoreCommentaryButton]);
-        $commentaries = $commentaryRepository->findBy(['trick' => $trick], null, self::COMMENTARY_LIMIT, $offset);
+        $commentaries = $commentaryRepository->findBy(['trick' => $trick], ['publishedDate' => 'DESC'], self::COMMENTARY_LIMIT, $offset);
 
         foreach ($commentaries as $commentary) {
             array_push($jsonContent, [
