@@ -5,7 +5,6 @@ namespace App\Service;
 use App\Entity\Media;
 use Symfony\Component\Uid\Uuid;
 use Exception;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class MediaTreatment {
 

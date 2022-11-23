@@ -14,7 +14,7 @@ class Commentary
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'text', length: 65535)]
     private ?string $commentary = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

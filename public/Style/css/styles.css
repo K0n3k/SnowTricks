@@ -15,7 +15,7 @@ a:link, a:visited, a:hover, a:active {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    height: 95vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,4 +188,3 @@ a:link, a:visited, a:hover, a:active {
   margin-bottom: 90px;
   z-index: 99;
 }
-
