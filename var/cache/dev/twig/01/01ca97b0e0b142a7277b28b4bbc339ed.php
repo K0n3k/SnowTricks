@@ -90,7 +90,7 @@ class __TwigTemplate_9eddc4e46aaf56916a5146d2aaf06cdb extends Template
 \t\t\t<img src=";
         // line 17
         echo twig_escape_filter($this->env, (isset($context["src"]) || array_key_exists("src", $context) ? $context["src"] : (function () { throw new RuntimeError('Variable "src" does not exist.', 17, $this->source); })()), "html", null, true);
-        echo " class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\" alt=\"image\"/>
+        echo " class=\"bd-placeholder-img card-img-top img-fluid\" width=\"100%\" height=\"200\" alt=\"image\"/>
 \t\t</a>
 \t\t\t
 \t\t<div class=\"card-body\">
@@ -152,7 +152,7 @@ class __TwigTemplate_9eddc4e46aaf56916a5146d2aaf06cdb extends Template
 \t\t\t{% endif %}
 \t\t{% endif %}
 \t\t<a href=\"{{ path('show_trick', {'slug': trick.slug}) }}\">
-\t\t\t<img src={{ src }} class=\"bd-placeholder-img card-img-top\" width=\"100%\" height=\"200\" alt=\"image\"/>
+\t\t\t<img src={{ src }} class=\"bd-placeholder-img card-img-top img-fluid\" width=\"100%\" height=\"200\" alt=\"image\"/>
 \t\t</a>
 \t\t\t
 \t\t<div class=\"card-body\">

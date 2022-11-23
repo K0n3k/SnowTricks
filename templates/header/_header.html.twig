@@ -1,7 +1,16 @@
 {% block header %}
 
 <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="d-block d-sm-none shadow-sm bg-dark fixed-bottom text-center">
+      <a href={{ path('home') }}><img width="32" height="32" src={{ asset('Style/img/house-door-fill.svg') }} alt="house door"></a>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <a href={{ path('logout') }}><img width="32" height="32" src={{ asset('Style/img/door-open.svg') }} alt="door open"></a>
+		{% else %}
+      <a href={{ path('sign-in') }}><img width="32" height="32" src={{ asset('Style/img/box-arrow-in-right.svg') }} alt="box arrow in right"></a>
+		{% endif %}
+  </div>
+
+    <div class="navbar navbar-dark bg-dark shadow-sm d-none d-sm-block">
       <div class="container">
         <div class="col justify-content-start">
             <a href="/" class="navbar-brand d-flex align-items-center">

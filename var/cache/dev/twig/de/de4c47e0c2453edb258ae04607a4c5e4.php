@@ -148,7 +148,7 @@ function loadMore() {
         echo twig_escape_filter($this->env, (isset($context["images_directory"]) || array_key_exists("images_directory", $context) ? $context["images_directory"] : (function () { throw new RuntimeError('Variable "images_directory" does not exist.', 84, $this->source); })()), "js", null, true);
         echo "\" + value.mainMedia;
                     }
-                    html += '       <img src=\"' + src + '\" width=\"100%\" height=\"225\" alt=\"mainImage\">';
+                    html += '       <img src=\"' + src + '\" class=\"bd-placeholder-img card-img-top img-fluid\" width=\"100%\" height=\"225\" alt=\"mainImage\">';
                     html += '\t\t</a>';
                     html += '\t\t<div class=\"card-body\">';
                     html += '\t\t    <div class=\"d-flex justify-content-between align-items-center col\">';
@@ -305,7 +305,7 @@ function loadMore() {
                     if (value.mainMediaType == 'image') {
                         var src = \"{{ images_directory }}\" + value.mainMedia;
                     }
-                    html += '       <img src=\"' + src + '\" width=\"100%\" height=\"225\" alt=\"mainImage\">';
+                    html += '       <img src=\"' + src + '\" class=\"bd-placeholder-img card-img-top img-fluid\" width=\"100%\" height=\"225\" alt=\"mainImage\">';
                     html += '\t\t</a>';
                     html += '\t\t<div class=\"card-body\">';
                     html += '\t\t    <div class=\"d-flex justify-content-between align-items-center col\">';

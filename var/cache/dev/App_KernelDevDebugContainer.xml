@@ -379,6 +379,9 @@
     </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
+      <argument type="service" id="security.user_password_hasher"/>
+      <argument type="service" id="parameter_bag"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Form\CommentaryType" class="App\Form\CommentaryType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>

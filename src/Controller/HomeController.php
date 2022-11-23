@@ -53,6 +53,7 @@ class HomeController extends AbstractController
                 array_push($jsonContent, [
                     'id' => $trick->getId(),
                     'name' => $trick->getName(),
+                    'slug' => $trick->getSlug(),
                     'mainMedia' => $filename,
                     'mainMediaType' => $trick->getMainMedia()->getType(),
                 ]);
