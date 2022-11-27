@@ -12,3 +12,12 @@ Snowtricks is a communautary website from openclassrooms formation (App dev PHP/
 -  [@K0n3k](https://github.com/K0n3k/)
 
 ## Pre-require
+- Mysql database
+
+## Use this app
+-  modify your .env file 
+``` 
+DATABASE_URL=Your_database_url
+MAILER_DSN= Your_smtp_server
+MAIL_FROM= Your_email_address
+
